@@ -100,6 +100,10 @@
 </div>
 <div id="phoneHelp" class="form-text">Format: 555-555-5555</div>
  </div>
+  <div class="mb-3">
+ <label for="workAddress" class="form-label">Work Address</label>
+ <input type="text" id="workAddress" name="workAddress" class="form-control form-control-lg" placeholder="1525 Sherman St, Denver, CO 80203"  aria-invalid="false">
+ </div>
  <div class="mb-3">
  <label for="department" class="form-label">Department <span class="text-danger">*</span></label>
  <select id="department" name="department" class="form-select form-select-lg"  required aria-required="true">
@@ -306,7 +310,7 @@ function formatOOO(inputDate) {
     var date = new Date(inputDate);
     if (!isNaN(date.getTime())) {
         // Months use 0 index.
-        return date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
+        return date.getMonth() + 1 + '/' + date.getUTCDate() + '/' + date.getFullYear();
     }
 }
 
@@ -371,8 +375,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of the Governor",
         logo: "co__gov_dept_rgb_email_53pc.png",
         alt: "Office of the Governor Logo",
-        website: "https://www.colorado.gov/governor/",
-        address: "1525 Sherman Street, Denver, CO"
+        website: "https://www.colorado.gov/governor/", //address: "1525 Sherman Street, Denver, CO"
     },
     _law_email: {
         
@@ -380,8 +383,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Department of Law",
         logo: "co__law_rgb_email.png",
         alt: "Department of Law Logo",
-        website: "https://co.colorado.gov/law",
-        address: "1526 Sherman Street, Denver, CO"
+        website: "https://co.colorado.gov/law", //address: "1526 Sherman Street, Denver, CO"
     },
     _state: {
         
@@ -389,8 +391,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Secretary of State's Office",
         logo: "co__state_rgb_email_53pc.png",
         alt: "Secretary of State's Office Logo",
-        website: "https://colorado.gov",
-        address: "1527 Sherman Street, Denver, CO"
+        website: "https://colorado.gov", //address: "1527 Sherman Street, Denver, CO"
     },
     _treas: {
         
@@ -398,8 +399,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Department of the Treasury",
         logo: "co__treas_rgb_email_53pc.png",
         alt: "Department of the Treasury Logo",
-        website: "https://treasury.colorado.gov/",
-        address: "1528 Sherman Street, Denver, CO"
+        website: "https://treasury.colorado.gov/", //address: "1528 Sherman Street, Denver, CO"
     },
     C_gov_jp: {
         
@@ -407,8 +407,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Governor Jared Polis",
         logo: "co_C_gov_jp_rgb_email_53pc.png",
         alt: "Office of the Governor Governor Jared Polis Logo",
-        website: "https://www.colorado.gov/governor/",
-        address: "1529 Sherman Street, Denver, CO"
+        website: "https://www.colorado.gov/governor/", //address: "1529 Sherman Street, Denver, CO"
     },
     C_gov_lt_dp: {
         
@@ -416,8 +415,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Lt. Gov. Dianne Primavera",
         logo: "co_C_gov_lt_dp_rgb_email_53pc.png",
         alt: "Office of the Governor Lt. Gov. Dianne Primavera Logo",
-        website: "https://ltgovernor.colorado.gov/",
-        address: "1530 Sherman Street, Denver, CO"
+        website: "https://ltgovernor.colorado.gov/", //address: "1530 Sherman Street, Denver, CO"
     },
     cda_pr_hp_email: {
         
@@ -425,8 +423,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Hemp Program",
         logo: "co_cda_pr_hp_rgb_email.png",
         alt: "Department of Agriculture Hemp Program Logo",
-        website: "https://ag.colorado.gov/",
-        address: "1531 Sherman Street, Denver, CO"
+        website: "https://ag.colorado.gov/", //address: "1531 Sherman Street, Denver, CO"
     },
     cda_div_aw_email: {
         
@@ -434,8 +431,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Animal Welfare",
         logo: "co_cda_div_aw_rgb_email.png",
         alt: "Department of Agriculture Division of Animal Welfare Logo",
-        website: "https://ag.colorado.gov/",
-        address: "1532 Sherman Street, Denver, CO"
+        website: "https://ag.colorado.gov/", //address: "1532 Sherman Street, Denver, CO"
     },
     cda_pr_wine_cda_email: {
         
@@ -443,8 +439,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Wine Industry Development Board",
         logo: "co_cda_pr_wine_cda_rgb_email.png",
         alt: "Department of Agriculture Wine Industry Development Board Logo",
-        website: "https://ag.colorado.gov/",
-        address: "1533 Sherman Street, Denver, CO"
+        website: "https://ag.colorado.gov/", //address: "1533 Sherman Street, Denver, CO"
     },
     cde_dept: {
         
@@ -452,8 +447,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Department of Education",
         logo: "co_cde__dept_rgb_email_53pc.png",
         alt: "Department of Education Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1534 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1534 Sherman Street, Denver, CO"
     },
     cde_csl: {
         
@@ -461,8 +455,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "State Library",
         logo: "co_cde_csl_rgb_email_53pc.png",
         alt: "Department of Education State Library Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1535 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1535 Sherman Street, Denver, CO"
     },
     cde_div_acc: {
         
@@ -470,8 +463,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Accountability, Performance and Support Divislon",
         logo: "co_cde_div_acc_rgb_email_53pc.png",
         alt: "Department of Education Accountability, Performance and Support Divislon Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1536 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1536 Sherman Street, Denver, CO"
     },
     cde_div_assess: {
         
@@ -479,8 +471,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Assessment Division",
         logo: "co_cde_div_assess_rgb_email_53pc.png",
         alt: "Department of Education Assessment Division Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1537 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1537 Sherman Street, Denver, CO"
     },
     cde_div_cm_ed: {
         
@@ -488,8 +479,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Commissioner of Education",
         logo: "co_cde_div_cm_ed_rgb_email_53pc.png",
         alt: "Department of Education Commissioner of Education Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1538 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1538 Sherman Street, Denver, CO"
     },
     cde_div_com: {
         
@@ -497,8 +487,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Communicalions Division",
         logo: "co_cde_div_com_rgb_email_53pc.png",
         alt: "Department of Education Communicalions Division Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1539 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1539 Sherman Street, Denver, CO"
     },
     cde_div_edtal: {
         
@@ -506,8 +495,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Educator Tatent Division",
         logo: "co_cde_div_edtal_rgb_email_53pc.png",
         alt: "Department of Education Educator Tatent Division Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1540 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1540 Sherman Street, Denver, CO"
     },
     cde_div_icsp: {
         
@@ -515,8 +503,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Innovation Choice and Student Pathways Division",
         logo: "co_cde_div_icsp_rgb_email_53pc.png",
         alt: "Department of Education Innovation Choice and Student Pathways Division Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1541 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1541 Sherman Street, Denver, CO"
     },
     cde_div_ims: {
         
@@ -524,8 +511,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Information Management Services Division",
         logo: "co_cde_div_ims_rgb_email_53pc.png",
         alt: "Department of Education Information Management Services Division Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1542 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1542 Sherman Street, Denver, CO"
     },
     cde_div_sfo: {
         
@@ -533,8 +519,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "School Finance and Operations Division",
         logo: "co_cde_div_sfo_rgb_email_53pc.png",
         alt: "Department of Education School Finance and Operations Division Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1543 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1543 Sherman Street, Denver, CO"
     },
     cde_div_sl: {
         
@@ -542,8 +527,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "State Library",
         logo: "co_cde_div_sl_rgb_email_53pc.png",
         alt: "Department of Education State Library Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1544 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1544 Sherman Street, Denver, CO"
     },
     cde_div_spu: {
         
@@ -551,8 +535,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Student Pathways Unit",
         logo: "co_cde_div_spu_rgb_email_53pc.png",
         alt: "Department of Education Student Pathways Unit Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1545 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1545 Sherman Street, Denver, CO"
     },
     cde_div_sqs: {
         
@@ -560,8 +543,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "School Quality and Support Division",
         logo: "co_cde_div_sqs_rgb_email_53pc.png",
         alt: "Department of Education School Quality and Support Division Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1546 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1546 Sherman Street, Denver, CO"
     },
     cde_off_pwrp: {
         
@@ -569,8 +551,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Postsecondary and Workforce Readiness",
         logo: "co_cde_off_pwrp_rgb_email_53pc.png",
         alt: "Department of Education Office of Postsecondary and Workforce Readiness Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1547 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1547 Sherman Street, Denver, CO"
     },
     cde_pr_csl: {
         
@@ -578,8 +559,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado State Library",
         logo: "co_cde_pr_csl_rgb_email_53pc.png",
         alt: "Department of Education Colorado State Library Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1548 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1548 Sherman Street, Denver, CO"
     },
     cde_pr_hestl: {
         
@@ -587,8 +567,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Highly Effective Schools Through Libraries",
         logo: "co_cde_pr_hestl_rgb_email_53pc.png",
         alt: "Department of Education Highly Effective Schools Through Ubraries Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1549 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1549 Sherman Street, Denver, CO"
     },
     cde_pr_rec: {
         
@@ -596,8 +575,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Rural Education Council",
         logo: "co_cde_pr_rec_rgb_email_53pc.png",
         alt: "Department of Education Rural Education Council Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1550 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1550 Sherman Street, Denver, CO"
     },
     cde_pr_stem: {
         
@@ -605,8 +583,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Science, Technology, Engineering and Mathematics",
         logo: "co_cde_pr_stem_rgb_email_53pc.png",
         alt: "Department of Education Science, Technology, Engineering and Mathematics Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1551 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1551 Sherman Street, Denver, CO"
     },
     cde_sl_boe: {
         
@@ -614,8 +591,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "State Board of Education",
         logo: "co_cde_sl_boe_rgb_email_53pc.png",
         alt: "Department of Education State Board of Education Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1552 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1552 Sherman Street, Denver, CO"
     },
     cde_sl_cm_ka: {
         
@@ -623,8 +599,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Commissioner Kaly Anlhes. Ph.D.",
         logo: "co_cde_sl_cm_ka_rgb_email_53pc.png",
         alt: "Department of Education Commissioner Kaly Anlhes. Ph.D. Logo",
-        website: "https://www.cde.state.co.us/",
-        address: "1553 Sherman Street, Denver, CO"
+        website: "https://www.cde.state.co.us/", //address: "1553 Sherman Street, Denver, CO"
     },
     cdhe_dept: {
         
@@ -632,8 +607,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Department of Higher Education",
         logo: "co_cdhe__dept_rgb_email_53pc.png",
         alt: "Department of Higher Education Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1554 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1554 Sherman Street, Denver, CO"
     },
     cdhe_dept_ed: {
         
@@ -641,8 +615,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Executive Director",
         logo: "co_cdhe_dept_ed_rgb_email_53pc.png",
         alt: "Department of Higher Education Executive Director Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1555 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1555 Sherman Street, Denver, CO"
     },
     cdhe_div_cche: {
         
@@ -650,8 +623,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Commission on Higher Education",
         logo: "co_cdhe_div_cche_rgb_email_53pc.png",
         alt: "Department of Higher Education Colorado Commission on Higher Education Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1556 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1556 Sherman Street, Denver, CO"
     },
     cdhe_div_dpos: {
         
@@ -659,8 +631,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Private Occupational Schools",
         logo: "co_cdhe_div_dpos_rgb_email_53pc.png",
         alt: "Department of Higher Education Division of Private Occupational Schools Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1557 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1557 Sherman Street, Denver, CO"
     },
     cdhe_pr_casfa: {
         
@@ -668,8 +639,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Applications for State Financial Aid",
         logo: "co_cdhe_pr_casfa_rgb_email_53pc.png",
         alt: "Department of Higher Education Colorado Applications for State Financial Aid Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1558 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1558 Sherman Street, Denver, CO"
     },
     cdhe_pr_cgu: {
         
@@ -677,8 +647,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Gear Up Colorado",
         logo: "co_cdhe_pr_cgu_rgb_email_53pc.png",
         alt: "Department of Higher Education Gear Up Colorado Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1559 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1559 Sherman Street, Denver, CO"
     },
     cdhe_pr_checra: {
         
@@ -686,8 +655,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Higher Education Competitive Research Authority",
         logo: "co_cdhe_pr_checra_rgb_email_53pc.png",
         alt: "Department of Higher Education Higher Education Competitive Research Authority Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1560 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1560 Sherman Street, Denver, CO"
     },
     cdhe_pr_cic: {
         
@@ -695,8 +663,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "CollegeInColorado.org",
         logo: "co_cdhe_pr_cic_rgb_email_53pc.png",
         alt: "Department of Higher Education CollegeInColorado.org Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1561 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1561 Sherman Street, Denver, CO"
     },
     cdhe_pr_cocap_h: {
         
@@ -704,8 +671,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Collegiate Apprenticeship Program",
         logo: "co_cdhe_pr_cocap_rgb_h_email_53pc.png",
         alt: "Department of Higher Education Colorado Collegiate Apprenticeship Program Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1562 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1562 Sherman Street, Denver, CO"
     },
     cdhe_pr_cosi: {
         
@@ -713,8 +679,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Opportunity Scholarship Initiative",
         logo: "co_cdhe_pr_cosi_rgb_email_53pc.png",
         alt: "Department of Higher Education Colorado Opportunity Scholarship Initiative Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1563 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1563 Sherman Street, Denver, CO"
     },
     cdhe_pr_cp: {
         
@@ -722,8 +687,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Promise",
         logo: "co_cdhe_pr_cp_rgb_email_53pc.png",
         alt: "Department of Higher Education Colorado Promise Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1564 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1564 Sherman Street, Denver, CO"
     },
     cdhe_pr_cs: {
         
@@ -731,8 +695,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Study Colorado",
         logo: "co_cdhe_pr_cs_rgb_email_53pc.png",
         alt: "Department of Higher Education Study Colorado Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1565 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1565 Sherman Street, Denver, CO"
     },
     cdhe_pr_mcj_ns: {
         
@@ -740,8 +703,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "My Colorado Journey",
         logo: "co_cdhe_pr_mcj_ns_rgb_email_53pc.png",
         alt: "Department of Higher Education My Colorado Journey Logo",
-        website: "https://cdhe.colorado.gov/",
-        address: "1566 Sherman Street, Denver, CO"
+        website: "https://cdhe.colorado.gov/", //address: "1566 Sherman Street, Denver, CO"
     },
     cdhs_dept: {
         
@@ -749,8 +711,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Department of Human Services",
         logo: "co_cdhs__dept_rgb_email_53pc.png",
         alt: "Department of Human Services Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1567 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1567 Sherman Street, Denver, CO"
     },
     cdhs_aps_CAPS: {
         
@@ -758,8 +719,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Adult Protective Services CAPS Check Unit",
         logo: "co_cdhs_aps_CAPS_rgb_email_53pc.png",
         alt: "Department of Human Services Adult Protective Services CAPS Check Unit Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1568 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1568 Sherman Street, Denver, CO"
     },
     cdhs_aps_div_aas: {
         
@@ -767,8 +727,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Adult Protective Services Division of Aging & Adult Services",
         logo: "co_cdhs_aps_div_aas_rgb_email_53pc.png",
         alt: "Department of Human Services Adult Protective Services Division of Aging & Adult Services Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1569 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1569 Sherman Street, Denver, CO"
     },
     cdhs_brd_bc_email_53pc_2: {
         
@@ -776,8 +735,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Boards & Commissions",
         logo: "co_cdhs_brd_bc_rgb_email_53pc_2.png",
         alt: "Department of Human Services Boards & Commissions Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1570 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1570 Sherman Street, Denver, CO"
     },
     cdhs_brd_sbhs: {
         
@@ -785,8 +743,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "State Board of Human Services",
         logo: "co_cdhs_brd_sbhs_rgb_email_53pc.png",
         alt: "Department of Human Services State Board of Human Services Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1571 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1571 Sherman Street, Denver, CO"
     },
     cdhs_comm_cdhd: {
         
@@ -794,8 +751,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Commission for the Deaf, Hard of Hearing, and DeafBlind",
         logo: "co_cdhs_comm_cdhd_rgb_email_53pc.png",
         alt: "Department of Human Services Commission for the Deaf, Hard of Hearing, and DeafBlind Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1572 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1572 Sherman Street, Denver, CO"
     },
     cdhs_comm: {
         
@@ -803,8 +759,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Communications",
         logo: "co_cdhs_comm_rgb_email_53pc.png",
         alt: "Department of Human Services Communications Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1573 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1573 Sherman Street, Denver, CO"
     },
     cdhs_commpart: {
         
@@ -812,8 +767,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Community Partnerships",
         logo: "co_cdhs_commpart_rgb_email_53pc.png",
         alt: "Department of Human Services Community Partnerships Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1574 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1574 Sherman Street, Denver, CO"
     },
     cdhs_county: {
         
@@ -821,8 +775,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "County Partnerships",
         logo: "co_cdhs_county_rgb_email_53pc.png",
         alt: "Department of Human Services County Partnerships Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1575 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1575 Sherman Street, Denver, CO"
     },
     cdhs_dept_edo: {
         
@@ -830,8 +783,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Executive Director's Office",
         logo: "co_cdhs_dept_edo_rgb_email_53pc.png",
         alt: "Department of Human Services Executive Director's Office Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1576 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1576 Sherman Street, Denver, CO"
     },
     cdhs_dept_pc: {
         
@@ -839,8 +791,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Policy and Communications",
         logo: "co_cdhs_dept_pc_rgb_email_53pc.png",
         alt: "Department of Human Services Policy and Communications Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1577 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1577 Sherman Street, Denver, CO"
     },
     cdhs_div_css: {
         
@@ -848,8 +799,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Child Support Services",
         logo: "co_cdhs_div_css_rgb_email_53pc.png",
         alt: "Department of Human Services Child Support Services Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1578 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1578 Sherman Street, Denver, CO"
     },
     cdhs_div_dfm: {
         
@@ -857,8 +807,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Facilities Management",
         logo: "co_cdhs_div_dfm_rgb_email_53pc.png",
         alt: "Department of Human Services Division of Facilities Management Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1579 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1579 Sherman Street, Denver, CO"
     },
     cdhs_div_dys_ocyf: {
         
@@ -866,8 +815,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Children, Youth & Families",
         logo: "co_cdhs_div_dys_ocyf_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Children, Youth & Families Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1580 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1580 Sherman Street, Denver, CO"
     },
     cdhs_div_dys_email_53pc_2: {
         
@@ -875,8 +823,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Youth Services",
         logo: "co_cdhs_div_dys_rgb_email_53pc_2.png",
         alt: "Department of Human Services Division of Youth Services Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1581 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1581 Sherman Street, Denver, CO"
     },
     cdhs_div_rc_fam: {
         
@@ -884,8 +831,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Futures Assessment Model",
         logo: "co_cdhs_div_rc_fam_rgb_email_53pc.png",
         alt: "Department of Human Services Futures Assessment Model Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1582 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1582 Sherman Street, Denver, CO"
     },
     cdhs_div_rc_gjrc: {
         
@@ -893,8 +839,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Grand Junction Regional Center",
         logo: "co_cdhs_div_rc_gjrc_rgb_email_53pc.png",
         alt: "Department of Human Services Grand Junction Regional Center Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1583 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1583 Sherman Street, Denver, CO"
     },
     cdhs_div_rc_prc: {
         
@@ -902,8 +847,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Pueblo Regional Center",
         logo: "co_cdhs_div_rc_prc_rgb_email_53pc.png",
         alt: "Department of Human Services Pueblo Regional Center Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1584 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1584 Sherman Street, Denver, CO"
     },
     cdhs_div_rc_wrrc: {
         
@@ -911,8 +855,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Wheat Ridge Regional Center",
         logo: "co_cdhs_div_rc_wrrc_rgb_email_53pc.png",
         alt: "Department of Human Services Wheat Ridge Regional Center Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1585 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1585 Sherman Street, Denver, CO"
     },
     cdhs_fac_mhh_fl: {
         
@@ -920,8 +863,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Mental Health Hospital in Fort Logan",
         logo: "co_cdhs_fac_mhh_fl_rgb_email_53pc.png",
         alt: "Department of Human Services Colorado Mental Health Hospital in Fort Logan Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1586 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1586 Sherman Street, Denver, CO"
     },
     cdhs_fac_mhh_pueb: {
         
@@ -929,8 +871,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Mental Health Hospital in Pueblo",
         logo: "co_cdhs_fac_mhh_pueb_rgb_email_53pc.png",
         alt: "Department of Human Services Colorado Mental Health Hospital in Pueblo Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1587 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1587 Sherman Street, Denver, CO"
     },
     cdhs_fac_mhh_email_53pc_2: {
         
@@ -938,8 +879,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Mental Health Hospitals",
         logo: "co_cdhs_fac_mhh_rgb_email_53pc_2.png",
         alt: "Department of Human Services Mental Health Hospitals Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1588 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1588 Sherman Street, Denver, CO"
     },
     cdhs_fac_vet_bmc: {
         
@@ -947,8 +887,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Bruce McCandless Veterans Community Living Center at Florence",
         logo: "co_cdhs_fac_vet_bmc_rgb_email_53pc.png",
         alt: "Department of Human Services Bruce McCandless Veterans Community Living Center at Florence Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1589 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1589 Sherman Street, Denver, CO"
     },
     cdhs_fac_vet_fitz: {
         
@@ -956,8 +895,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Veterans Community Living Center at Fitzsimons",
         logo: "co_cdhs_fac_vet_fitz_rgb_email_53pc.png",
         alt: "Department of Human Services Veterans Community Living Center at Fitzsimons Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1590 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1590 Sherman Street, Denver, CO"
     },
     cdhs_fac_vet_home: {
         
@@ -965,8 +903,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Veterans Community Living Center at Hometake",
         logo: "co_cdhs_fac_vet_home_rgb_email_53pc.png",
         alt: "Department of Human Services Veterans Community Living Center at Hometake Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1591 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1591 Sherman Street, Denver, CO"
     },
     cdhs_fac_vet: {
         
@@ -974,8 +911,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Veterans Community Living Centers",
         logo: "co_cdhs_fac_vet_rgb_email_53pc.png",
         alt: "Department of Human Services Veterans Community Living Centers Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1592 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1592 Sherman Street, Denver, CO"
     },
     cdhs_fac_vet_rif: {
         
@@ -983,8 +919,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Veterans Community Living Center at Rifle",
         logo: "co_cdhs_fac_vet_rif_rgb_email_53pc.png",
         alt: "Department of Human Services Veterans Community Living Center at Rifle Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1593 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1593 Sherman Street, Denver, CO"
     },
     cdhs_legal: {
         
@@ -992,8 +927,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Legal",
         logo: "co_cdhs_legal_rgb_email_53pc.png",
         alt: "Department of Human Services Legal Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1594 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1594 Sherman Street, Denver, CO"
     },
     cdhs_multi_coehdi: {
         
@@ -1001,8 +935,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Early Hearing Detection and Intervention",
         logo: "co_cdhs_multi_coehdi_email_53pc.png",
         alt: "Department of Human Services Colorado Early Hearing Detection and Intervention Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1595 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1595 Sherman Street, Denver, CO"
     },
     cdhs_off_aads_das: {
         
@@ -1010,8 +943,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Adult, Aging & Disability Services Division of Aging & Adult Services",
         logo: "co_cdhs_off_aads_das_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Adult, Aging & Disability Services Division of Aging & Adult Services Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1596 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1596 Sherman Street, Denver, CO"
     },
     cdhs_off_aads_dds: {
         
@@ -1019,8 +951,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Adult, Aging & Disability Services Disability Determination Services",
         logo: "co_cdhs_off_aads_dds_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Adult, Aging & Disability Services Disability Determination Services Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1597 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1597 Sherman Street, Denver, CO"
     },
     cdhs_off_aads_drc: {
         
@@ -1028,8 +959,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Adult, Aging & Disability Services Division of Regional Centers",
         logo: "co_cdhs_off_aads_drc_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Adult, Aging & Disability Services Division of Regional Centers Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1598 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1598 Sherman Street, Denver, CO"
     },
     cdhs_off_aads: {
         
@@ -1037,8 +967,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Adult, Aging & Disability Services ",
         logo: "co_cdhs_off_aads_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Adult, Aging & Disability Services  Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1599 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1599 Sherman Street, Denver, CO"
     },
     cdhs_off_aads_sua: {
         
@@ -1046,8 +975,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Adult, Aging & Disability Services State Unit on Aging",
         logo: "co_cdhs_off_aads_sua_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Adult, Aging & Disability Services State Unit on Aging Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1600 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1600 Sherman Street, Denver, CO"
     },
     cdhs_off_adm_aud: {
         
@@ -1055,8 +983,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Audit Division",
         logo: "co_cdhs_off_adm_aud_rgb_email_53pc.png",
         alt: "Department of Human Services Audit Division Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1601 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1601 Sherman Street, Denver, CO"
     },
     cdhs_off_adm_bits: {
         
@@ -1064,8 +991,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Business Innovation, Technology & Security",
         logo: "co_cdhs_off_adm_bits_rgb_email_53pc.png",
         alt: "Department of Human Services Business Innovation, Technology & Security Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1602 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1602 Sherman Street, Denver, CO"
     },
     cdhs_off_adm_dfm: {
         
@@ -1073,8 +999,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division ol Facilities Management",
         logo: "co_cdhs_off_adm_dfm_rgb_email_53pc.png",
         alt: "Department of Human Services Division ol Facilities Management Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1603 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1603 Sherman Street, Denver, CO"
     },
     cdhs_off_adm_dhr: {
         
@@ -1082,8 +1007,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Human Resources",
         logo: "co_cdhs_off_adm_dhr_rgb_email_53pc.png",
         alt: "Department of Human Services Division of Human Resources Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1604 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1604 Sherman Street, Denver, CO"
     },
     cdhs_off_adm_dpm: {
         
@@ -1091,8 +1015,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Project Management",
         logo: "co_cdhs_off_adm_dpm_rgb_email_53pc.png",
         alt: "Department of Human Services Division of Project Management Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1605 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1605 Sherman Street, Denver, CO"
     },
     cdhs_off_adm_ld: {
         
@@ -1100,8 +1023,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Leadership Development",
         logo: "co_cdhs_off_adm_ld_rgb_email_53pc.png",
         alt: "Department of Human Services Leadership Development Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1606 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1606 Sherman Street, Denver, CO"
     },
     cdhs_off_adm_lead: {
         
@@ -1109,8 +1031,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Learning, Development, and Engagement",
         logo: "co_cdhs_off_adm_lead_rgb_email_53pc.png",
         alt: "Department of Human Services Learning, Development, and Engagement Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1607 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1607 Sherman Street, Denver, CO"
     },
     cdhs_off_adm_lod: {
         
@@ -1118,8 +1039,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Leadership & Organizational Development",
         logo: "co_cdhs_off_adm_lod_rgb_email_53pc.png",
         alt: "Department of Human Services Leadership & Organizational Development Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1608 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1608 Sherman Street, Denver, CO"
     },
     cdhs_off_adm_pmd: {
         
@@ -1127,8 +1047,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Performance Management Division",
         logo: "co_cdhs_off_adm_pmd_rgb_email_53pc.png",
         alt: "Department of Human Services Performance Management Division Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1609 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1609 Sherman Street, Denver, CO"
     },
     cdhs_off_adm_qa: {
         
@@ -1136,8 +1055,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Quality Assurance",
         logo: "co_cdhs_off_adm_qa_rgb_email_53pc.png",
         alt: "Department of Human Services Quality Assurance Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1610 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1610 Sherman Street, Denver, CO"
     },
     cdhs_off_adm: {
         
@@ -1145,8 +1063,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Administrative Solutions",
         logo: "co_cdhs_off_adm_rgb_email_53pc.png",
         alt: "Department of Human Services Administrative Solutions Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1611 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1611 Sherman Street, Denver, CO"
     },
     cdhs_off_cfmh_fs: {
         
@@ -1154,8 +1071,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Civil & Forensic Mental Health  Forensic Services",
         logo: "co_cdhs_off_cfmh_fs_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Civil & Forensic Mental Health  Forensic Services Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1612 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1612 Sherman Street, Denver, CO"
     },
     cdhs_off_cfmh_mhtlh: {
         
@@ -1163,8 +1079,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Civil & Forensic Mental Health Mental Health Transitional Living Homes",
         logo: "co_cdhs_off_cfmh_mhtlh_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Civil & Forensic Mental Health Mental Health Transitional Living Homes Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1613 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1613 Sherman Street, Denver, CO"
     },
     cdhs_off_cfmh: {
         
@@ -1172,8 +1087,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Civil & Forensic Mental Health ",
         logo: "co_cdhs_off_cfmh_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Civil & Forensic Mental Health  Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1614 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1614 Sherman Street, Denver, CO"
     },
     cdhs_off_cyf_cisu: {
         
@@ -1181,8 +1095,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Children, Youth & Families Colorado Implementation Science Unit",
         logo: "co_cdhs_off_cyf_cisu_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Children, Youth & Families Colorado Implementation Science Unit Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1615 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1615 Sherman Street, Denver, CO"
     },
     cdhs_off_cyf_cmp: {
         
@@ -1190,8 +1103,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Children, Youth & Families Collaborative Management Program",
         logo: "co_cdhs_off_cyf_cmp_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Children, Youth & Families Collaborative Management Program Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1616 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1616 Sherman Street, Denver, CO"
     },
     cdhs_off_cyf_coshi: {
         
@@ -1199,8 +1111,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Children, Youth & Families Colorado Sexual Health Initiative",
         logo: "co_cdhs_off_cyf_coshi_rgb 2_email_53pc.png",
         alt: "Department of Human Services Office of Children, Youth & Families Colorado Sexual Health Initiative Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1617 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1617 Sherman Street, Denver, CO"
     },
     cdhs_off_cyf_dcp: {
         
@@ -1208,8 +1119,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Children, Youth & Families Division or Community Programs",
         logo: "co_cdhs_off_cyf_dcp_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Children, Youth & Families Division or Community Programs Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1618 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1618 Sherman Street, Denver, CO"
     },
     cdhs_off_cyf_dcw: {
         
@@ -1217,8 +1127,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Children, Youth & Families Division of Child Welfare",
         logo: "co_cdhs_off_cyf_dcw_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Children, Youth & Families Division of Child Welfare Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1619 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1619 Sherman Street, Denver, CO"
     },
     cdhs_off_cyf_dept: {
         
@@ -1226,8 +1135,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Children, Youth & Families ",
         logo: "co_cdhs_off_cyf_dept_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Children, Youth & Families  Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1620 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1620 Sherman Street, Denver, CO"
     },
     cdhs_off_cyf_dvr: {
         
@@ -1235,8 +1143,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Children, Youth & Families Domestic Violence Program",
         logo: "co_cdhs_off_cyf_dvr_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Children, Youth & Families Domestic Violence Program Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1621 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1621 Sherman Street, Denver, CO"
     },
     cdhs_off_cyf_jpb: {
         
@@ -1244,8 +1151,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Children, Youth & Families Juvenile Parole Board",
         logo: "co_cdhs_off_cyf_jpb_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Children, Youth & Families Juvenile Parole Board Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1622 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1622 Sherman Street, Denver, CO"
     },
     cdhs_off_cyf: {
         
@@ -1253,8 +1159,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Children, Youth & Families ",
         logo: "co_cdhs_off_cyf_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Children, Youth & Families  Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1623 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1623 Sherman Street, Denver, CO"
     },
     cdhs_off_ear_comm: {
         
@@ -1262,8 +1167,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Early Childhood Division of Community & Family Support",
         logo: "co_cdhs_off_ear_comm_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Early Childhood Division of Community & Family Support Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1624 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1624 Sherman Street, Denver, CO"
     },
     cdhs_off_ear_dec: {
         
@@ -1271,8 +1175,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Early Childhood Division of Early Care & Learning",
         logo: "co_cdhs_off_ear_dec_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Early Childhood Division of Early Care & Learning Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1625 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1625 Sherman Street, Denver, CO"
     },
     cdhs_off_ear: {
         
@@ -1280,8 +1183,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Early Childhood ",
         logo: "co_cdhs_off_ear_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Early Childhood  Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1626 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1626 Sherman Street, Denver, CO"
     },
     cdhs_off_econ_dcs: {
         
@@ -1289,8 +1191,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Economic Security ",
         logo: "co_cdhs_off_econ_dcs_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Economic Security  Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1627 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1627 Sherman Street, Denver, CO"
     },
     cdhs_off_econ_dews_email_53pc_2: {
         
@@ -1298,8 +1199,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Economic Security Division of Economic & Workforce Support",
         logo: "co_cdhs_off_econ_dews_rgb_email_53pc_2.png",
         alt: "Department of Human Services Office of Economic Security Division of Economic & Workforce Support Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1628 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1628 Sherman Street, Denver, CO"
     },
     cdhs_off_econ_dfe: {
         
@@ -1307,8 +1207,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Economic Security Division of Food & Energy Assistance",
         logo: "co_cdhs_off_econ_dfe_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Economic Security Division of Food & Energy Assistance Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1629 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1629 Sherman Street, Denver, CO"
     },
     cdhs_off_econ_oes_sebt: {
         
@@ -1316,8 +1215,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Economic Security Summer EBT Program Division of Food & Energy Assistance",
         logo: "co_cdhs_off_econ_oes_sebt_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Economic Security Summer EBT Program Division of Food & Energy Assistance Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1630 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1630 Sherman Street, Denver, CO"
     },
     cdhs_off_econ: {
         
@@ -1325,8 +1223,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Economic Security ",
         logo: "co_cdhs_off_econ_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Economic Security  Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1631 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1631 Sherman Street, Denver, CO"
     },
     cdhs_off_econ_snap: {
         
@@ -1334,8 +1231,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "SNAP-Ed Division of Food & Energy Assistance",
         logo: "co_cdhs_off_econ_snap_rgb_email_53pc.png",
         alt: "Department of Human Services SNAP-Ed Division of Food & Energy Assistance Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1632 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1632 Sherman Street, Denver, CO"
     },
     cdhs_off_fs_acc: {
         
@@ -1343,8 +1239,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Financial Servicies Division or Acoounting",
         logo: "co_cdhs_off_fs_acc_rgb_email_53pc.png",
         alt: "Department of Human Services Financial Servicies Division or Acoounting Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1633 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1633 Sherman Street, Denver, CO"
     },
     cdhs_off_fs_dbp: {
         
@@ -1352,8 +1247,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Financial Servicies Division of Budget & Policy",
         logo: "co_cdhs_off_fs_dbp_rgb_email_53pc.png",
         alt: "Department of Human Services Financial Servicies Division of Budget & Policy Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1634 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1634 Sherman Street, Denver, CO"
     },
     cdhs_off_fs_dcp: {
         
@@ -1361,8 +1255,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Financial Servicies Division of Contracts & Procurement",
         logo: "co_cdhs_off_fs_dcp_rgb_email_53pc.png",
         alt: "Department of Human Services Financial Servicies Division of Contracts & Procurement Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1635 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1635 Sherman Street, Denver, CO"
     },
     cdhs_off_fs: {
         
@@ -1370,8 +1263,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Financial Servicies ",
         logo: "co_cdhs_off_fs_rgb_email_53pc.png",
         alt: "Department of Human Services Financial Servicies  Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1636 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1636 Sherman Street, Denver, CO"
     },
     cdhs_off_oes_fdp: {
         
@@ -1379,8 +1271,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Economic Security Food Distribution Programs",
         logo: "co_cdhs_off_oes_fdp_rgb_email_53pc.png",
         alt: "Department of Human Services Office of Economic Security Food Distribution Programs Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1637 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1637 Sherman Street, Denver, CO"
     },
     cdhs_off_so: {
         
@@ -1388,8 +1279,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Strategy Office",
         logo: "co_cdhs_off_so_rgb_email_53pc.png",
         alt: "Department of Human Services Strategy Office Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1638 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1638 Sherman Street, Denver, CO"
     },
     cdhs_off_sos: {
         
@@ -1397,8 +1287,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Strategic Operations and Sctutions",
         logo: "co_cdhs_off_sos_rgb_email_53pc.png",
         alt: "Department of Human Services Strategic Operations and Sctutions Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1639 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1639 Sherman Street, Denver, CO"
     },
     cdhs_pr_bhtf: {
         
@@ -1406,8 +1295,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Behavioral Health Task Force",
         logo: "co_cdhs_pr_bhtf_rgb_email_53pc.png",
         alt: "Department of Human Services Behavioral Health Task Force Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1640 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1640 Sherman Street, Denver, CO"
     },
     cdhs_pr_crsp: {
         
@@ -1415,8 +1303,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Rufugee Services Program",
         logo: "co_cdhs_pr_crsp_rgb_email_53pc.png",
         alt: "Department of Human Services Colorado Rufugee Services Program Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1641 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1641 Sherman Street, Denver, CO"
     },
     cdhs_pr_edi: {
         
@@ -1424,8 +1311,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Equity, Diversity, and Inclusion",
         logo: "co_cdhs_pr_edi_rgb_email_53pc.png",
         alt: "Department of Human Services Equity, Diversity, and Inclusion Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1642 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1642 Sherman Street, Denver, CO"
     },
     cdhs_pr_empl: {
         
@@ -1433,8 +1319,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Employee Council",
         logo: "co_cdhs_pr_empl_rgb_email_53pc.png",
         alt: "Department of Human Services Employee Council Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1643 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1643 Sherman Street, Denver, CO"
     },
     cdhs_pr_ffit: {
         
@@ -1442,8 +1327,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Family First Prevention Services Act Implementation Team",
         logo: "co_cdhs_pr_ffit_rgb_email_53pc.png",
         alt: "Department of Human Services Family First Prevention Services Act Implementation Team Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1644 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1644 Sherman Street, Denver, CO"
     },
     cdhs_pr_fvc: {
         
@@ -1451,8 +1335,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Family Voice Council",
         logo: "co_cdhs_pr_fvc_rgb_email_53pc.png",
         alt: "Department of Human Services Family Voice Council Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1645 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1645 Sherman Street, Denver, CO"
     },
     cdhs_pr_mind: {
         
@@ -1460,8 +1343,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Mindsource Brain Injury Network",
         logo: "co_cdhs_pr_mind_rgb_email_53pc.png",
         alt: "Department of Human Services Mindsource Brain Injury Network Logo",
-        website: "https://cdhs.colorado.gov/",
-        address: "1646 Sherman Street, Denver, CO"
+        website: "https://cdhs.colorado.gov/", //address: "1646 Sherman Street, Denver, CO"
     },
     cdle_dept: {
         
@@ -1469,8 +1351,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Department of Labor and Employment",
         logo: "co_cdle__dept_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1647 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1647 Sherman Street, Denver, CO"
     },
     cdle_div_dev: {
         
@@ -1478,8 +1359,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Workforce Development Programs",
         logo: "co_cdle_div_dev_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Workforce Development Programs Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1648 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1648 Sherman Street, Denver, CO"
     },
     cdle_div_emp_1: {
         
@@ -1487,8 +1367,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Employment and Training",
         logo: "co_cdle_div_emp_1_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Division of Employment and Training Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1649 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1649 Sherman Street, Denver, CO"
     },
     cdle_div_lab_1: {
         
@@ -1496,8 +1375,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Labor Standards and Statistics",
         logo: "co_cdle_div_lab_1_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Division of Labor Standards and Statistics Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1650 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1650 Sherman Street, Denver, CO"
     },
     cdle_div_oil_1: {
         
@@ -1505,8 +1383,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Oil and Public Safety",
         logo: "co_cdle_div_oil_1_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Division of Oil and Public Safety Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1651 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1651 Sherman Street, Denver, CO"
     },
     cdle_div_unem_1: {
         
@@ -1514,8 +1391,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Unemployment Insurance",
         logo: "co_cdle_div_unem_1_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Division of Unemployment Insurance Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1652 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1652 Sherman Street, Denver, CO"
     },
     cdle_div_voc_1: {
         
@@ -1523,8 +1399,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Vocational Rehabilitation",
         logo: "co_cdle_div_voc_1_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Division of Vocational Rehabilitation Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1653 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1653 Sherman Street, Denver, CO"
     },
     cdle_div_work_1: {
         
@@ -1532,8 +1407,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Workers· Compensation",
         logo: "co_cdle_div_work_1_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Division of Workers· Compensation Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1654 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1654 Sherman Street, Denver, CO"
     },
     cdle_fac: {
         
@@ -1541,8 +1415,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Facilities",
         logo: "co_cdle_fac_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Facilities Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1655 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1655 Sherman Street, Denver, CO"
     },
     cdle_int_aud: {
         
@@ -1550,8 +1423,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Internal Audits",
         logo: "co_cdle_int_aud_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Internal Audits Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1656 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1656 Sherman Street, Denver, CO"
     },
     cdle_off_budg: {
         
@@ -1559,8 +1431,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Budget Office",
         logo: "co_cdle_off_budg_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Budget Office Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1657 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1657 Sherman Street, Denver, CO"
     },
     cdle_off_fin: {
         
@@ -1568,8 +1439,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Finance",
         logo: "co_cdle_off_fin_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Finance Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1658 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1658 Sherman Street, Denver, CO"
     },
     cdle_off_gov: {
         
@@ -1577,8 +1447,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Government Policy and Public Relations",
         logo: "co_cdle_off_gov_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Office of Government Policy and Public Relations Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1659 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1659 Sherman Street, Denver, CO"
     },
     cdle_off_hrp: {
         
@@ -1586,8 +1455,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Human Resources and Personnel",
         logo: "co_cdle_off_hrp_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Office of Human Resources and Personnel Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1660 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1660 Sherman Street, Denver, CO"
     },
     cdle_off_ils_dvr: {
         
@@ -1595,8 +1463,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Independent Living Services",
         logo: "co_cdle_off_ils_dvr_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Office of Independent Living Services Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1661 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1661 Sherman Street, Denver, CO"
     },
     cdle_off_ind_1: {
         
@@ -1604,8 +1471,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Industrial Claims Appeals Office",
         logo: "co_cdle_off_ind_1_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Industrial Claims Appeals Office Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1662 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1662 Sherman Street, Denver, CO"
     },
     cdle_off_lab_1: {
         
@@ -1613,8 +1479,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Labor Marking Information",
         logo: "co_cdle_off_lab_1_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Office of Labor Marking Information Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1663 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1663 Sherman Street, Denver, CO"
     },
     cdle_off_org: {
         
@@ -1622,8 +1487,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Organizational Development and Training",
         logo: "co_cdle_off_org_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Organizational Development and Training Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1664 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1664 Sherman Street, Denver, CO"
     },
     cdle_off_proc: {
         
@@ -1631,8 +1495,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Procurement and Contract Services",
         logo: "co_cdle_off_proc_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Office of Procurement and Contract Services Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1665 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1665 Sherman Street, Denver, CO"
     },
     cdle_pr_efap: {
         
@@ -1640,8 +1503,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Employment First Advisory Partnership",
         logo: "co_cdle_pr_efap_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Employment First Advisory Partnership Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1666 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1666 Sherman Street, Denver, CO"
     },
     cdle_pr_famli: {
         
@@ -1649,8 +1511,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Family and Medical Leave Insurance Program (FAMLI)",
         logo: "co_cdle_pr_famli_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Family and Medical Leave Insurance Program (FAMLI) Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1667 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1667 Sherman Street, Denver, CO"
     },
     cdle_pr_pess: {
         
@@ -1658,8 +1519,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Public Employee Social Security Program",
         logo: "co_cdle_pr_pess_rgb_email_53pc.png",
         alt: "Department of Labor and Employment Public Employee Social Security Program Logo",
-        website: "https://cdle.colorado.gov/",
-        address: "1668 Sherman Street, Denver, CO"
+        website: "https://cdle.colorado.gov/", //address: "1668 Sherman Street, Denver, CO"
     },
     cdoc_dept: {
         
@@ -1667,8 +1527,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Department of Corrections",
         logo: "co_cdoc__dept_rgb_email_53pc.png",
         alt: "Department of Corrections Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1669 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1669 Sherman Street, Denver, CO"
     },
     cdoc_corr_ark: {
         
@@ -1676,8 +1535,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Arkansas Valley Correctional Facility",
         logo: "co_cdoc_corr_ark_rgb_email_53pc.png",
         alt: "Department of Corrections Arkansas Valley Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1670 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1670 Sherman Street, Denver, CO"
     },
     cdoc_corr_arro: {
         
@@ -1685,8 +1543,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Arrowhead Correctional Center",
         logo: "co_cdoc_corr_arro_rgb_email_53pc.png",
         alt: "Department of Corrections Arrowhead Correctional Center Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1671 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1671 Sherman Street, Denver, CO"
     },
     cdoc_corr_buen: {
         
@@ -1694,8 +1551,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Buena Vista Correctional Complex",
         logo: "co_cdoc_corr_buen_rgb_email_53pc.png",
         alt: "Department of Corrections Buena Vista Correctional Complex Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1672 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1672 Sherman Street, Denver, CO"
     },
     cdoc_corr_canon: {
         
@@ -1703,8 +1559,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Canon Minimum Centers",
         logo: "co_cdoc_corr_canon_rgb_email_53pc.png",
         alt: "Department of Corrections Canon Minimum Centers Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1673 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1673 Sherman Street, Denver, CO"
     },
     cdoc_corr_cent: {
         
@@ -1712,8 +1567,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Centennial Correctional Facility",
         logo: "co_cdoc_corr_cent_rgb_email_53pc.png",
         alt: "Department of Corrections Centennial Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1674 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1674 Sherman Street, Denver, CO"
     },
     cdoc_corr: {
         
@@ -1721,8 +1575,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Co1orado Correctional Center",
         logo: "co_cdoc_corr_co_rgb_email_53pc.png",
         alt: "Department of Corrections Co1orado Correctional Center Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1675 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1675 Sherman Street, Denver, CO"
     },
     cdoc_corr_cost: {
         
@@ -1730,8 +1583,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado State Penitentiary",
         logo: "co_cdoc_corr_cost_rgb_email_53pc.png",
         alt: "Department of Corrections Colorado State Penitentiary Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1676 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1676 Sherman Street, Denver, CO"
     },
     cdoc_corr_cote: {
         
@@ -1739,8 +1591,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Territorial Correctional Facility",
         logo: "co_cdoc_corr_cote_rgb_email_53pc.png",
         alt: "Department of Corrections Colorado Territorial Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1677 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1677 Sherman Street, Denver, CO"
     },
     cdoc_corr_del: {
         
@@ -1748,8 +1599,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Delta Correctional Center",
         logo: "co_cdoc_corr_del_rgb_email_53pc.png",
         alt: "Department of Corrections Delta Correctional Center Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1678 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1678 Sherman Street, Denver, CO"
     },
     cdoc_corr_dencom: {
         
@@ -1757,8 +1607,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Denver Complex",
         logo: "co_cdoc_corr_dencom_rgb_email_53pc.png",
         alt: "Department of Corrections Denver Complex Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1679 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1679 Sherman Street, Denver, CO"
     },
     cdoc_corr_denv: {
         
@@ -1766,8 +1615,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Denver Reception & Diagnostic Center",
         logo: "co_cdoc_corr_denv_rgb_email_53pc.png",
         alt: "Department of Corrections Denver Reception & Diagnostic Center Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1680 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1680 Sherman Street, Denver, CO"
     },
     cdoc_corr_denw: {
         
@@ -1775,8 +1623,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Denver Women's Correctional Facility",
         logo: "co_cdoc_corr_denw_rgb_email_53pc.png",
         alt: "Department of Corrections Denver Women's Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1681 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1681 Sherman Street, Denver, CO"
     },
     cdoc_corr_four: {
         
@@ -1784,8 +1631,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Four Mile Correctional Facility",
         logo: "co_cdoc_corr_four_rgb_email_53pc.png",
         alt: "Department of Corrections Four Mile Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1682 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1682 Sherman Street, Denver, CO"
     },
     cdoc_corr_frem: {
         
@@ -1793,8 +1639,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Fremont Correctional Facility",
         logo: "co_cdoc_corr_frem_rgb_email_53pc.png",
         alt: "Department of Corrections Fremont Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1683 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1683 Sherman Street, Denver, CO"
     },
     cdoc_corr_lavi: {
         
@@ -1802,8 +1647,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "La Visa Correctional Facility",
         logo: "co_cdoc_corr_lavi_rgb_email_53pc.png",
         alt: "Department of Corrections La Visa Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1684 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1684 Sherman Street, Denver, CO"
     },
     cdoc_corr_lim: {
         
@@ -1811,8 +1655,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Limon Correctional Facility",
         logo: "co_cdoc_corr_lim_rgb_email_53pc.png",
         alt: "Department of Corrections Limon Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1685 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1685 Sherman Street, Denver, CO"
     },
     cdoc_corr_rif: {
         
@@ -1820,8 +1663,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Rifle Correctional Facility",
         logo: "co_cdoc_corr_rif_rgb_email_53pc.png",
         alt: "Department of Corrections Rifle Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1686 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1686 Sherman Street, Denver, CO"
     },
     cdoc_corr_sanc: {
         
@@ -1829,8 +1671,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "San Carlos Correctional Facility",
         logo: "co_cdoc_corr_sanc_rgb_email_53pc.png",
         alt: "Department of Corrections San Carlos Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1687 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1687 Sherman Street, Denver, CO"
     },
     cdoc_corr_sky: {
         
@@ -1838,8 +1679,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Skyline Correctional Facility",
         logo: "co_cdoc_corr_sky_rgb_email_53pc.png",
         alt: "Department of Corrections Skyline Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1688 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1688 Sherman Street, Denver, CO"
     },
     cdoc_corr_ster: {
         
@@ -1847,8 +1687,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Sterling Correctional Facility",
         logo: "co_cdoc_corr_ster_rgb_email_53pc.png",
         alt: "Department of Corrections Sterling Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1689 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1689 Sherman Street, Denver, CO"
     },
     cdoc_corr_trin: {
         
@@ -1856,8 +1695,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Trinidad Correctional Facility",
         logo: "co_cdoc_corr_trin_rgb_email_53pc.png",
         alt: "Department of Corrections Trinidad Correctional Facility Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1690 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1690 Sherman Street, Denver, CO"
     },
     cdoc_corr_yos: {
         
@@ -1865,8 +1703,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Youthful Offender System",
         logo: "co_cdoc_corr_yos_rgb_email_53pc.png",
         alt: "Department of Corrections Youthful Offender System Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1691 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1691 Sherman Street, Denver, CO"
     },
     cdoc_div_adul: {
         
@@ -1874,8 +1711,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Adult Parole",
         logo: "co_cdoc_div_adul_rgb_email_53pc.png",
         alt: "Department of Corrections Division of Adult Parole Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1692 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1692 Sherman Street, Denver, CO"
     },
     cdoc_off_ccs: {
         
@@ -1883,8 +1719,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Clinical & Correctional Services",
         logo: "co_cdoc_off_ccs_rgb_email_53pc.png",
         alt: "Department of Corrections Office of Clinical & Correctional Services Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1693 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1693 Sherman Street, Denver, CO"
     },
     cdoc_off_cspccf: {
         
@@ -1892,8 +1727,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "CSP/CCF",
         logo: "co_cdoc_off_cspccf_rgb_email_53pc.png",
         alt: "Department of Corrections CSP/CCF Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1694 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1694 Sherman Street, Denver, CO"
     },
     cdoc_off_dop: {
         
@@ -1901,8 +1735,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of the Director of Prisons",
         logo: "co_cdoc_off_dop_rgb_email_53pc.png",
         alt: "Department of Corrections Office of the Director of Prisons Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1695 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1695 Sherman Street, Denver, CO"
     },
     cdoc_off_exec: {
         
@@ -1910,8 +1743,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of the Executive Director",
         logo: "co_cdoc_off_exec_rgb_email_53pc.png",
         alt: "Department of Corrections Office of the Executive Director Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1696 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1696 Sherman Street, Denver, CO"
     },
     cdoc_off_faa: {
         
@@ -1919,8 +1751,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Finance & Administration",
         logo: "co_cdoc_off_faa_rgb_email_53pc.png",
         alt: "Department of Corrections Office of Finance & Administration Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1697 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1697 Sherman Street, Denver, CO"
     },
     cdoc_off_hum: {
         
@@ -1928,8 +1759,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Human Resources",
         logo: "co_cdoc_off_hum_rgb_email_53pc.png",
         alt: "Department of Corrections Office of Human Resources Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1698 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1698 Sherman Street, Denver, CO"
     },
     cdoc_off_insp: {
         
@@ -1937,8 +1767,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of the Inspector General",
         logo: "co_cdoc_off_insp_rgb_email_53pc.png",
         alt: "Department of Corrections Office of the Inspector General Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1699 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1699 Sherman Street, Denver, CO"
     },
     cdoc_off_lvcfsccf: {
         
@@ -1946,8 +1775,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "LVCF/SCCF",
         logo: "co_cdoc_off_lvcfsccf_rgb_email_53pc.png",
         alt: "Department of Corrections LVCF/SCCF Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1700 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1700 Sherman Street, Denver, CO"
     },
     cdoc_off_spb: {
         
@@ -1955,8 +1783,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "State Board of Parole",
         logo: "co_cdoc_off_spb_rgb_email_53pc.png",
         alt: "Department of Corrections State Board of Parole Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1701 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1701 Sherman Street, Denver, CO"
     },
     cdoc_pr_decorum: {
         
@@ -1964,8 +1791,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Offender Record Management System",
         logo: "co_cdoc_pr_decorum_rgb_email_53pc.png",
         alt: "Department of Corrections Offender Record Management System Logo",
-        website: "https://cdoc.colorado.gov/",
-        address: "1702 Sherman Street, Denver, CO"
+        website: "https://cdoc.colorado.gov/", //address: "1702 Sherman Street, Denver, CO"
     },
     cdphe_dept: {
         
@@ -1973,8 +1799,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Department of Public Health & Environment",
         logo: "co_cdphe__dept_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1703 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1703 Sherman Street, Denver, CO"
     },
     cdphe_admin: {
         
@@ -1982,8 +1807,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Administration",
         logo: "co_cdphe_admin_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Administration Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1704 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1704 Sherman Street, Denver, CO"
     },
     cdphe_cent_heal: {
         
@@ -1991,8 +1815,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Center for Health & Environmental Data",
         logo: "co_cdphe_cent_heal_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Center for Health & Environmental Data Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1705 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1705 Sherman Street, Denver, CO"
     },
     cdphe_com_air: {
         
@@ -2000,8 +1823,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Air Quality Control Commission",
         logo: "co_cdphe_com_air_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Air Quality Control Commission Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1706 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1706 Sherman Street, Denver, CO"
     },
     cdphe_com_frwdbod: {
         
@@ -2009,8 +1831,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Front Range Waste Diversion Enterprise Board of Directors",
         logo: "co_cdphe_com_frwdbod_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Front Range Waste Diversion Enterprise Board of Directors Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1707 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1707 Sherman Street, Denver, CO"
     },
     cdphe_com_haz: {
         
@@ -2018,8 +1839,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Solid & Hazardous Waste Commission",
         logo: "co_cdphe_com_haz_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Solid & Hazardous Waste Commission Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1708 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1708 Sherman Street, Denver, CO"
     },
     cdphe_com_poll: {
         
@@ -2027,8 +1847,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Pollution Prevention Advisory Board",
         logo: "co_cdphe_com_poll_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Pollution Prevention Advisory Board Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1709 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1709 Sherman Street, Denver, CO"
     },
     cdphe_com_waste: {
         
@@ -2036,8 +1855,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Water & Wastewater Facility Operators Certification Board",
         logo: "co_cdphe_com_waste_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Water & Wastewater Facility Operators Certification Board Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1710 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1710 Sherman Street, Denver, CO"
     },
     cdphe_com_water: {
         
@@ -2045,8 +1863,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Water Quality Control Commission",
         logo: "co_cdphe_com_water_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Water Quality Control Commission Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1711 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1711 Sherman Street, Denver, CO"
     },
     cdphe_div_air: {
         
@@ -2054,8 +1871,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Air Pollution Control Division",
         logo: "co_cdphe_div_air_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Air Pollution Control Division Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1712 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1712 Sherman Street, Denver, CO"
     },
     cdphe_div_comm: {
         
@@ -2063,8 +1879,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Community Relations Division",
         logo: "co_cdphe_div_comm_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Community Relations Division Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1713 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1713 Sherman Street, Denver, CO"
     },
     cdphe_div_dcphr: {
         
@@ -2072,8 +1887,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Disease Control and Public Health Response",
         logo: "co_cdphe_div_dcphr_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Disease Control and Public Health Response Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1714 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1714 Sherman Street, Denver, CO"
     },
     cdphe_div_env: {
         
@@ -2081,8 +1895,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Environmental Health & Sustainability",
         logo: "co_cdphe_div_env_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Division of Environmental Health & Sustainability Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1715 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1715 Sherman Street, Denver, CO"
     },
     cdphe_div_haz: {
         
@@ -2090,8 +1903,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Hazardous Materials & Waste Management Division",
         logo: "co_cdphe_div_haz_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Hazardous Materials & Waste Management Division Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1716 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1716 Sherman Street, Denver, CO"
     },
     cdphe_div_heal: {
         
@@ -2099,8 +1911,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Health Facilities & Emergency Medical Services Division",
         logo: "co_cdphe_div_heal_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Health Facilities & Emergency Medical Services Division Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1717 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1717 Sherman Street, Denver, CO"
     },
     cdphe_div_lab: {
         
@@ -2108,8 +1919,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Laboratory Services Division",
         logo: "co_cdphe_div_lab_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Laboratory Services Division Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1718 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1718 Sherman Street, Denver, CO"
     },
     cdphe_div_prev_cpc: {
         
@@ -2117,8 +1927,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Prevention Services Division Cancer Prevention & Control ",
         logo: "co_cdphe_div_prev_cpc_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Prevention Services Division Cancer Prevention & Control  Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1719 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1719 Sherman Street, Denver, CO"
     },
     cdphe_div_prev: {
         
@@ -2126,8 +1935,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Prevention Services Division",
         logo: "co_cdphe_div_prev_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Prevention Services Division Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1720 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1720 Sherman Street, Denver, CO"
     },
     cdphe_div_water: {
         
@@ -2135,8 +1943,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Water Quality Control Division",
         logo: "co_cdphe_div_water_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Water Quality Control Division Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1721 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1721 Sherman Street, Denver, CO"
     },
     cdphe_irb: {
         
@@ -2144,8 +1951,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Institutional Review Board",
         logo: "co_cdphe_irb_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Institutional Review Board Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1722 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1722 Sherman Street, Denver, CO"
     },
     cdphe_off_budg: {
         
@@ -2153,8 +1959,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Budget",
         logo: "co_cdphe_off_budg_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Budget Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1723 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1723 Sherman Street, Denver, CO"
     },
     cdphe_off_comm: {
         
@@ -2162,8 +1967,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Communications",
         logo: "co_cdphe_off_comm_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Office of Communications Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1724 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1724 Sherman Street, Denver, CO"
     },
     cdphe_off_ej: {
         
@@ -2171,8 +1975,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Environmental Justice",
         logo: "co_cdphe_off_ej_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Office of Environmental Justice Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1725 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1725 Sherman Street, Denver, CO"
     },
     cdphe_off_emer: {
         
@@ -2180,8 +1983,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Emergency Preparedness & Response",
         logo: "co_cdphe_off_emer_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Office of Emergency Preparedness & Response Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1726 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1726 Sherman Street, Denver, CO"
     },
     cdphe_off_fin: {
         
@@ -2189,8 +1991,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Financial Services",
         logo: "co_cdphe_off_fin_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Financial Services Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1727 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1727 Sherman Street, Denver, CO"
     },
     cdphe_off_gran: {
         
@@ -2198,8 +1999,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Grants, Purchasing & Contracts",
         logo: "co_cdphe_off_gran_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Grants, Purchasing & Contracts Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1728 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1728 Sherman Street, Denver, CO"
     },
     cdphe_off_he: {
         
@@ -2207,8 +2007,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Health Equity",
         logo: "co_cdphe_off_he_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Office of Health Equity Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1729 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1729 Sherman Street, Denver, CO"
     },
     cdphe_off_hr: {
         
@@ -2216,8 +2015,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Human Resources",
         logo: "co_cdphe_off_hr_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Office of Human Resources Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1730 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1730 Sherman Street, Denver, CO"
     },
     cdphe_off_leg: {
         
@@ -2225,8 +2023,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Legal & Regulatory Compliance",
         logo: "co_cdphe_off_leg_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Office of Legal & Regulatory Compliance Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1731 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1731 Sherman Street, Denver, CO"
     },
     cdphe_off_php_lpha: {
         
@@ -2234,8 +2031,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Public Health Practice, Planning, & Local Partnerships Local Public Health & Environmental Resources",
         logo: "co_cdphe_off_php_lpha_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Office of Public Health Practice, Planning, & Local Partnerships Local Public Health & Environmental Resources Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1732 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1732 Sherman Street, Denver, CO"
     },
     cdphe_off_php: {
         
@@ -2243,8 +2039,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Public Health Practice, Planning, & Local Partnerships",
         logo: "co_cdphe_off_php_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Office of Public Health Practice, Planning, & Local Partnerships Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1733 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1733 Sherman Street, Denver, CO"
     },
     cdphe_off_spi: {
         
@@ -2252,8 +2047,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Strategy, Performance, and Innovation",
         logo: "co_cdphe_off_spi_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Office of Strategy, Performance, and Innovation Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1734 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1734 Sherman Street, Denver, CO"
     },
     cdphe_off_State_Registrar: {
         
@@ -2261,8 +2055,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of the State Registrar of Vital Statistics",
         logo: "co_cdphe_off_State_Registrar_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Office of the State Registrar of Vital Statistics Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1735 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1735 Sherman Street, Denver, CO"
     },
     cdphe_off_sti_hiv_vh: {
         
@@ -2270,8 +2063,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of STI/HIV/Viral Hepatitis",
         logo: "co_cdphe_off_sti-hiv-vh_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Office of STI/HIV/Viral Hepatitis Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1736 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1736 Sherman Street, Denver, CO"
     },
     cdphe_off_strat: {
         
@@ -2279,8 +2071,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Strategy & Performance",
         logo: "co_cdphe_off_strat_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Office of Strategy & Performance Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1737 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1737 Sherman Street, Denver, CO"
     },
     cdphe_pr_aqe: {
         
@@ -2288,8 +2079,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Air Quality Enterprise",
         logo: "co_cdphe_pr_aqe_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Air Quality Enterprise Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1738 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1738 Sherman Street, Denver, CO"
     },
     cdphe_pr_can: {
         
@@ -2297,8 +2087,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Cannabis",
         logo: "co_cdphe_pr_can_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Colorado Cannabis Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1739 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1739 Sherman Street, Denver, CO"
     },
     cdphe_pr_cares: {
         
@@ -2306,8 +2095,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Alliance for Resilient & Equitable Systems Servicing the Health Care & Public Health Workforce",
         logo: "co_cdphe_pr_cares_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Colorado Alliance for Resilient & Equitable Systems Servicing the Health Care & Public Health Workforce Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1740 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1740 Sherman Street, Denver, CO"
     },
     cdphe_pr_coves: {
         
@@ -2315,8 +2103,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Vital Events Systems",
         logo: "co_cdphe_pr_coves_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Colorado Vital Events Systems Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1741 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1741 Sherman Street, Denver, CO"
     },
     cdphe_pr_elp: {
         
@@ -2324,8 +2111,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Enrivonmental Leadership Program",
         logo: "co_cdphe_pr_elp_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Enrivonmental Leadership Program Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1742 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1742 Sherman Street, Denver, CO"
     },
     cdphe_pr_emtsb: {
         
@@ -2333,8 +2119,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Emergency Medical and Trauma Services Branch",
         logo: "co_cdphe_pr_emtsb_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Emergency Medical and Trauma Services Branch Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1743 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1743 Sherman Street, Denver, CO"
     },
     cdphe_pr_gbn: {
         
@@ -2342,8 +2127,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Green Business Network",
         logo: "co_cdphe_pr_gbn_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Green Business Network Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1744 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1744 Sherman Street, Denver, CO"
     },
     cdphe_pr_gbp: {
         
@@ -2351,8 +2135,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Green Business Program",
         logo: "co_cdphe_pr_gbp_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Green Business Program Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1745 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1745 Sherman Street, Denver, CO"
     },
     cdphe_pr_medmj: {
         
@@ -2360,8 +2143,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Medical Marijuana",
         logo: "co_cdphe_pr_medmj_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Colorado Medical Marijuana Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1746 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1746 Sherman Street, Denver, CO"
     },
     cdphe_pr_mmr: {
         
@@ -2369,8 +2151,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Medical Marijuana Registry",
         logo: "co_cdphe_pr_mmr_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Colorado Medical Marijuana Registry Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1747 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1747 Sherman Street, Denver, CO"
     },
     cdphe_pr_mphc: {
         
@@ -2378,8 +2159,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Mobile Public Health Clinic",
         logo: "co_cdphe_pr_mphc_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Colorado Mobile Public Health Clinic Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1748 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1748 Sherman Street, Denver, CO"
     },
     cdphe_pr_newborn_dcphr: {
         
@@ -2387,8 +2167,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Disease Control and Public Health Response Newborn Screening Program",
         logo: "co_cdphe_pr_newborn_dcphr_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Division of Disease Control and Public Health Response Newborn Screening Program Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1749 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1749 Sherman Street, Denver, CO"
     },
     cdphe_privacy: {
         
@@ -2396,8 +2175,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Privacy Board",
         logo: "co_cdphe_privacy_rgb_email_53pc.png",
         alt: "Department of Public Health & Environment Privacy Board Logo",
-        website: "https://cdphe.colorado.gov/",
-        address: "1750 Sherman Street, Denver, CO"
+        website: "https://cdphe.colorado.gov/", //address: "1750 Sherman Street, Denver, CO"
     },
     dpa_dept_email_46pc: {
         
@@ -2405,8 +2183,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Department of Personnel & Administration",
         logo: "co_dpa__dept_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1751 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1751 Sherman Street, Denver, CO"
     },
     dpa_dept_ed_email_46pc: {
         
@@ -2414,8 +2191,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Executive Director's Office",
         logo: "co_dpa_dept_ed_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Executive Director's Office Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1752 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1752 Sherman Street, Denver, CO"
     },
     dpa_div_cap_cca_email_46pc: {
         
@@ -2423,8 +2199,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Capital Assets Capitol Complex Architects",
         logo: "co_dpa_div_cap_cca_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Division of Capital Assets Capitol Complex Architects Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1753 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1753 Sherman Street, Denver, CO"
     },
     dpa_div_cap_ccf_email_46pc: {
         
@@ -2432,8 +2207,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Capital Assets Capitol Complex Facilities",
         logo: "co_dpa_div_cap_ccf_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Division of Capital Assets Capitol Complex Facilities Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1754 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1754 Sherman Street, Denver, CO"
     },
     dpa_div_cap_ccm_email_46pc: {
         
@@ -2441,8 +2215,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Capital Assets Capitol Complex Management",
         logo: "co_dpa_div_cap_ccm_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Division of Capital Assets Capitol Complex Management Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1755 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1755 Sherman Street, Denver, CO"
     },
     dpa_div_cap_fleet_email_46pc: {
         
@@ -2450,8 +2223,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Capital Assets State Fleet Management",
         logo: "co_dpa_div_cap_fleet_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Division of Capital Assets State Fleet Management Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1756 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1756 Sherman Street, Denver, CO"
     },
     dpa_div_cap_email_46pc: {
         
@@ -2459,8 +2231,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Capital Assets ",
         logo: "co_dpa_div_cap_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Division of Capital Assets  Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1757 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1757 Sherman Street, Denver, CO"
     },
     dpa_div_dcs_email_46pc: {
         
@@ -2468,8 +2239,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Central Services ",
         logo: "co_dpa_div_dcs_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Division of Central Services  Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1758 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1758 Sherman Street, Denver, CO"
     },
     dpa_div_dhr_email_46pc: {
         
@@ -2477,8 +2247,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Division of Human Resources",
         logo: "co_dpa_div_dhr_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Division of Human Resources Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1759 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1759 Sherman Street, Denver, CO"
     },
     dpa_div_dhr_risk_email_46pc: {
         
@@ -2486,8 +2255,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Risk Management",
         logo: "co_dpa_div_dhr_risk_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Risk Management Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1760 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1760 Sherman Street, Denver, CO"
     },
     dpa_div_osa_email_46pc: {
         
@@ -2495,8 +2263,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of the State Architect",
         logo: "co_dpa_div_osa_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Office of the State Architect Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1761 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1761 Sherman Street, Denver, CO"
     },
     dpa_div_osc_email_46pc: {
         
@@ -2504,8 +2271,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of the State Controller",
         logo: "co_dpa_div_osc_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Office of the State Controller Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1762 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1762 Sherman Street, Denver, CO"
     },
     dpa_off_seo: {
         
@@ -2513,8 +2279,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Statewide Equity Office",
         logo: "co_dpa_off_seo_rgb_email_53pc.png",
         alt: "Department of Personnel & Administration Statewide Equity Office Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1763 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1763 Sherman Street, Denver, CO"
     },
     dpa_off_sprgb_email_46pc: {
         
@@ -2522,8 +2287,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "State Purchasing & Contracts Office",
         logo: "co_dpa_off_spco_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration State Purchasing & Contracts Office Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1764 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1764 Sherman Street, Denver, CO"
     },
     dpa_off_sust: {
         
@@ -2531,8 +2295,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Sustainability",
         logo: "co_dpa_off_sust_rgb_email_53pc.png",
         alt: "Department of Personnel & Administration Sustainability Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1765 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1765 Sherman Street, Denver, CO"
     },
     dpa_pr_access_email_46pc: {
         
@@ -2540,8 +2303,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "ACCESS Colorado",
         logo: "co_dpa_pr_access_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration ACCESS Colorado Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1766 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1766 Sherman Street, Denver, CO"
     },
     dpa_pr_access_srto_email_46pc: {
         
@@ -2549,8 +2311,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "ACCESS Colorado Supplier Resources, Training & Outreach",
         logo: "co_dpa_pr_access_srto_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration ACCESS Colorado Supplier Resources, Training & Outreach Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1767 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1767 Sherman Street, Denver, CO"
     },
     dpa_pr_acp_email_46pc: {
         
@@ -2558,8 +2319,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Address Confidentiality Program",
         logo: "co_dpa_pr_acp_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Address Confidentiality Program Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1768 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1768 Sherman Street, Denver, CO"
     },
     dpa_pr_careers_email_46pc: {
         
@@ -2567,8 +2327,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Careers",
         logo: "co_dpa_pr_careers_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Careers Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1769 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1769 Sherman Street, Denver, CO"
     },
     dpa_pr_cccemail_46pc: {
         
@@ -2576,8 +2335,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado Combined Campaign",
         logo: "co_dpa_pr_ccc_rgbemail_46pc.png",
         alt: "Department of Personnel & Administration Colorado Combined Campaign Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1770 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1770 Sherman Street, Denver, CO"
     },
     dpa_pr_ccs_email_46pc: {
         
@@ -2585,8 +2343,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Central Collection Services",
         logo: "co_dpa_pr_ccs_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Central Collection Services Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1771 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1771 Sherman Street, Denver, CO"
     },
     dpa_pr_compas_email53pc: {
         
@@ -2594,8 +2351,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "COMPAS",
         logo: "co_dpa_pr_compas_rgb_email53pc.png",
         alt: "Department of Personnel & Administration COMPAS Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1772 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1772 Sherman Street, Denver, CO"
     },
     dpa_pr_compas_tg: {
         
@@ -2603,8 +2359,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "COMPAS Trail Guides",
         logo: "co_dpa_pr_compas_tg_rgb_email_53pc.png",
         alt: "Department of Personnel & Administration COMPAS Trail Guides Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1773 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1773 Sherman Street, Denver, CO"
     },
     dpa_pr_core_email_46pc: {
         
@@ -2612,8 +2367,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "CORE Colorado Operations Resource Engine",
         logo: "co_dpa_pr_core_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration CORE Colorado Operations Resource Engine Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1774 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1774 Sherman Street, Denver, CO"
     },
     dpa_pr_cvss_email_46pc: {
         
@@ -2621,8 +2375,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "ColoradoVSS Vendor Self Service",
         logo: "co_dpa_pr_cvss_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration ColoradoVSS Vendor Self Service Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1775 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1775 Sherman Street, Denver, CO"
     },
     dpa_pr_oac_email_46pc: {
         
@@ -2630,8 +2383,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Office of Administrative Courts",
         logo: "co_dpa_pr_oac_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Office of Administrative Courts Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1776 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1776 Sherman Street, Denver, CO"
     },
     dpa_pr_sa_email_46pc: {
         
@@ -2639,8 +2391,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "State Archives",
         logo: "co_dpa_pr_sa_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration State Archives Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1777 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1777 Sherman Street, Denver, CO"
     },
     dpa_pr_seap_email_46pc: {
         
@@ -2648,8 +2399,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "State Employee Assistance Program (CSEAP)",
         logo: "co_dpa_pr_seap_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration State Employee Assistance Program (CSEAP) Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1778 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1778 Sherman Street, Denver, CO"
     },
     dpa_pr_soh_swp_email_46pc: {
         
@@ -2657,8 +2407,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "STATE OF HEALTH State Wellness Program",
         logo: "co_dpa_pr_soh_swp_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration STATE OF HEALTH State Wellness Program Logo",
-        website: "https://coloradostateofhealth.com/",
-        address: "1779 Sherman Street, Denver, CO"
+        website: "https://coloradostateofhealth.com/", //address: "1779 Sherman Street, Denver, CO"
     },
     dpa_pr_spb_email_46pc: {
         
@@ -2666,8 +2415,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "State Personnel Board",
         logo: "co_dpa_pr_spb_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration State Personnel Board Logo",
-        website: "https://spb.colorado.gov",
-        address: "1780 Sherman Street, Denver, CO"
+        website: "https://spb.colorado.gov", //address: "1780 Sherman Street, Denver, CO"
     },
     dpa_pr_swp_email_46pc: {
         
@@ -2675,8 +2423,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "State Wellness Program",
         logo: "co_dpa_pr_swp_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration State Wellness Program Logo",
-        website: "https://dhr.colorado.gov",
-        address: "1781 Sherman Street, Denver, CO"
+        website: "https://dhr.colorado.gov", //address: "1781 Sherman Street, Denver, CO"
     },
     dpa_sc_email_46pc: {
         
@@ -2684,8 +2431,7 @@ function copyDivToClipboard(divId, copyDest) {
         label: "Colorado State Capitol",
         logo: "co_dpa_sc_rgb_email_46pc.png",
         alt: "Department of Personnel & Administration Colorado State Capitol Logo",
-        website: "https://dpa.colorado.gov/",
-        address: "1782 Sherman Street, Denver, CO"
+        website: "https://dpa.colorado.gov/", //address: "1782 Sherman Street, Denver, CO"
     }
 };
 // Department properties 
@@ -3856,7 +3602,7 @@ ${toTitleCase(data.title)}<br>
   ${data.startDate ? `</p>` : ''}
 <p>
  ${data.workPhone ? `Phone: <a style="color: #001970"  href="tel:${data.workPhone}">${data.workPhone}</a><br>` : ''}
-${data.address}<br>
+${data.workAddress}<br>
 <a style="color: #001970"  href="${data.website}" target="_blank" rel="noopener">${data.website}</a></p>
 <p><img src="https://dcs.colorado.gov/sites/dcs/files/${data.logo}" alt="${data.alt}" class="logo-img" style="display: block; max-width: 300px; height: auto; border: none;"></p>
 
@@ -3925,6 +3671,7 @@ ${data.address}<br>
  const divisionLabel = this.division.options[this.division.selectedIndex].text;
  const pronouns = this.pronouns.value.trim();
  const workPhone = this.workPhone.value.trim();
+ const workAddress = this.workAddress.value.trim();
  const facebook = this.facebook.value.trim();
  const salutation = this.salutation.options[this.salutation.selectedIndex].text;
  const confidentiality = this.confidentiality.value.trim();
@@ -3937,7 +3684,7 @@ ${data.address}<br>
  const socialLinksHTML = getSocialLinks({facebook, twitter, linkedin, otherPlatform, otherLink, departmentLabel});
  let logo = '', alt = '', website = '', address = '', deptValues = '', accessibility = '';
  if (divisionData[division]) {
- ({ logo, alt, website, address } = divisionData[division]);
+ ({ logo, alt, website } = divisionData[division]);
  }
  if (deptDetails[department]) {
   console.log('deptdetails found.' + JSON.stringify(deptDetails[department]));
@@ -3945,8 +3692,8 @@ ${data.address}<br>
  }
  console.log('deptValues' + deptValues + ' , accessibility' + accessibility + ' for department ' + department);
  const sigHTML = generateSignature({
- name, title, pronouns, workPhone, departmentLabel, divisionLabel,
- logo, alt, website, socialLinksHTML, address, salutation, confidentiality, deptValues, accessibility, startDate, endDate
+ name, title, pronouns, workPhone, workAddress, departmentLabel, divisionLabel,
+ logo, alt, website, socialLinksHTML, salutation, confidentiality, deptValues, accessibility, startDate, endDate
  });
  document.getElementById('signatureOutput').innerHTML = sigHTML;
  });
