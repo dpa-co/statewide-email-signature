@@ -1,0 +1,3955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>State of Colorado Email Signature Generator</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Bootstrap CDN or local --> 
+ <!--  CDN Option (5.3x) -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+ <style>
+ :root {
+  --bs-font-sans-serif: "Atkinson Hyperlegible", sans-serif;
+  --bs-font-monospace: Consolas, "Courier New", monospace;
+  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+
+#sigGen .signature-box {
+ background: #fff;
+ /*border: 1px solid #dee2e6;*/
+ border-radius: 0.5rem;
+ padding: 1.5rem;
+ min-height: 350px;
+ font-family: "Trebuchet MS", serif !important;
+ }
+ #sigGen .logo-img {
+ max-width: 120px;
+ height: auto;
+ margin-bottom: 0.5rem;
+ }
+ #sigGen .form-section {
+ background: #fff;
+ border-radius: 0.5rem;
+ padding: 1.5rem;
+ border: 1px solid #dee2e6;
+ }
+ #sigGen span.text-danger {
+ color: #6f0101 !important;
+ }
+ #sigGen .btn-primary {
+   background-color: #001970 !important;
+   border-color: #001049 !important;
+ }
+ #sigGen .form-text, .text-muted, a {
+ color: #001970 !important;
+ }
+ 
+ </style>
+</head>
+<body>
+<main id="sigGen">
+ <div class="container-lg form-section mt-4">
+ <div class="row">
+    <div class="col-sm-2">
+ <img src="./assets/state-c-logo.png" class="img-fluid" alt="Red and blue State of Colorado 'C' logo with evergreen tree and abstract mountains" >
+ </div><div class="col">
+ <h1 class="display-1 mt-4">Email Signature Generator</h1>
+ </div>
+ </div>
+  <div class="row mt-3">
+   <div class="col-lg-12 p-3">
+ <p class="lead">Welcome to the State of Colorado Email Signature Generator. This tool will enable you to generate email signatures that are brand-compliant and accessible.</p>
+ 	</div>
+ </div>
+ <div class="row g-3">
+ <!-- Form Section -->
+ <div class="col-md-6">
+ <section class="form-section" aria-labelledby="form-title">
+ 
+ <h2 id="form-title" class="h2 mb-3">Step 1: Enter Your Information</h2>
+ <form id="signatureForm" class="needs-validation" novalidate autocomplete="off">
+ <div class="alert alert-danger d-none" id="errorContainer" role="alert">
+ </div>
+ <div class="mb-3">
+ <label for="name" class="form-label">Full Name (First and Last) <span class="text-danger">*</span></label>
+ <input type="text" id="name" name="name" class="form-control form-control-lg" required aria-required="true" aria-invalid="false" pattern="[a-zA-Z0-9 ]+">
+ <div class="invalid-feedback" role="alert" id="nameFeedback" >Please include both your first and last name.</div>
+ </div>
+ <div class="mb-3">
+ <label for="title" class="form-label">Title <span class="text-danger">*</span></label>
+ <input type="text" id="title" name="title" class="form-control form-control-lg" required aria-required="true"  aria-invalid="false" spellcheck="true">
+ <div class="invalid-feedback" role="alert" id="titleFeedback">Your professional title is required.</div>
+ </div>
+ <div class="mb-3">
+ <label for="pronouns" class="form-label">Pronouns</label>
+ <input type="text" id="pronouns" name="pronouns" class="form-control form-control-lg" placeholder="e.g., she/her, he/him, they/them"  aria-invalid="false">
+ </div>
+ <div class="mb-3">
+ <label for="workPhone" class="form-label">Work Phone</label>
+ <input type="tel" id="workPhone" name="workPhone"   class="form-control form-control-lg" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Phone number in 555-555-555 format"  aria-invalid="false">
+  <div class="invalid-feedback" role="alert" id="workPhoneFeedback">
+   The phone number you entered doesn't look quite right. Please enter your phone number in 555-555-555 format.
+</div>
+<div id="phoneHelp" class="form-text">Format: 555-555-5555</div>
+ </div>
+ <div class="mb-3">
+ <label for="department" class="form-label">Department <span class="text-danger">*</span></label>
+ <select id="department" name="department" class="form-select form-select-lg"  required aria-required="true">
+ <option value="">Select Department</option>
+ <option value="cda">Department of Agriculture</option>
+ <option value="cde">Department of Education</option>
+ <option value="cdhe">Department of Higher Education</option>
+ <option value="cdhs">Department of Human Services</option>
+ <option value="cdle">Department of Labor and Employment</option>
+ <option value="cdoc">Department of Corrections</option>
+ <option value="cdphe">Department of Public Health &amp; Environment</option>
+ <option value="dpa">Department of Personnel &amp; Administration</option>
+ <option value="gov">Office of the Governor</option>
+ <option value="law">Department of Law</option>
+ <option value="sos">Secretary of State's Office</option>
+ <option value="treas">Department of the Treasury</option>
+ </select>
+ <div class="invalid-feedback" role="alert" id="departmentFeedback" >Department is required.</div>
+ </div>
+ <div class="mb-3">
+ <label for="division" class="form-label">Division <span class="text-danger">*</span></label>
+ <select id="division" name="division" class="form-select form-select-lg" required aria-required="true" disabled>
+ <option value="">Select Division</option>
+ </select>
+ <div class="invalid-feedback" role="alert" id="divisionFeedback">Division is required.</div>
+ </div>
+ <h2 class="h2 mb-3">Optional Additions</h2>
+ <div class="mb-3">
+  <label for="salutation" class="form-label">Closing Salutation</label>
+ <select id="salutation" name="salutation" class="form-select form-select-lg">
+ <option value="">None</option>
+ <option value="Kind Regards">Kind Regards</option>
+ <option value="Respectfully">Respectfully</option>
+ <option value="Best Regards">Best Regards</option>
+ <option value="Sincerely">Sincerely</option>
+ </select>
+ </div>
+  <div class="mb-3">
+  <label for="confidentiality" class="form-label">Confidentiality Statement</label>
+ <select id="confidentiality" name="confidentiality" class="form-select form-select-lg">
+ <option value="">No, Don't Include</option>
+ <option value="include">Yes, Include</option>
+ </select>
+ </div>
+  <div class="mb-3">
+    <h3 class="h3 mb-3">Out of Office</h3>
+   <p class="text-muted">If you have an upcoming out of office, you may include the start and ends dates. We recommend only using out of office warnings if you will be gone for an extended period of time. </p>
+   <label for="startDate" class="form-label">Out of Office Begins:</label>
+   <input class="date form-control form-control-lg" id="startDate" type="date"  title="Start date in mm/dd/yyyy format"  aria-invalid="false" />
+ </div>
+   <div class="mb-3">
+    <label for="endDate" class="form-label">Out of Office Ends:</label>
+   <input class="date form-control form-control-lg" id="endDate" type="date" aria-describedby="dateHelp" title="End date in mm/dd/yyyy format"   aria-invalid="false" />
+    <div id="dateHelp" class="form-text">Enter the end date in mm/dd/yyyy format (07/30/2025). If you have an unknown date of return, you can leave your end date blank.</div>
+ </div>
+  <h3 class="h3 mb-3">Department or Division's Social Media</h3>
+  <p class="text-muted">Do <strong>not</strong> enter your personal social media links.</p>
+ <div class="mb-3">
+ <label for="facebook" class="form-label">Link to Department Facebook Page</label>
+ <input type="url" id="facebook" name="facebook" class="form-control form-control-lg" placeholder="https://facebook.com/yourprofile"  aria-invalid="false">
+ <div class="invalid-feedback" role="alert">The link you entered for Facebook doesn't look like a valid URL. Please make sure to include the full link, starting with "https://".</div>
+ </div>
+ <div class="mb-3">
+ <label for="twitter" class="form-label">Link to Department X (Twitter) Page</label>
+ <input type="url" id="twitter" name="twitter" class="form-control form-control-lg" placeholder="https://twitter.com/yourprofile"  aria-invalid="false">
+  <div class="invalid-feedback" role="alert">The X (Twitter) you entered for Facebook doesn't look like a valid URL. Please make sure to include the full link, starting with "https://".</div>
+ </div>
+ <div class="mb-3">
+ <label for="linkedin" class="form-label">Link to Department LinkedIn Page</label>
+ <input type="url" id="linkedin" name="linkedin" class="form-control form-control-lg" placeholder="https://linkedin.com/in/yourprofile"  aria-invalid="false">
+  <div class="invalid-feedback" role="alert">The link you entered for LinkedIn doesn't look like a valid URL. Please make sure to include the full link, starting with "https://".</div>
+ </div>
+ <div class="mb-3">
+ <label class="form-label">Other Social Media</label>
+ <div class="row g-2">
+ <div class="col-6">
+ <input type="text" id="otherPlatform" name="otherPlatform" class="form-control form-control-lg" placeholder="Platform Name"  aria-invalid="false">
+ </div>
+ <div class="col-6">
+ <input type="url" id="otherLink" name="otherLink" class="form-control form-control-lg" placeholder="https://platform.com/yourprofile"  aria-invalid="false">
+   <div class="invalid-feedback" role="alert">The link you entered doesn't look like a valid URL. Please make sure to include the full link, starting with "https://".</div>
+ </div>
+ </div>
+ </div>
+ 
+ <button type="submit" class="btn btn-lg btn-primary">Generate Signature</button>
+ <div class="clearfix"></div><p class="mt-2">
+ Want to add things that aren't on this form? Check out <a data-bs-toggle="offcanvas" href="#signatureBasics" aria-controls="signatureBasics">Signature Basics</a> for important information.</p>
+ </form>
+ </section>
+ </div>
+ <!-- Output Section -->
+ <div class="col-md-6">
+ <section aria-labelledby="output-title" class="form-section" >
+ <h2 id="output-title" class="h2 mb-3">Step 2: Review Your Email Signature</h2>
+ <div class="signature-box" id="signatureOutput" tabindex="0" aria-live="polite">
+ <p class="text-muted">Your email signature will appear here after you enter your information and click on the "Generate Signature" button.</p>
+ </div>
+ </section>
+  <section aria-labelledby="output-title" class="form-section mt-4" >
+ <h2 id="output-title" class="h2 mb-3">Step 3: Use Your Email Signature</h2>
+ <p>Does everything look correct in your email signature? If not, you can fix issues using the form in Step 1 and generate a new signature.<p>
+ <p>If things do look good to go, its time to copy your email signature and get it added to your email settings.</p> 
+<button class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#copyStatus" onclick="copyDivToClipboard('sigContent')">Copy Signature</button>
+
+<h3 class="mt-3">Gmail (Google) Users</h3> 
+<ol>
+<li><strong>Copy</strong> your new email signature.</li>
+<li>Go to your <strong>Gmail Settings</strong>. If you use the button below, we'll take you there <strong>automatically</strong>. If you don't use the button, go to <strong>Settings</strong> > <strong>See All Settings</strong> > <strong>General</strong></li>
+<li>Scroll down to <strong>Signature</strong>.</li>
+<li><strong>Select</strong> the signature you want to edit (usually <strong>default</strong>) or add a new one. If editing an existing signature, delete all current content before pasting.</li>
+<li><strong>Paste</strong> your new signature.</li>
+<li>Don't forget to <strong>save your changes</strong></li>
+</ol>
+<p>For more information, check out <a target="_blank" href="https://support.google.com/mail/answer/8395?hl=en&co=GENIE.Platform%3DDesktop&oco=1">Create a gmail signature in Gmail Help (opens in new window)</a>.</p>
+
+<h3 class="mt-3">Non-Google Users</h3>
+<h4 class="h4">Outlook (2016, 2019, 2021, and Microsoft 365)</h4>
+<ol>
+<li><strong>Copy</strong> your new email signature.</li>
+<li>Select <strong>File</strong> > <strong>Options</strong> > <strong>Mail</strong> > <strong>Signatures</strong>.</li>
+<li><strong>Select</strong> the signature you want to edit (or add a new one).</li>
+<li><strong>Paste</strong> your new signature.</li>
+<li>When you're done, select <strong>Save</strong> > <strong>OK</strong>.</li>
+</ol>
+<h4 class="h4">Other Email Clients</h4>
+<p>Signature settings are available in every email client. If you aren't sure where they are (or how to update them), you can open your email program's "help" tool or Google your email program's name with "edit signature" to find instructions.</p>
+
+ </section>
+ </div>
+ </div>
+ </div>
+ </main>
+ <div class="offcanvas offcanvas-start" tabindex="-1" id="signatureBasics" aria-labelledby="signatureBasicsLabel">
+  <div class="offcanvas-header">
+    <h2 class="offcanvas-title" id="signatureBasicsLabel">Signature Basics</h2>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      <p>Your email signature is meant to help recipients know who you are, what you do, who you do your work for, and how to get more information. Your email signature <strong>must</strong> be brand-compliant and accessible. Using this tool, you can create a signature with everything that is needed.</p>
+      <h3>Things Not to Do</h3>
+      <p>It can be tempting to make your signature "stand out". Your signature should follow the State's template or your official department guidance. 
+      The following are examples of things that you are <strong>prohibited</strong> from adding to your signature: </p>
+      <ul>
+      	<li>An image of your "signature".</li>
+      	<li>Fancy, "handwriting", or other non-brand-compliant fonts.</li>
+      	<li>Gifs or other animations</li>
+      	<li>Images other than your division or department lockup (logo) unless approved by IDS.</li>
+      	<li>Links to personal websites or social media.</li>
+      </ul>
+      <h3>Things To Do With Caution</h3>
+      <ul>
+      	<li>Add an image of your face. If there is a professional need to show your likeness, you <strong>must</strong> use an appropriately sized image and include alternative text.</li>
+      	<li>Add a link to hear how your name is pronounced. If you do, use an OIT-approved resource as the prounounciation tool built into your Google Account. 
+      </ul>
+    </div>
+    
+  </div>
+</div>
+<div class="modal" tabindex="-1" id="copyStatus">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Next Steps</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pd-3" id="conformationStatus">
+        <div id="copyResponseDefault" class="alert alert-warning">
+        	<p>Oops! It looks like you didn't actually generate a signature yet. Please return to Step 1: Enter Your Information 
+        	and click "Generate Signature" before trying to copy your signature.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a role="button" class="btn btn-primary" id="nextStep" href="https://mail.google.com/mail/u/0/#settings/general" target="_blank" style="color:#ffffff !important;">Open Gmail Settings</a>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Bootstrap JS and Popper -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ <script>
+document.querySelectorAll('#signatureForm input, #signatureForm select').forEach(inputElement => {
+	    inputElement.addEventListener('focusout', function() {
+	        if (this.checkValidity()) {
+	            this.classList.remove('is-invalid');
+	            this.classList.add('is-valid');
+	            this.setAttribute('aria-invalid', 'false');
+	            if (this.nextElementSibling && this.nextElementSibling.classList.contains('invalid-feedback')) {
+	                this.nextElementSibling.style.display = 'none';
+	            }
+	        } else {
+	            this.classList.remove('is-valid');
+	            this.classList.add('is-invalid');
+	            this.setAttribute('aria-invalid', 'true');
+	            if (this.nextElementSibling && this.nextElementSibling.classList.contains('invalid-feedback')) {
+	                this.nextElementSibling.style.display = 'block';
+	            }
+	        }
+	    });
+	});
+function formatOOO(inputDate) {
+    var date = new Date(inputDate);
+    if (!isNaN(date.getTime())) {
+        // Months use 0 index.
+        return date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
+    }
+}
+
+ 
+function toggleVisibility(elementId, action = 'hide') {
+  // transitioning from destroy to hide.
+  const element = document.getElementById(elementId);
+  if (element) {
+	  element.innerHTML = '';
+	  if (action == 'show') {
+		  if(element.classList.contains('d-none')) {
+	      	element.classList.remove('d-none');
+		  }
+	  } else {
+	      element.classList.add('d-none');
+	  }
+  } else {
+	  console.log(`Element with ID '${elementId}' not found.`);
+  }
+}
+
+
+
+function copyDivToClipboard(divId, copyDest) {
+	toggleVisibility('copyResponse', 'show');
+  const divElement = document.getElementById(divId);
+  const referenceElement = document.getElementById('conformationStatus');
+  const alertContainer = document.createElement('div');
+  const actionBtn = document.getElementById('nextStep');
+  if (divElement) {
+	  toggleVisibility('copyResponseDefault', 'hide');
+	  const htmlCode = document.getElementById(divId).innerHTML
+	  
+	  const blobInput = new Blob([htmlCode], { type: 'text/html' })
+	  navigator.clipboard.write([new ClipboardItem({ 'text/html': blobInput })])
+      .then(() => {
+        console.log('Content copied to clipboard!');
+        alertContainer.innerHTML = '<div class="alert alert-success"><p>Your signature has been copied to your clipboard. If you use Gmail, go to Settings using the button below. If you do not use Gmail, you can close this window and go to your email program and update your signature.</p></div>';
+		alertContainer.setAttribute('aria-live', 'assertive');
+		alertContainer.setAttribute('id', 'copyResponse');
+		alertContainer.classList.add('m-3');
+		actionBtn.classList.remove('d-none');
+		referenceElement.after(alertContainer);
+      })
+      .catch(err => {
+        console.error('Failed to copy content: ', err);
+		alertContainer.innerHTML = '<p><strong>Oops!</strong> Something went wrong copying your signature. Please manually select the content below and copy it (Control + C or right click and select copy).</p>';
+		alertContainer.setAttribute('aria-live', 'polite');
+		alertContainer.setAttribute('id', 'copyResponse');
+		referenceElement.after(alertContainer);
+      });
+  } else {
+    console.error('Div element not found with ID:', divId);
+    actionBtn.classList.add('d-none');
+  }
+}
+
+ // Division data: logo, alt text, website
+ const divisionData = {
+    _gov_dept: {
+        department: "Office of the Governor",
+        label: "Office of the Governor",
+        logo: "co__gov_dept_rgb_email_53pc.png",
+        alt: "Office of the Governor Logo",
+        website: "https://www.colorado.gov/governor/",
+        address: "1525 Sherman Street, Denver, CO"
+    },
+    _law_email: {
+        
+        department: "Department of Law",
+        label: "Department of Law",
+        logo: "co__law_rgb_email.png",
+        alt: "Department of Law Logo",
+        website: "https://co.colorado.gov/law",
+        address: "1526 Sherman Street, Denver, CO"
+    },
+    _state: {
+        
+        department: "Secretary of State's Office",
+        label: "Secretary of State's Office",
+        logo: "co__state_rgb_email_53pc.png",
+        alt: "Secretary of State's Office Logo",
+        website: "https://colorado.gov",
+        address: "1527 Sherman Street, Denver, CO"
+    },
+    _treas: {
+        
+        department: "Department of the Treasury",
+        label: "Department of the Treasury",
+        logo: "co__treas_rgb_email_53pc.png",
+        alt: "Department of the Treasury Logo",
+        website: "https://treasury.colorado.gov/",
+        address: "1528 Sherman Street, Denver, CO"
+    },
+    C_gov_jp: {
+        
+        department: "Office of the Governor",
+        label: "Governor Jared Polis",
+        logo: "co_C_gov_jp_rgb_email_53pc.png",
+        alt: "Office of the Governor Governor Jared Polis Logo",
+        website: "https://www.colorado.gov/governor/",
+        address: "1529 Sherman Street, Denver, CO"
+    },
+    C_gov_lt_dp: {
+        
+        department: "Office of the Governor",
+        label: "Lt. Gov. Dianne Primavera",
+        logo: "co_C_gov_lt_dp_rgb_email_53pc.png",
+        alt: "Office of the Governor Lt. Gov. Dianne Primavera Logo",
+        website: "https://ltgovernor.colorado.gov/",
+        address: "1530 Sherman Street, Denver, CO"
+    },
+    cda_pr_hp_email: {
+        
+        department: "Department of Agriculture",
+        label: "Hemp Program",
+        logo: "co_cda_pr_hp_rgb_email.png",
+        alt: "Department of Agriculture Hemp Program Logo",
+        website: "https://ag.colorado.gov/",
+        address: "1531 Sherman Street, Denver, CO"
+    },
+    cda_div_aw_email: {
+        
+        department: "Department of Agriculture",
+        label: "Division of Animal Welfare",
+        logo: "co_cda_div_aw_rgb_email.png",
+        alt: "Department of Agriculture Division of Animal Welfare Logo",
+        website: "https://ag.colorado.gov/",
+        address: "1532 Sherman Street, Denver, CO"
+    },
+    cda_pr_wine_cda_email: {
+        
+        department: "Department of Agriculture",
+        label: "Wine Industry Development Board",
+        logo: "co_cda_pr_wine_cda_rgb_email.png",
+        alt: "Department of Agriculture Wine Industry Development Board Logo",
+        website: "https://ag.colorado.gov/",
+        address: "1533 Sherman Street, Denver, CO"
+    },
+    cde_dept: {
+        
+        department: "Department of Education",
+        label: "Department of Education",
+        logo: "co_cde__dept_rgb_email_53pc.png",
+        alt: "Department of Education Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1534 Sherman Street, Denver, CO"
+    },
+    cde_csl: {
+        
+        department: "Department of Education",
+        label: "State Library",
+        logo: "co_cde_csl_rgb_email_53pc.png",
+        alt: "Department of Education State Library Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1535 Sherman Street, Denver, CO"
+    },
+    cde_div_acc: {
+        
+        department: "Department of Education",
+        label: "Accountability, Performance and Support Divislon",
+        logo: "co_cde_div_acc_rgb_email_53pc.png",
+        alt: "Department of Education Accountability, Performance and Support Divislon Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1536 Sherman Street, Denver, CO"
+    },
+    cde_div_assess: {
+        
+        department: "Department of Education",
+        label: "Assessment Division",
+        logo: "co_cde_div_assess_rgb_email_53pc.png",
+        alt: "Department of Education Assessment Division Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1537 Sherman Street, Denver, CO"
+    },
+    cde_div_cm_ed: {
+        
+        department: "Department of Education",
+        label: "Commissioner of Education",
+        logo: "co_cde_div_cm_ed_rgb_email_53pc.png",
+        alt: "Department of Education Commissioner of Education Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1538 Sherman Street, Denver, CO"
+    },
+    cde_div_com: {
+        
+        department: "Department of Education",
+        label: "Communicalions Division",
+        logo: "co_cde_div_com_rgb_email_53pc.png",
+        alt: "Department of Education Communicalions Division Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1539 Sherman Street, Denver, CO"
+    },
+    cde_div_edtal: {
+        
+        department: "Department of Education",
+        label: "Educator Tatent Division",
+        logo: "co_cde_div_edtal_rgb_email_53pc.png",
+        alt: "Department of Education Educator Tatent Division Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1540 Sherman Street, Denver, CO"
+    },
+    cde_div_icsp: {
+        
+        department: "Department of Education",
+        label: "Innovation Choice and Student Pathways Division",
+        logo: "co_cde_div_icsp_rgb_email_53pc.png",
+        alt: "Department of Education Innovation Choice and Student Pathways Division Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1541 Sherman Street, Denver, CO"
+    },
+    cde_div_ims: {
+        
+        department: "Department of Education",
+        label: "Information Management Services Division",
+        logo: "co_cde_div_ims_rgb_email_53pc.png",
+        alt: "Department of Education Information Management Services Division Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1542 Sherman Street, Denver, CO"
+    },
+    cde_div_sfo: {
+        
+        department: "Department of Education",
+        label: "School Finance and Operations Division",
+        logo: "co_cde_div_sfo_rgb_email_53pc.png",
+        alt: "Department of Education School Finance and Operations Division Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1543 Sherman Street, Denver, CO"
+    },
+    cde_div_sl: {
+        
+        department: "Department of Education",
+        label: "State Library",
+        logo: "co_cde_div_sl_rgb_email_53pc.png",
+        alt: "Department of Education State Library Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1544 Sherman Street, Denver, CO"
+    },
+    cde_div_spu: {
+        
+        department: "Department of Education",
+        label: "Student Pathways Unit",
+        logo: "co_cde_div_spu_rgb_email_53pc.png",
+        alt: "Department of Education Student Pathways Unit Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1545 Sherman Street, Denver, CO"
+    },
+    cde_div_sqs: {
+        
+        department: "Department of Education",
+        label: "School Quality and Support Division",
+        logo: "co_cde_div_sqs_rgb_email_53pc.png",
+        alt: "Department of Education School Quality and Support Division Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1546 Sherman Street, Denver, CO"
+    },
+    cde_off_pwrp: {
+        
+        department: "Department of Education",
+        label: "Office of Postsecondary and Workforce Readiness",
+        logo: "co_cde_off_pwrp_rgb_email_53pc.png",
+        alt: "Department of Education Office of Postsecondary and Workforce Readiness Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1547 Sherman Street, Denver, CO"
+    },
+    cde_pr_csl: {
+        
+        department: "Department of Education",
+        label: "Colorado State Library",
+        logo: "co_cde_pr_csl_rgb_email_53pc.png",
+        alt: "Department of Education Colorado State Library Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1548 Sherman Street, Denver, CO"
+    },
+    cde_pr_hestl: {
+        
+        department: "Department of Education",
+        label: "Highly Effective Schools Through Libraries",
+        logo: "co_cde_pr_hestl_rgb_email_53pc.png",
+        alt: "Department of Education Highly Effective Schools Through Ubraries Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1549 Sherman Street, Denver, CO"
+    },
+    cde_pr_rec: {
+        
+        department: "Department of Education",
+        label: "Rural Education Council",
+        logo: "co_cde_pr_rec_rgb_email_53pc.png",
+        alt: "Department of Education Rural Education Council Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1550 Sherman Street, Denver, CO"
+    },
+    cde_pr_stem: {
+        
+        department: "Department of Education",
+        label: "Science, Technology, Engineering and Mathematics",
+        logo: "co_cde_pr_stem_rgb_email_53pc.png",
+        alt: "Department of Education Science, Technology, Engineering and Mathematics Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1551 Sherman Street, Denver, CO"
+    },
+    cde_sl_boe: {
+        
+        department: "Department of Education",
+        label: "State Board of Education",
+        logo: "co_cde_sl_boe_rgb_email_53pc.png",
+        alt: "Department of Education State Board of Education Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1552 Sherman Street, Denver, CO"
+    },
+    cde_sl_cm_ka: {
+        
+        department: "Department of Education",
+        label: "Commissioner Kaly Anlhes. Ph.D.",
+        logo: "co_cde_sl_cm_ka_rgb_email_53pc.png",
+        alt: "Department of Education Commissioner Kaly Anlhes. Ph.D. Logo",
+        website: "https://www.cde.state.co.us/",
+        address: "1553 Sherman Street, Denver, CO"
+    },
+    cdhe_dept: {
+        
+        department: "Department of Higher Education",
+        label: "Department of Higher Education",
+        logo: "co_cdhe__dept_rgb_email_53pc.png",
+        alt: "Department of Higher Education Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1554 Sherman Street, Denver, CO"
+    },
+    cdhe_dept_ed: {
+        
+        department: "Department of Higher Education",
+        label: "Executive Director",
+        logo: "co_cdhe_dept_ed_rgb_email_53pc.png",
+        alt: "Department of Higher Education Executive Director Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1555 Sherman Street, Denver, CO"
+    },
+    cdhe_div_cche: {
+        
+        department: "Department of Higher Education",
+        label: "Colorado Commission on Higher Education",
+        logo: "co_cdhe_div_cche_rgb_email_53pc.png",
+        alt: "Department of Higher Education Colorado Commission on Higher Education Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1556 Sherman Street, Denver, CO"
+    },
+    cdhe_div_dpos: {
+        
+        department: "Department of Higher Education",
+        label: "Division of Private Occupational Schools",
+        logo: "co_cdhe_div_dpos_rgb_email_53pc.png",
+        alt: "Department of Higher Education Division of Private Occupational Schools Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1557 Sherman Street, Denver, CO"
+    },
+    cdhe_pr_casfa: {
+        
+        department: "Department of Higher Education",
+        label: "Colorado Applications for State Financial Aid",
+        logo: "co_cdhe_pr_casfa_rgb_email_53pc.png",
+        alt: "Department of Higher Education Colorado Applications for State Financial Aid Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1558 Sherman Street, Denver, CO"
+    },
+    cdhe_pr_cgu: {
+        
+        department: "Department of Higher Education",
+        label: "Gear Up Colorado",
+        logo: "co_cdhe_pr_cgu_rgb_email_53pc.png",
+        alt: "Department of Higher Education Gear Up Colorado Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1559 Sherman Street, Denver, CO"
+    },
+    cdhe_pr_checra: {
+        
+        department: "Department of Higher Education",
+        label: "Higher Education Competitive Research Authority",
+        logo: "co_cdhe_pr_checra_rgb_email_53pc.png",
+        alt: "Department of Higher Education Higher Education Competitive Research Authority Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1560 Sherman Street, Denver, CO"
+    },
+    cdhe_pr_cic: {
+        
+        department: "Department of Higher Education",
+        label: "CollegeInColorado.org",
+        logo: "co_cdhe_pr_cic_rgb_email_53pc.png",
+        alt: "Department of Higher Education CollegeInColorado.org Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1561 Sherman Street, Denver, CO"
+    },
+    cdhe_pr_cocap_h: {
+        
+        department: "Department of Higher Education",
+        label: "Colorado Collegiate Apprenticeship Program",
+        logo: "co_cdhe_pr_cocap_rgb_h_email_53pc.png",
+        alt: "Department of Higher Education Colorado Collegiate Apprenticeship Program Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1562 Sherman Street, Denver, CO"
+    },
+    cdhe_pr_cosi: {
+        
+        department: "Department of Higher Education",
+        label: "Colorado Opportunity Scholarship Initiative",
+        logo: "co_cdhe_pr_cosi_rgb_email_53pc.png",
+        alt: "Department of Higher Education Colorado Opportunity Scholarship Initiative Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1563 Sherman Street, Denver, CO"
+    },
+    cdhe_pr_cp: {
+        
+        department: "Department of Higher Education",
+        label: "Colorado Promise",
+        logo: "co_cdhe_pr_cp_rgb_email_53pc.png",
+        alt: "Department of Higher Education Colorado Promise Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1564 Sherman Street, Denver, CO"
+    },
+    cdhe_pr_cs: {
+        
+        department: "Department of Higher Education",
+        label: "Study Colorado",
+        logo: "co_cdhe_pr_cs_rgb_email_53pc.png",
+        alt: "Department of Higher Education Study Colorado Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1565 Sherman Street, Denver, CO"
+    },
+    cdhe_pr_mcj_ns: {
+        
+        department: "Department of Higher Education",
+        label: "My Colorado Journey",
+        logo: "co_cdhe_pr_mcj_ns_rgb_email_53pc.png",
+        alt: "Department of Higher Education My Colorado Journey Logo",
+        website: "https://cdhe.colorado.gov/",
+        address: "1566 Sherman Street, Denver, CO"
+    },
+    cdhs_dept: {
+        
+        department: "Department of Human Services",
+        label: "Department of Human Services",
+        logo: "co_cdhs__dept_rgb_email_53pc.png",
+        alt: "Department of Human Services Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1567 Sherman Street, Denver, CO"
+    },
+    cdhs_aps_CAPS: {
+        
+        department: "Department of Human Services",
+        label: "Adult Protective Services CAPS Check Unit",
+        logo: "co_cdhs_aps_CAPS_rgb_email_53pc.png",
+        alt: "Department of Human Services Adult Protective Services CAPS Check Unit Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1568 Sherman Street, Denver, CO"
+    },
+    cdhs_aps_div_aas: {
+        
+        department: "Department of Human Services",
+        label: "Adult Protective Services Division of Aging & Adult Services",
+        logo: "co_cdhs_aps_div_aas_rgb_email_53pc.png",
+        alt: "Department of Human Services Adult Protective Services Division of Aging & Adult Services Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1569 Sherman Street, Denver, CO"
+    },
+    cdhs_brd_bc_email_53pc_2: {
+        
+        department: "Department of Human Services",
+        label: "Boards & Commissions",
+        logo: "co_cdhs_brd_bc_rgb_email_53pc_2.png",
+        alt: "Department of Human Services Boards & Commissions Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1570 Sherman Street, Denver, CO"
+    },
+    cdhs_brd_sbhs: {
+        
+        department: "Department of Human Services",
+        label: "State Board of Human Services",
+        logo: "co_cdhs_brd_sbhs_rgb_email_53pc.png",
+        alt: "Department of Human Services State Board of Human Services Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1571 Sherman Street, Denver, CO"
+    },
+    cdhs_comm_cdhd: {
+        
+        department: "Department of Human Services",
+        label: "Commission for the Deaf, Hard of Hearing, and DeafBlind",
+        logo: "co_cdhs_comm_cdhd_rgb_email_53pc.png",
+        alt: "Department of Human Services Commission for the Deaf, Hard of Hearing, and DeafBlind Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1572 Sherman Street, Denver, CO"
+    },
+    cdhs_comm: {
+        
+        department: "Department of Human Services",
+        label: "Communications",
+        logo: "co_cdhs_comm_rgb_email_53pc.png",
+        alt: "Department of Human Services Communications Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1573 Sherman Street, Denver, CO"
+    },
+    cdhs_commpart: {
+        
+        department: "Department of Human Services",
+        label: "Community Partnerships",
+        logo: "co_cdhs_commpart_rgb_email_53pc.png",
+        alt: "Department of Human Services Community Partnerships Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1574 Sherman Street, Denver, CO"
+    },
+    cdhs_county: {
+        
+        department: "Department of Human Services",
+        label: "County Partnerships",
+        logo: "co_cdhs_county_rgb_email_53pc.png",
+        alt: "Department of Human Services County Partnerships Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1575 Sherman Street, Denver, CO"
+    },
+    cdhs_dept_edo: {
+        
+        department: "Department of Human Services",
+        label: "Executive Director's Office",
+        logo: "co_cdhs_dept_edo_rgb_email_53pc.png",
+        alt: "Department of Human Services Executive Director's Office Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1576 Sherman Street, Denver, CO"
+    },
+    cdhs_dept_pc: {
+        
+        department: "Department of Human Services",
+        label: "Policy and Communications",
+        logo: "co_cdhs_dept_pc_rgb_email_53pc.png",
+        alt: "Department of Human Services Policy and Communications Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1577 Sherman Street, Denver, CO"
+    },
+    cdhs_div_css: {
+        
+        department: "Department of Human Services",
+        label: "Child Support Services",
+        logo: "co_cdhs_div_css_rgb_email_53pc.png",
+        alt: "Department of Human Services Child Support Services Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1578 Sherman Street, Denver, CO"
+    },
+    cdhs_div_dfm: {
+        
+        department: "Department of Human Services",
+        label: "Division of Facilities Management",
+        logo: "co_cdhs_div_dfm_rgb_email_53pc.png",
+        alt: "Department of Human Services Division of Facilities Management Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1579 Sherman Street, Denver, CO"
+    },
+    cdhs_div_dys_ocyf: {
+        
+        department: "Department of Human Services",
+        label: "Office of Children, Youth & Families",
+        logo: "co_cdhs_div_dys_ocyf_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Children, Youth & Families Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1580 Sherman Street, Denver, CO"
+    },
+    cdhs_div_dys_email_53pc_2: {
+        
+        department: "Department of Human Services",
+        label: "Division of Youth Services",
+        logo: "co_cdhs_div_dys_rgb_email_53pc_2.png",
+        alt: "Department of Human Services Division of Youth Services Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1581 Sherman Street, Denver, CO"
+    },
+    cdhs_div_rc_fam: {
+        
+        department: "Department of Human Services",
+        label: "Futures Assessment Model",
+        logo: "co_cdhs_div_rc_fam_rgb_email_53pc.png",
+        alt: "Department of Human Services Futures Assessment Model Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1582 Sherman Street, Denver, CO"
+    },
+    cdhs_div_rc_gjrc: {
+        
+        department: "Department of Human Services",
+        label: "Grand Junction Regional Center",
+        logo: "co_cdhs_div_rc_gjrc_rgb_email_53pc.png",
+        alt: "Department of Human Services Grand Junction Regional Center Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1583 Sherman Street, Denver, CO"
+    },
+    cdhs_div_rc_prc: {
+        
+        department: "Department of Human Services",
+        label: "Pueblo Regional Center",
+        logo: "co_cdhs_div_rc_prc_rgb_email_53pc.png",
+        alt: "Department of Human Services Pueblo Regional Center Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1584 Sherman Street, Denver, CO"
+    },
+    cdhs_div_rc_wrrc: {
+        
+        department: "Department of Human Services",
+        label: "Wheat Ridge Regional Center",
+        logo: "co_cdhs_div_rc_wrrc_rgb_email_53pc.png",
+        alt: "Department of Human Services Wheat Ridge Regional Center Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1585 Sherman Street, Denver, CO"
+    },
+    cdhs_fac_mhh_fl: {
+        
+        department: "Department of Human Services",
+        label: "Colorado Mental Health Hospital in Fort Logan",
+        logo: "co_cdhs_fac_mhh_fl_rgb_email_53pc.png",
+        alt: "Department of Human Services Colorado Mental Health Hospital in Fort Logan Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1586 Sherman Street, Denver, CO"
+    },
+    cdhs_fac_mhh_pueb: {
+        
+        department: "Department of Human Services",
+        label: "Colorado Mental Health Hospital in Pueblo",
+        logo: "co_cdhs_fac_mhh_pueb_rgb_email_53pc.png",
+        alt: "Department of Human Services Colorado Mental Health Hospital in Pueblo Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1587 Sherman Street, Denver, CO"
+    },
+    cdhs_fac_mhh_email_53pc_2: {
+        
+        department: "Department of Human Services",
+        label: "Mental Health Hospitals",
+        logo: "co_cdhs_fac_mhh_rgb_email_53pc_2.png",
+        alt: "Department of Human Services Mental Health Hospitals Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1588 Sherman Street, Denver, CO"
+    },
+    cdhs_fac_vet_bmc: {
+        
+        department: "Department of Human Services",
+        label: "Bruce McCandless Veterans Community Living Center at Florence",
+        logo: "co_cdhs_fac_vet_bmc_rgb_email_53pc.png",
+        alt: "Department of Human Services Bruce McCandless Veterans Community Living Center at Florence Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1589 Sherman Street, Denver, CO"
+    },
+    cdhs_fac_vet_fitz: {
+        
+        department: "Department of Human Services",
+        label: "Veterans Community Living Center at Fitzsimons",
+        logo: "co_cdhs_fac_vet_fitz_rgb_email_53pc.png",
+        alt: "Department of Human Services Veterans Community Living Center at Fitzsimons Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1590 Sherman Street, Denver, CO"
+    },
+    cdhs_fac_vet_home: {
+        
+        department: "Department of Human Services",
+        label: "Veterans Community Living Center at Hometake",
+        logo: "co_cdhs_fac_vet_home_rgb_email_53pc.png",
+        alt: "Department of Human Services Veterans Community Living Center at Hometake Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1591 Sherman Street, Denver, CO"
+    },
+    cdhs_fac_vet: {
+        
+        department: "Department of Human Services",
+        label: "Veterans Community Living Centers",
+        logo: "co_cdhs_fac_vet_rgb_email_53pc.png",
+        alt: "Department of Human Services Veterans Community Living Centers Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1592 Sherman Street, Denver, CO"
+    },
+    cdhs_fac_vet_rif: {
+        
+        department: "Department of Human Services",
+        label: "Veterans Community Living Center at Rifle",
+        logo: "co_cdhs_fac_vet_rif_rgb_email_53pc.png",
+        alt: "Department of Human Services Veterans Community Living Center at Rifle Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1593 Sherman Street, Denver, CO"
+    },
+    cdhs_legal: {
+        
+        department: "Department of Human Services",
+        label: "Legal",
+        logo: "co_cdhs_legal_rgb_email_53pc.png",
+        alt: "Department of Human Services Legal Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1594 Sherman Street, Denver, CO"
+    },
+    cdhs_multi_coehdi: {
+        
+        department: "Department of Human Services",
+        label: "Colorado Early Hearing Detection and Intervention",
+        logo: "co_cdhs_multi_coehdi_email_53pc.png",
+        alt: "Department of Human Services Colorado Early Hearing Detection and Intervention Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1595 Sherman Street, Denver, CO"
+    },
+    cdhs_off_aads_das: {
+        
+        department: "Department of Human Services",
+        label: "Office of Adult, Aging & Disability Services Division of Aging & Adult Services",
+        logo: "co_cdhs_off_aads_das_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Adult, Aging & Disability Services Division of Aging & Adult Services Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1596 Sherman Street, Denver, CO"
+    },
+    cdhs_off_aads_dds: {
+        
+        department: "Department of Human Services",
+        label: "Office of Adult, Aging & Disability Services Disability Determination Services",
+        logo: "co_cdhs_off_aads_dds_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Adult, Aging & Disability Services Disability Determination Services Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1597 Sherman Street, Denver, CO"
+    },
+    cdhs_off_aads_drc: {
+        
+        department: "Department of Human Services",
+        label: "Office of Adult, Aging & Disability Services Division of Regional Centers",
+        logo: "co_cdhs_off_aads_drc_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Adult, Aging & Disability Services Division of Regional Centers Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1598 Sherman Street, Denver, CO"
+    },
+    cdhs_off_aads: {
+        
+        department: "Department of Human Services",
+        label: "Office of Adult, Aging & Disability Services ",
+        logo: "co_cdhs_off_aads_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Adult, Aging & Disability Services  Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1599 Sherman Street, Denver, CO"
+    },
+    cdhs_off_aads_sua: {
+        
+        department: "Department of Human Services",
+        label: "Office of Adult, Aging & Disability Services State Unit on Aging",
+        logo: "co_cdhs_off_aads_sua_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Adult, Aging & Disability Services State Unit on Aging Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1600 Sherman Street, Denver, CO"
+    },
+    cdhs_off_adm_aud: {
+        
+        department: "Department of Human Services",
+        label: "Audit Division",
+        logo: "co_cdhs_off_adm_aud_rgb_email_53pc.png",
+        alt: "Department of Human Services Audit Division Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1601 Sherman Street, Denver, CO"
+    },
+    cdhs_off_adm_bits: {
+        
+        department: "Department of Human Services",
+        label: "Business Innovation, Technology & Security",
+        logo: "co_cdhs_off_adm_bits_rgb_email_53pc.png",
+        alt: "Department of Human Services Business Innovation, Technology & Security Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1602 Sherman Street, Denver, CO"
+    },
+    cdhs_off_adm_dfm: {
+        
+        department: "Department of Human Services",
+        label: "Division ol Facilities Management",
+        logo: "co_cdhs_off_adm_dfm_rgb_email_53pc.png",
+        alt: "Department of Human Services Division ol Facilities Management Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1603 Sherman Street, Denver, CO"
+    },
+    cdhs_off_adm_dhr: {
+        
+        department: "Department of Human Services",
+        label: "Division of Human Resources",
+        logo: "co_cdhs_off_adm_dhr_rgb_email_53pc.png",
+        alt: "Department of Human Services Division of Human Resources Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1604 Sherman Street, Denver, CO"
+    },
+    cdhs_off_adm_dpm: {
+        
+        department: "Department of Human Services",
+        label: "Division of Project Management",
+        logo: "co_cdhs_off_adm_dpm_rgb_email_53pc.png",
+        alt: "Department of Human Services Division of Project Management Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1605 Sherman Street, Denver, CO"
+    },
+    cdhs_off_adm_ld: {
+        
+        department: "Department of Human Services",
+        label: "Leadership Development",
+        logo: "co_cdhs_off_adm_ld_rgb_email_53pc.png",
+        alt: "Department of Human Services Leadership Development Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1606 Sherman Street, Denver, CO"
+    },
+    cdhs_off_adm_lead: {
+        
+        department: "Department of Human Services",
+        label: "Learning, Development, and Engagement",
+        logo: "co_cdhs_off_adm_lead_rgb_email_53pc.png",
+        alt: "Department of Human Services Learning, Development, and Engagement Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1607 Sherman Street, Denver, CO"
+    },
+    cdhs_off_adm_lod: {
+        
+        department: "Department of Human Services",
+        label: "Leadership & Organizational Development",
+        logo: "co_cdhs_off_adm_lod_rgb_email_53pc.png",
+        alt: "Department of Human Services Leadership & Organizational Development Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1608 Sherman Street, Denver, CO"
+    },
+    cdhs_off_adm_pmd: {
+        
+        department: "Department of Human Services",
+        label: "Performance Management Division",
+        logo: "co_cdhs_off_adm_pmd_rgb_email_53pc.png",
+        alt: "Department of Human Services Performance Management Division Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1609 Sherman Street, Denver, CO"
+    },
+    cdhs_off_adm_qa: {
+        
+        department: "Department of Human Services",
+        label: "Quality Assurance",
+        logo: "co_cdhs_off_adm_qa_rgb_email_53pc.png",
+        alt: "Department of Human Services Quality Assurance Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1610 Sherman Street, Denver, CO"
+    },
+    cdhs_off_adm: {
+        
+        department: "Department of Human Services",
+        label: "Administrative Solutions",
+        logo: "co_cdhs_off_adm_rgb_email_53pc.png",
+        alt: "Department of Human Services Administrative Solutions Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1611 Sherman Street, Denver, CO"
+    },
+    cdhs_off_cfmh_fs: {
+        
+        department: "Department of Human Services",
+        label: "Office of Civil & Forensic Mental Health  Forensic Services",
+        logo: "co_cdhs_off_cfmh_fs_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Civil & Forensic Mental Health  Forensic Services Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1612 Sherman Street, Denver, CO"
+    },
+    cdhs_off_cfmh_mhtlh: {
+        
+        department: "Department of Human Services",
+        label: "Office of Civil & Forensic Mental Health Mental Health Transitional Living Homes",
+        logo: "co_cdhs_off_cfmh_mhtlh_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Civil & Forensic Mental Health Mental Health Transitional Living Homes Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1613 Sherman Street, Denver, CO"
+    },
+    cdhs_off_cfmh: {
+        
+        department: "Department of Human Services",
+        label: "Office of Civil & Forensic Mental Health ",
+        logo: "co_cdhs_off_cfmh_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Civil & Forensic Mental Health  Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1614 Sherman Street, Denver, CO"
+    },
+    cdhs_off_cyf_cisu: {
+        
+        department: "Department of Human Services",
+        label: "Office of Children, Youth & Families Colorado Implementation Science Unit",
+        logo: "co_cdhs_off_cyf_cisu_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Children, Youth & Families Colorado Implementation Science Unit Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1615 Sherman Street, Denver, CO"
+    },
+    cdhs_off_cyf_cmp: {
+        
+        department: "Department of Human Services",
+        label: "Office of Children, Youth & Families Collaborative Management Program",
+        logo: "co_cdhs_off_cyf_cmp_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Children, Youth & Families Collaborative Management Program Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1616 Sherman Street, Denver, CO"
+    },
+    cdhs_off_cyf_coshi: {
+        
+        department: "Department of Human Services",
+        label: "Office of Children, Youth & Families Colorado Sexual Health Initiative",
+        logo: "co_cdhs_off_cyf_coshi_rgb 2_email_53pc.png",
+        alt: "Department of Human Services Office of Children, Youth & Families Colorado Sexual Health Initiative Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1617 Sherman Street, Denver, CO"
+    },
+    cdhs_off_cyf_dcp: {
+        
+        department: "Department of Human Services",
+        label: "Office of Children, Youth & Families Division or Community Programs",
+        logo: "co_cdhs_off_cyf_dcp_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Children, Youth & Families Division or Community Programs Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1618 Sherman Street, Denver, CO"
+    },
+    cdhs_off_cyf_dcw: {
+        
+        department: "Department of Human Services",
+        label: "Office of Children, Youth & Families Division of Child Welfare",
+        logo: "co_cdhs_off_cyf_dcw_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Children, Youth & Families Division of Child Welfare Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1619 Sherman Street, Denver, CO"
+    },
+    cdhs_off_cyf_dept: {
+        
+        department: "Department of Human Services",
+        label: "Office of Children, Youth & Families ",
+        logo: "co_cdhs_off_cyf_dept_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Children, Youth & Families  Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1620 Sherman Street, Denver, CO"
+    },
+    cdhs_off_cyf_dvr: {
+        
+        department: "Department of Human Services",
+        label: "Office of Children, Youth & Families Domestic Violence Program",
+        logo: "co_cdhs_off_cyf_dvr_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Children, Youth & Families Domestic Violence Program Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1621 Sherman Street, Denver, CO"
+    },
+    cdhs_off_cyf_jpb: {
+        
+        department: "Department of Human Services",
+        label: "Office of Children, Youth & Families Juvenile Parole Board",
+        logo: "co_cdhs_off_cyf_jpb_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Children, Youth & Families Juvenile Parole Board Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1622 Sherman Street, Denver, CO"
+    },
+    cdhs_off_cyf: {
+        
+        department: "Department of Human Services",
+        label: "Office of Children, Youth & Families ",
+        logo: "co_cdhs_off_cyf_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Children, Youth & Families  Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1623 Sherman Street, Denver, CO"
+    },
+    cdhs_off_ear_comm: {
+        
+        department: "Department of Human Services",
+        label: "Office of Early Childhood Division of Community & Family Support",
+        logo: "co_cdhs_off_ear_comm_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Early Childhood Division of Community & Family Support Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1624 Sherman Street, Denver, CO"
+    },
+    cdhs_off_ear_dec: {
+        
+        department: "Department of Human Services",
+        label: "Office of Early Childhood Division of Early Care & Learning",
+        logo: "co_cdhs_off_ear_dec_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Early Childhood Division of Early Care & Learning Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1625 Sherman Street, Denver, CO"
+    },
+    cdhs_off_ear: {
+        
+        department: "Department of Human Services",
+        label: "Office of Early Childhood ",
+        logo: "co_cdhs_off_ear_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Early Childhood  Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1626 Sherman Street, Denver, CO"
+    },
+    cdhs_off_econ_dcs: {
+        
+        department: "Department of Human Services",
+        label: "Office of Economic Security ",
+        logo: "co_cdhs_off_econ_dcs_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Economic Security  Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1627 Sherman Street, Denver, CO"
+    },
+    cdhs_off_econ_dews_email_53pc_2: {
+        
+        department: "Department of Human Services",
+        label: "Office of Economic Security Division of Economic & Workforce Support",
+        logo: "co_cdhs_off_econ_dews_rgb_email_53pc_2.png",
+        alt: "Department of Human Services Office of Economic Security Division of Economic & Workforce Support Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1628 Sherman Street, Denver, CO"
+    },
+    cdhs_off_econ_dfe: {
+        
+        department: "Department of Human Services",
+        label: "Office of Economic Security Division of Food & Energy Assistance",
+        logo: "co_cdhs_off_econ_dfe_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Economic Security Division of Food & Energy Assistance Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1629 Sherman Street, Denver, CO"
+    },
+    cdhs_off_econ_oes_sebt: {
+        
+        department: "Department of Human Services",
+        label: "Office of Economic Security Summer EBT Program Division of Food & Energy Assistance",
+        logo: "co_cdhs_off_econ_oes_sebt_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Economic Security Summer EBT Program Division of Food & Energy Assistance Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1630 Sherman Street, Denver, CO"
+    },
+    cdhs_off_econ: {
+        
+        department: "Department of Human Services",
+        label: "Office of Economic Security ",
+        logo: "co_cdhs_off_econ_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Economic Security  Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1631 Sherman Street, Denver, CO"
+    },
+    cdhs_off_econ_snap: {
+        
+        department: "Department of Human Services",
+        label: "SNAP-Ed Division of Food & Energy Assistance",
+        logo: "co_cdhs_off_econ_snap_rgb_email_53pc.png",
+        alt: "Department of Human Services SNAP-Ed Division of Food & Energy Assistance Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1632 Sherman Street, Denver, CO"
+    },
+    cdhs_off_fs_acc: {
+        
+        department: "Department of Human Services",
+        label: "Financial Servicies Division or Acoounting",
+        logo: "co_cdhs_off_fs_acc_rgb_email_53pc.png",
+        alt: "Department of Human Services Financial Servicies Division or Acoounting Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1633 Sherman Street, Denver, CO"
+    },
+    cdhs_off_fs_dbp: {
+        
+        department: "Department of Human Services",
+        label: "Financial Servicies Division of Budget & Policy",
+        logo: "co_cdhs_off_fs_dbp_rgb_email_53pc.png",
+        alt: "Department of Human Services Financial Servicies Division of Budget & Policy Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1634 Sherman Street, Denver, CO"
+    },
+    cdhs_off_fs_dcp: {
+        
+        department: "Department of Human Services",
+        label: "Financial Servicies Division of Contracts & Procurement",
+        logo: "co_cdhs_off_fs_dcp_rgb_email_53pc.png",
+        alt: "Department of Human Services Financial Servicies Division of Contracts & Procurement Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1635 Sherman Street, Denver, CO"
+    },
+    cdhs_off_fs: {
+        
+        department: "Department of Human Services",
+        label: "Financial Servicies ",
+        logo: "co_cdhs_off_fs_rgb_email_53pc.png",
+        alt: "Department of Human Services Financial Servicies  Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1636 Sherman Street, Denver, CO"
+    },
+    cdhs_off_oes_fdp: {
+        
+        department: "Department of Human Services",
+        label: "Office of Economic Security Food Distribution Programs",
+        logo: "co_cdhs_off_oes_fdp_rgb_email_53pc.png",
+        alt: "Department of Human Services Office of Economic Security Food Distribution Programs Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1637 Sherman Street, Denver, CO"
+    },
+    cdhs_off_so: {
+        
+        department: "Department of Human Services",
+        label: "Strategy Office",
+        logo: "co_cdhs_off_so_rgb_email_53pc.png",
+        alt: "Department of Human Services Strategy Office Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1638 Sherman Street, Denver, CO"
+    },
+    cdhs_off_sos: {
+        
+        department: "Department of Human Services",
+        label: "Strategic Operations and Sctutions",
+        logo: "co_cdhs_off_sos_rgb_email_53pc.png",
+        alt: "Department of Human Services Strategic Operations and Sctutions Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1639 Sherman Street, Denver, CO"
+    },
+    cdhs_pr_bhtf: {
+        
+        department: "Department of Human Services",
+        label: "Behavioral Health Task Force",
+        logo: "co_cdhs_pr_bhtf_rgb_email_53pc.png",
+        alt: "Department of Human Services Behavioral Health Task Force Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1640 Sherman Street, Denver, CO"
+    },
+    cdhs_pr_crsp: {
+        
+        department: "Department of Human Services",
+        label: "Colorado Rufugee Services Program",
+        logo: "co_cdhs_pr_crsp_rgb_email_53pc.png",
+        alt: "Department of Human Services Colorado Rufugee Services Program Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1641 Sherman Street, Denver, CO"
+    },
+    cdhs_pr_edi: {
+        
+        department: "Department of Human Services",
+        label: "Equity, Diversity, and Inclusion",
+        logo: "co_cdhs_pr_edi_rgb_email_53pc.png",
+        alt: "Department of Human Services Equity, Diversity, and Inclusion Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1642 Sherman Street, Denver, CO"
+    },
+    cdhs_pr_empl: {
+        
+        department: "Department of Human Services",
+        label: "Employee Council",
+        logo: "co_cdhs_pr_empl_rgb_email_53pc.png",
+        alt: "Department of Human Services Employee Council Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1643 Sherman Street, Denver, CO"
+    },
+    cdhs_pr_ffit: {
+        
+        department: "Department of Human Services",
+        label: "Family First Prevention Services Act Implementation Team",
+        logo: "co_cdhs_pr_ffit_rgb_email_53pc.png",
+        alt: "Department of Human Services Family First Prevention Services Act Implementation Team Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1644 Sherman Street, Denver, CO"
+    },
+    cdhs_pr_fvc: {
+        
+        department: "Department of Human Services",
+        label: "Family Voice Council",
+        logo: "co_cdhs_pr_fvc_rgb_email_53pc.png",
+        alt: "Department of Human Services Family Voice Council Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1645 Sherman Street, Denver, CO"
+    },
+    cdhs_pr_mind: {
+        
+        department: "Department of Human Services",
+        label: "Mindsource Brain Injury Network",
+        logo: "co_cdhs_pr_mind_rgb_email_53pc.png",
+        alt: "Department of Human Services Mindsource Brain Injury Network Logo",
+        website: "https://cdhs.colorado.gov/",
+        address: "1646 Sherman Street, Denver, CO"
+    },
+    cdle_dept: {
+        
+        department: "Department of Labor and Employment",
+        label: "Department of Labor and Employment",
+        logo: "co_cdle__dept_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1647 Sherman Street, Denver, CO"
+    },
+    cdle_div_dev: {
+        
+        department: "Department of Labor and Employment",
+        label: "Workforce Development Programs",
+        logo: "co_cdle_div_dev_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Workforce Development Programs Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1648 Sherman Street, Denver, CO"
+    },
+    cdle_div_emp_1: {
+        
+        department: "Department of Labor and Employment",
+        label: "Division of Employment and Training",
+        logo: "co_cdle_div_emp_1_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Division of Employment and Training Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1649 Sherman Street, Denver, CO"
+    },
+    cdle_div_lab_1: {
+        
+        department: "Department of Labor and Employment",
+        label: "Division of Labor Standards and Statistics",
+        logo: "co_cdle_div_lab_1_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Division of Labor Standards and Statistics Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1650 Sherman Street, Denver, CO"
+    },
+    cdle_div_oil_1: {
+        
+        department: "Department of Labor and Employment",
+        label: "Division of Oil and Public Safety",
+        logo: "co_cdle_div_oil_1_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Division of Oil and Public Safety Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1651 Sherman Street, Denver, CO"
+    },
+    cdle_div_unem_1: {
+        
+        department: "Department of Labor and Employment",
+        label: "Division of Unemployment Insurance",
+        logo: "co_cdle_div_unem_1_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Division of Unemployment Insurance Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1652 Sherman Street, Denver, CO"
+    },
+    cdle_div_voc_1: {
+        
+        department: "Department of Labor and Employment",
+        label: "Division of Vocational Rehabilitation",
+        logo: "co_cdle_div_voc_1_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Division of Vocational Rehabilitation Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1653 Sherman Street, Denver, CO"
+    },
+    cdle_div_work_1: {
+        
+        department: "Department of Labor and Employment",
+        label: "Division of Workers· Compensation",
+        logo: "co_cdle_div_work_1_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Division of Workers· Compensation Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1654 Sherman Street, Denver, CO"
+    },
+    cdle_fac: {
+        
+        department: "Department of Labor and Employment",
+        label: "Facilities",
+        logo: "co_cdle_fac_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Facilities Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1655 Sherman Street, Denver, CO"
+    },
+    cdle_int_aud: {
+        
+        department: "Department of Labor and Employment",
+        label: "Internal Audits",
+        logo: "co_cdle_int_aud_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Internal Audits Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1656 Sherman Street, Denver, CO"
+    },
+    cdle_off_budg: {
+        
+        department: "Department of Labor and Employment",
+        label: "Budget Office",
+        logo: "co_cdle_off_budg_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Budget Office Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1657 Sherman Street, Denver, CO"
+    },
+    cdle_off_fin: {
+        
+        department: "Department of Labor and Employment",
+        label: "Finance",
+        logo: "co_cdle_off_fin_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Finance Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1658 Sherman Street, Denver, CO"
+    },
+    cdle_off_gov: {
+        
+        department: "Department of Labor and Employment",
+        label: "Office of Government Policy and Public Relations",
+        logo: "co_cdle_off_gov_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Office of Government Policy and Public Relations Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1659 Sherman Street, Denver, CO"
+    },
+    cdle_off_hrp: {
+        
+        department: "Department of Labor and Employment",
+        label: "Office of Human Resources and Personnel",
+        logo: "co_cdle_off_hrp_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Office of Human Resources and Personnel Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1660 Sherman Street, Denver, CO"
+    },
+    cdle_off_ils_dvr: {
+        
+        department: "Department of Labor and Employment",
+        label: "Office of Independent Living Services",
+        logo: "co_cdle_off_ils_dvr_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Office of Independent Living Services Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1661 Sherman Street, Denver, CO"
+    },
+    cdle_off_ind_1: {
+        
+        department: "Department of Labor and Employment",
+        label: "Industrial Claims Appeals Office",
+        logo: "co_cdle_off_ind_1_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Industrial Claims Appeals Office Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1662 Sherman Street, Denver, CO"
+    },
+    cdle_off_lab_1: {
+        
+        department: "Department of Labor and Employment",
+        label: "Office of Labor Marking Information",
+        logo: "co_cdle_off_lab_1_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Office of Labor Marking Information Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1663 Sherman Street, Denver, CO"
+    },
+    cdle_off_org: {
+        
+        department: "Department of Labor and Employment",
+        label: "Organizational Development and Training",
+        logo: "co_cdle_off_org_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Organizational Development and Training Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1664 Sherman Street, Denver, CO"
+    },
+    cdle_off_proc: {
+        
+        department: "Department of Labor and Employment",
+        label: "Office of Procurement and Contract Services",
+        logo: "co_cdle_off_proc_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Office of Procurement and Contract Services Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1665 Sherman Street, Denver, CO"
+    },
+    cdle_pr_efap: {
+        
+        department: "Department of Labor and Employment",
+        label: "Employment First Advisory Partnership",
+        logo: "co_cdle_pr_efap_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Employment First Advisory Partnership Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1666 Sherman Street, Denver, CO"
+    },
+    cdle_pr_famli: {
+        
+        department: "Department of Labor and Employment",
+        label: "Family and Medical Leave Insurance Program (FAMLI)",
+        logo: "co_cdle_pr_famli_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Family and Medical Leave Insurance Program (FAMLI) Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1667 Sherman Street, Denver, CO"
+    },
+    cdle_pr_pess: {
+        
+        department: "Department of Labor and Employment",
+        label: "Public Employee Social Security Program",
+        logo: "co_cdle_pr_pess_rgb_email_53pc.png",
+        alt: "Department of Labor and Employment Public Employee Social Security Program Logo",
+        website: "https://cdle.colorado.gov/",
+        address: "1668 Sherman Street, Denver, CO"
+    },
+    cdoc_dept: {
+        
+        department: "Department of Corrections",
+        label: "Department of Corrections",
+        logo: "co_cdoc__dept_rgb_email_53pc.png",
+        alt: "Department of Corrections Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1669 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_ark: {
+        
+        department: "Department of Corrections",
+        label: "Arkansas Valley Correctional Facility",
+        logo: "co_cdoc_corr_ark_rgb_email_53pc.png",
+        alt: "Department of Corrections Arkansas Valley Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1670 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_arro: {
+        
+        department: "Department of Corrections",
+        label: "Arrowhead Correctional Center",
+        logo: "co_cdoc_corr_arro_rgb_email_53pc.png",
+        alt: "Department of Corrections Arrowhead Correctional Center Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1671 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_buen: {
+        
+        department: "Department of Corrections",
+        label: "Buena Vista Correctional Complex",
+        logo: "co_cdoc_corr_buen_rgb_email_53pc.png",
+        alt: "Department of Corrections Buena Vista Correctional Complex Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1672 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_canon: {
+        
+        department: "Department of Corrections",
+        label: "Canon Minimum Centers",
+        logo: "co_cdoc_corr_canon_rgb_email_53pc.png",
+        alt: "Department of Corrections Canon Minimum Centers Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1673 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_cent: {
+        
+        department: "Department of Corrections",
+        label: "Centennial Correctional Facility",
+        logo: "co_cdoc_corr_cent_rgb_email_53pc.png",
+        alt: "Department of Corrections Centennial Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1674 Sherman Street, Denver, CO"
+    },
+    cdoc_corr: {
+        
+        department: "Department of Corrections",
+        label: "Co1orado Correctional Center",
+        logo: "co_cdoc_corr_co_rgb_email_53pc.png",
+        alt: "Department of Corrections Co1orado Correctional Center Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1675 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_cost: {
+        
+        department: "Department of Corrections",
+        label: "Colorado State Penitentiary",
+        logo: "co_cdoc_corr_cost_rgb_email_53pc.png",
+        alt: "Department of Corrections Colorado State Penitentiary Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1676 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_cote: {
+        
+        department: "Department of Corrections",
+        label: "Colorado Territorial Correctional Facility",
+        logo: "co_cdoc_corr_cote_rgb_email_53pc.png",
+        alt: "Department of Corrections Colorado Territorial Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1677 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_del: {
+        
+        department: "Department of Corrections",
+        label: "Delta Correctional Center",
+        logo: "co_cdoc_corr_del_rgb_email_53pc.png",
+        alt: "Department of Corrections Delta Correctional Center Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1678 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_dencom: {
+        
+        department: "Department of Corrections",
+        label: "Denver Complex",
+        logo: "co_cdoc_corr_dencom_rgb_email_53pc.png",
+        alt: "Department of Corrections Denver Complex Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1679 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_denv: {
+        
+        department: "Department of Corrections",
+        label: "Denver Reception & Diagnostic Center",
+        logo: "co_cdoc_corr_denv_rgb_email_53pc.png",
+        alt: "Department of Corrections Denver Reception & Diagnostic Center Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1680 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_denw: {
+        
+        department: "Department of Corrections",
+        label: "Denver Women's Correctional Facility",
+        logo: "co_cdoc_corr_denw_rgb_email_53pc.png",
+        alt: "Department of Corrections Denver Women's Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1681 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_four: {
+        
+        department: "Department of Corrections",
+        label: "Four Mile Correctional Facility",
+        logo: "co_cdoc_corr_four_rgb_email_53pc.png",
+        alt: "Department of Corrections Four Mile Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1682 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_frem: {
+        
+        department: "Department of Corrections",
+        label: "Fremont Correctional Facility",
+        logo: "co_cdoc_corr_frem_rgb_email_53pc.png",
+        alt: "Department of Corrections Fremont Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1683 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_lavi: {
+        
+        department: "Department of Corrections",
+        label: "La Visa Correctional Facility",
+        logo: "co_cdoc_corr_lavi_rgb_email_53pc.png",
+        alt: "Department of Corrections La Visa Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1684 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_lim: {
+        
+        department: "Department of Corrections",
+        label: "Limon Correctional Facility",
+        logo: "co_cdoc_corr_lim_rgb_email_53pc.png",
+        alt: "Department of Corrections Limon Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1685 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_rif: {
+        
+        department: "Department of Corrections",
+        label: "Rifle Correctional Facility",
+        logo: "co_cdoc_corr_rif_rgb_email_53pc.png",
+        alt: "Department of Corrections Rifle Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1686 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_sanc: {
+        
+        department: "Department of Corrections",
+        label: "San Carlos Correctional Facility",
+        logo: "co_cdoc_corr_sanc_rgb_email_53pc.png",
+        alt: "Department of Corrections San Carlos Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1687 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_sky: {
+        
+        department: "Department of Corrections",
+        label: "Skyline Correctional Facility",
+        logo: "co_cdoc_corr_sky_rgb_email_53pc.png",
+        alt: "Department of Corrections Skyline Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1688 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_ster: {
+        
+        department: "Department of Corrections",
+        label: "Sterling Correctional Facility",
+        logo: "co_cdoc_corr_ster_rgb_email_53pc.png",
+        alt: "Department of Corrections Sterling Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1689 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_trin: {
+        
+        department: "Department of Corrections",
+        label: "Trinidad Correctional Facility",
+        logo: "co_cdoc_corr_trin_rgb_email_53pc.png",
+        alt: "Department of Corrections Trinidad Correctional Facility Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1690 Sherman Street, Denver, CO"
+    },
+    cdoc_corr_yos: {
+        
+        department: "Department of Corrections",
+        label: "Youthful Offender System",
+        logo: "co_cdoc_corr_yos_rgb_email_53pc.png",
+        alt: "Department of Corrections Youthful Offender System Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1691 Sherman Street, Denver, CO"
+    },
+    cdoc_div_adul: {
+        
+        department: "Department of Corrections",
+        label: "Division of Adult Parole",
+        logo: "co_cdoc_div_adul_rgb_email_53pc.png",
+        alt: "Department of Corrections Division of Adult Parole Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1692 Sherman Street, Denver, CO"
+    },
+    cdoc_off_ccs: {
+        
+        department: "Department of Corrections",
+        label: "Office of Clinical & Correctional Services",
+        logo: "co_cdoc_off_ccs_rgb_email_53pc.png",
+        alt: "Department of Corrections Office of Clinical & Correctional Services Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1693 Sherman Street, Denver, CO"
+    },
+    cdoc_off_cspccf: {
+        
+        department: "Department of Corrections",
+        label: "CSP/CCF",
+        logo: "co_cdoc_off_cspccf_rgb_email_53pc.png",
+        alt: "Department of Corrections CSP/CCF Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1694 Sherman Street, Denver, CO"
+    },
+    cdoc_off_dop: {
+        
+        department: "Department of Corrections",
+        label: "Office of the Director of Prisons",
+        logo: "co_cdoc_off_dop_rgb_email_53pc.png",
+        alt: "Department of Corrections Office of the Director of Prisons Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1695 Sherman Street, Denver, CO"
+    },
+    cdoc_off_exec: {
+        
+        department: "Department of Corrections",
+        label: "Office of the Executive Director",
+        logo: "co_cdoc_off_exec_rgb_email_53pc.png",
+        alt: "Department of Corrections Office of the Executive Director Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1696 Sherman Street, Denver, CO"
+    },
+    cdoc_off_faa: {
+        
+        department: "Department of Corrections",
+        label: "Office of Finance & Administration",
+        logo: "co_cdoc_off_faa_rgb_email_53pc.png",
+        alt: "Department of Corrections Office of Finance & Administration Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1697 Sherman Street, Denver, CO"
+    },
+    cdoc_off_hum: {
+        
+        department: "Department of Corrections",
+        label: "Office of Human Resources",
+        logo: "co_cdoc_off_hum_rgb_email_53pc.png",
+        alt: "Department of Corrections Office of Human Resources Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1698 Sherman Street, Denver, CO"
+    },
+    cdoc_off_insp: {
+        
+        department: "Department of Corrections",
+        label: "Office of the Inspector General",
+        logo: "co_cdoc_off_insp_rgb_email_53pc.png",
+        alt: "Department of Corrections Office of the Inspector General Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1699 Sherman Street, Denver, CO"
+    },
+    cdoc_off_lvcfsccf: {
+        
+        department: "Department of Corrections",
+        label: "LVCF/SCCF",
+        logo: "co_cdoc_off_lvcfsccf_rgb_email_53pc.png",
+        alt: "Department of Corrections LVCF/SCCF Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1700 Sherman Street, Denver, CO"
+    },
+    cdoc_off_spb: {
+        
+        department: "Department of Corrections",
+        label: "State Board of Parole",
+        logo: "co_cdoc_off_spb_rgb_email_53pc.png",
+        alt: "Department of Corrections State Board of Parole Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1701 Sherman Street, Denver, CO"
+    },
+    cdoc_pr_decorum: {
+        
+        department: "Department of Corrections",
+        label: "Offender Record Management System",
+        logo: "co_cdoc_pr_decorum_rgb_email_53pc.png",
+        alt: "Department of Corrections Offender Record Management System Logo",
+        website: "https://cdoc.colorado.gov/",
+        address: "1702 Sherman Street, Denver, CO"
+    },
+    cdphe_dept: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Department of Public Health & Environment",
+        logo: "co_cdphe__dept_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1703 Sherman Street, Denver, CO"
+    },
+    cdphe_admin: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Administration",
+        logo: "co_cdphe_admin_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Administration Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1704 Sherman Street, Denver, CO"
+    },
+    cdphe_cent_heal: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Center for Health & Environmental Data",
+        logo: "co_cdphe_cent_heal_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Center for Health & Environmental Data Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1705 Sherman Street, Denver, CO"
+    },
+    cdphe_com_air: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Air Quality Control Commission",
+        logo: "co_cdphe_com_air_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Air Quality Control Commission Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1706 Sherman Street, Denver, CO"
+    },
+    cdphe_com_frwdbod: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Front Range Waste Diversion Enterprise Board of Directors",
+        logo: "co_cdphe_com_frwdbod_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Front Range Waste Diversion Enterprise Board of Directors Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1707 Sherman Street, Denver, CO"
+    },
+    cdphe_com_haz: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Solid & Hazardous Waste Commission",
+        logo: "co_cdphe_com_haz_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Solid & Hazardous Waste Commission Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1708 Sherman Street, Denver, CO"
+    },
+    cdphe_com_poll: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Pollution Prevention Advisory Board",
+        logo: "co_cdphe_com_poll_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Pollution Prevention Advisory Board Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1709 Sherman Street, Denver, CO"
+    },
+    cdphe_com_waste: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Water & Wastewater Facility Operators Certification Board",
+        logo: "co_cdphe_com_waste_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Water & Wastewater Facility Operators Certification Board Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1710 Sherman Street, Denver, CO"
+    },
+    cdphe_com_water: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Water Quality Control Commission",
+        logo: "co_cdphe_com_water_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Water Quality Control Commission Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1711 Sherman Street, Denver, CO"
+    },
+    cdphe_div_air: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Air Pollution Control Division",
+        logo: "co_cdphe_div_air_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Air Pollution Control Division Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1712 Sherman Street, Denver, CO"
+    },
+    cdphe_div_comm: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Community Relations Division",
+        logo: "co_cdphe_div_comm_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Community Relations Division Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1713 Sherman Street, Denver, CO"
+    },
+    cdphe_div_dcphr: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Disease Control and Public Health Response",
+        logo: "co_cdphe_div_dcphr_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Disease Control and Public Health Response Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1714 Sherman Street, Denver, CO"
+    },
+    cdphe_div_env: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Division of Environmental Health & Sustainability",
+        logo: "co_cdphe_div_env_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Division of Environmental Health & Sustainability Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1715 Sherman Street, Denver, CO"
+    },
+    cdphe_div_haz: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Hazardous Materials & Waste Management Division",
+        logo: "co_cdphe_div_haz_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Hazardous Materials & Waste Management Division Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1716 Sherman Street, Denver, CO"
+    },
+    cdphe_div_heal: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Health Facilities & Emergency Medical Services Division",
+        logo: "co_cdphe_div_heal_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Health Facilities & Emergency Medical Services Division Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1717 Sherman Street, Denver, CO"
+    },
+    cdphe_div_lab: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Laboratory Services Division",
+        logo: "co_cdphe_div_lab_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Laboratory Services Division Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1718 Sherman Street, Denver, CO"
+    },
+    cdphe_div_prev_cpc: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Prevention Services Division Cancer Prevention & Control ",
+        logo: "co_cdphe_div_prev_cpc_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Prevention Services Division Cancer Prevention & Control  Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1719 Sherman Street, Denver, CO"
+    },
+    cdphe_div_prev: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Prevention Services Division",
+        logo: "co_cdphe_div_prev_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Prevention Services Division Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1720 Sherman Street, Denver, CO"
+    },
+    cdphe_div_water: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Water Quality Control Division",
+        logo: "co_cdphe_div_water_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Water Quality Control Division Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1721 Sherman Street, Denver, CO"
+    },
+    cdphe_irb: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Institutional Review Board",
+        logo: "co_cdphe_irb_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Institutional Review Board Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1722 Sherman Street, Denver, CO"
+    },
+    cdphe_off_budg: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Budget",
+        logo: "co_cdphe_off_budg_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Budget Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1723 Sherman Street, Denver, CO"
+    },
+    cdphe_off_comm: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Office of Communications",
+        logo: "co_cdphe_off_comm_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Office of Communications Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1724 Sherman Street, Denver, CO"
+    },
+    cdphe_off_ej: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Office of Environmental Justice",
+        logo: "co_cdphe_off_ej_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Office of Environmental Justice Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1725 Sherman Street, Denver, CO"
+    },
+    cdphe_off_emer: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Office of Emergency Preparedness & Response",
+        logo: "co_cdphe_off_emer_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Office of Emergency Preparedness & Response Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1726 Sherman Street, Denver, CO"
+    },
+    cdphe_off_fin: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Financial Services",
+        logo: "co_cdphe_off_fin_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Financial Services Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1727 Sherman Street, Denver, CO"
+    },
+    cdphe_off_gran: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Grants, Purchasing & Contracts",
+        logo: "co_cdphe_off_gran_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Grants, Purchasing & Contracts Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1728 Sherman Street, Denver, CO"
+    },
+    cdphe_off_he: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Office of Health Equity",
+        logo: "co_cdphe_off_he_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Office of Health Equity Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1729 Sherman Street, Denver, CO"
+    },
+    cdphe_off_hr: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Office of Human Resources",
+        logo: "co_cdphe_off_hr_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Office of Human Resources Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1730 Sherman Street, Denver, CO"
+    },
+    cdphe_off_leg: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Office of Legal & Regulatory Compliance",
+        logo: "co_cdphe_off_leg_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Office of Legal & Regulatory Compliance Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1731 Sherman Street, Denver, CO"
+    },
+    cdphe_off_php_lpha: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Office of Public Health Practice, Planning, & Local Partnerships Local Public Health & Environmental Resources",
+        logo: "co_cdphe_off_php_lpha_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Office of Public Health Practice, Planning, & Local Partnerships Local Public Health & Environmental Resources Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1732 Sherman Street, Denver, CO"
+    },
+    cdphe_off_php: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Office of Public Health Practice, Planning, & Local Partnerships",
+        logo: "co_cdphe_off_php_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Office of Public Health Practice, Planning, & Local Partnerships Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1733 Sherman Street, Denver, CO"
+    },
+    cdphe_off_spi: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Office of Strategy, Performance, and Innovation",
+        logo: "co_cdphe_off_spi_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Office of Strategy, Performance, and Innovation Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1734 Sherman Street, Denver, CO"
+    },
+    cdphe_off_State_Registrar: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Office of the State Registrar of Vital Statistics",
+        logo: "co_cdphe_off_State_Registrar_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Office of the State Registrar of Vital Statistics Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1735 Sherman Street, Denver, CO"
+    },
+    cdphe_off_sti_hiv_vh: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Office of STI/HIV/Viral Hepatitis",
+        logo: "co_cdphe_off_sti-hiv-vh_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Office of STI/HIV/Viral Hepatitis Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1736 Sherman Street, Denver, CO"
+    },
+    cdphe_off_strat: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Office of Strategy & Performance",
+        logo: "co_cdphe_off_strat_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Office of Strategy & Performance Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1737 Sherman Street, Denver, CO"
+    },
+    cdphe_pr_aqe: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Air Quality Enterprise",
+        logo: "co_cdphe_pr_aqe_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Air Quality Enterprise Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1738 Sherman Street, Denver, CO"
+    },
+    cdphe_pr_can: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Colorado Cannabis",
+        logo: "co_cdphe_pr_can_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Colorado Cannabis Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1739 Sherman Street, Denver, CO"
+    },
+    cdphe_pr_cares: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Colorado Alliance for Resilient & Equitable Systems Servicing the Health Care & Public Health Workforce",
+        logo: "co_cdphe_pr_cares_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Colorado Alliance for Resilient & Equitable Systems Servicing the Health Care & Public Health Workforce Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1740 Sherman Street, Denver, CO"
+    },
+    cdphe_pr_coves: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Colorado Vital Events Systems",
+        logo: "co_cdphe_pr_coves_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Colorado Vital Events Systems Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1741 Sherman Street, Denver, CO"
+    },
+    cdphe_pr_elp: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Enrivonmental Leadership Program",
+        logo: "co_cdphe_pr_elp_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Enrivonmental Leadership Program Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1742 Sherman Street, Denver, CO"
+    },
+    cdphe_pr_emtsb: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Emergency Medical and Trauma Services Branch",
+        logo: "co_cdphe_pr_emtsb_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Emergency Medical and Trauma Services Branch Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1743 Sherman Street, Denver, CO"
+    },
+    cdphe_pr_gbn: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Green Business Network",
+        logo: "co_cdphe_pr_gbn_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Green Business Network Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1744 Sherman Street, Denver, CO"
+    },
+    cdphe_pr_gbp: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Green Business Program",
+        logo: "co_cdphe_pr_gbp_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Green Business Program Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1745 Sherman Street, Denver, CO"
+    },
+    cdphe_pr_medmj: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Colorado Medical Marijuana",
+        logo: "co_cdphe_pr_medmj_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Colorado Medical Marijuana Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1746 Sherman Street, Denver, CO"
+    },
+    cdphe_pr_mmr: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Colorado Medical Marijuana Registry",
+        logo: "co_cdphe_pr_mmr_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Colorado Medical Marijuana Registry Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1747 Sherman Street, Denver, CO"
+    },
+    cdphe_pr_mphc: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Colorado Mobile Public Health Clinic",
+        logo: "co_cdphe_pr_mphc_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Colorado Mobile Public Health Clinic Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1748 Sherman Street, Denver, CO"
+    },
+    cdphe_pr_newborn_dcphr: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Division of Disease Control and Public Health Response Newborn Screening Program",
+        logo: "co_cdphe_pr_newborn_dcphr_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Division of Disease Control and Public Health Response Newborn Screening Program Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1749 Sherman Street, Denver, CO"
+    },
+    cdphe_privacy: {
+        
+        department: "Department of Public Health & Environment",
+        label: "Privacy Board",
+        logo: "co_cdphe_privacy_rgb_email_53pc.png",
+        alt: "Department of Public Health & Environment Privacy Board Logo",
+        website: "https://cdphe.colorado.gov/",
+        address: "1750 Sherman Street, Denver, CO"
+    },
+    dpa_dept_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Department of Personnel & Administration",
+        logo: "co_dpa__dept_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1751 Sherman Street, Denver, CO"
+    },
+    dpa_dept_ed_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Executive Director's Office",
+        logo: "co_dpa_dept_ed_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Executive Director's Office Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1752 Sherman Street, Denver, CO"
+    },
+    dpa_div_cap_cca_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Division of Capital Assets Capitol Complex Architects",
+        logo: "co_dpa_div_cap_cca_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Division of Capital Assets Capitol Complex Architects Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1753 Sherman Street, Denver, CO"
+    },
+    dpa_div_cap_ccf_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Division of Capital Assets Capitol Complex Facilities",
+        logo: "co_dpa_div_cap_ccf_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Division of Capital Assets Capitol Complex Facilities Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1754 Sherman Street, Denver, CO"
+    },
+    dpa_div_cap_ccm_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Division of Capital Assets Capitol Complex Management",
+        logo: "co_dpa_div_cap_ccm_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Division of Capital Assets Capitol Complex Management Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1755 Sherman Street, Denver, CO"
+    },
+    dpa_div_cap_fleet_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Division of Capital Assets State Fleet Management",
+        logo: "co_dpa_div_cap_fleet_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Division of Capital Assets State Fleet Management Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1756 Sherman Street, Denver, CO"
+    },
+    dpa_div_cap_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Division of Capital Assets ",
+        logo: "co_dpa_div_cap_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Division of Capital Assets  Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1757 Sherman Street, Denver, CO"
+    },
+    dpa_div_dcs_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Division of Central Services ",
+        logo: "co_dpa_div_dcs_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Division of Central Services  Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1758 Sherman Street, Denver, CO"
+    },
+    dpa_div_dhr_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Division of Human Resources",
+        logo: "co_dpa_div_dhr_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Division of Human Resources Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1759 Sherman Street, Denver, CO"
+    },
+    dpa_div_dhr_risk_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Risk Management",
+        logo: "co_dpa_div_dhr_risk_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Risk Management Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1760 Sherman Street, Denver, CO"
+    },
+    dpa_div_osa_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Office of the State Architect",
+        logo: "co_dpa_div_osa_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Office of the State Architect Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1761 Sherman Street, Denver, CO"
+    },
+    dpa_div_osc_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Office of the State Controller",
+        logo: "co_dpa_div_osc_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Office of the State Controller Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1762 Sherman Street, Denver, CO"
+    },
+    dpa_off_seo: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Statewide Equity Office",
+        logo: "co_dpa_off_seo_rgb_email_53pc.png",
+        alt: "Department of Personnel & Administration Statewide Equity Office Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1763 Sherman Street, Denver, CO"
+    },
+    dpa_off_sprgb_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "State Purchasing & Contracts Office",
+        logo: "co_dpa_off_spco_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration State Purchasing & Contracts Office Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1764 Sherman Street, Denver, CO"
+    },
+    dpa_off_sust: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Sustainability",
+        logo: "co_dpa_off_sust_rgb_email_53pc.png",
+        alt: "Department of Personnel & Administration Sustainability Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1765 Sherman Street, Denver, CO"
+    },
+    dpa_pr_access_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "ACCESS Colorado",
+        logo: "co_dpa_pr_access_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration ACCESS Colorado Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1766 Sherman Street, Denver, CO"
+    },
+    dpa_pr_access_srto_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "ACCESS Colorado Supplier Resources, Training & Outreach",
+        logo: "co_dpa_pr_access_srto_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration ACCESS Colorado Supplier Resources, Training & Outreach Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1767 Sherman Street, Denver, CO"
+    },
+    dpa_pr_acp_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Address Confidentiality Program",
+        logo: "co_dpa_pr_acp_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Address Confidentiality Program Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1768 Sherman Street, Denver, CO"
+    },
+    dpa_pr_careers_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Careers",
+        logo: "co_dpa_pr_careers_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Careers Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1769 Sherman Street, Denver, CO"
+    },
+    dpa_pr_cccemail_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Colorado Combined Campaign",
+        logo: "co_dpa_pr_ccc_rgbemail_46pc.png",
+        alt: "Department of Personnel & Administration Colorado Combined Campaign Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1770 Sherman Street, Denver, CO"
+    },
+    dpa_pr_ccs_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Central Collection Services",
+        logo: "co_dpa_pr_ccs_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Central Collection Services Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1771 Sherman Street, Denver, CO"
+    },
+    dpa_pr_compas_email53pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "COMPAS",
+        logo: "co_dpa_pr_compas_rgb_email53pc.png",
+        alt: "Department of Personnel & Administration COMPAS Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1772 Sherman Street, Denver, CO"
+    },
+    dpa_pr_compas_tg: {
+        
+        department: "Department of Personnel & Administration",
+        label: "COMPAS Trail Guides",
+        logo: "co_dpa_pr_compas_tg_rgb_email_53pc.png",
+        alt: "Department of Personnel & Administration COMPAS Trail Guides Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1773 Sherman Street, Denver, CO"
+    },
+    dpa_pr_core_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "CORE Colorado Operations Resource Engine",
+        logo: "co_dpa_pr_core_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration CORE Colorado Operations Resource Engine Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1774 Sherman Street, Denver, CO"
+    },
+    dpa_pr_cvss_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "ColoradoVSS Vendor Self Service",
+        logo: "co_dpa_pr_cvss_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration ColoradoVSS Vendor Self Service Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1775 Sherman Street, Denver, CO"
+    },
+    dpa_pr_oac_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Office of Administrative Courts",
+        logo: "co_dpa_pr_oac_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Office of Administrative Courts Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1776 Sherman Street, Denver, CO"
+    },
+    dpa_pr_sa_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "State Archives",
+        logo: "co_dpa_pr_sa_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration State Archives Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1777 Sherman Street, Denver, CO"
+    },
+    dpa_pr_seap_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "State Employee Assistance Program (CSEAP)",
+        logo: "co_dpa_pr_seap_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration State Employee Assistance Program (CSEAP) Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1778 Sherman Street, Denver, CO"
+    },
+    dpa_pr_soh_swp_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "STATE OF HEALTH State Wellness Program",
+        logo: "co_dpa_pr_soh_swp_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration STATE OF HEALTH State Wellness Program Logo",
+        website: "https://coloradostateofhealth.com/",
+        address: "1779 Sherman Street, Denver, CO"
+    },
+    dpa_pr_spb_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "State Personnel Board",
+        logo: "co_dpa_pr_spb_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration State Personnel Board Logo",
+        website: "https://spb.colorado.gov",
+        address: "1780 Sherman Street, Denver, CO"
+    },
+    dpa_pr_swp_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "State Wellness Program",
+        logo: "co_dpa_pr_swp_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration State Wellness Program Logo",
+        website: "https://dhr.colorado.gov",
+        address: "1781 Sherman Street, Denver, CO"
+    },
+    dpa_sc_email_46pc: {
+        
+        department: "Department of Personnel & Administration",
+        label: "Colorado State Capitol",
+        logo: "co_dpa_sc_rgb_email_46pc.png",
+        alt: "Department of Personnel & Administration Colorado State Capitol Logo",
+        website: "https://dpa.colorado.gov/",
+        address: "1782 Sherman Street, Denver, CO"
+    }
+};
+// Department properties 
+const deptDetails = {
+cda: 
+ 	{ deptValues: "CDA's Values: Partnership | Service | Professionalism | Proactivity | Respect", accessibility: "https://ag.colorado.gov/state-of-colorado-accessibility-statement"} 
+ ,
+cde: 
+ 	{ deptValues: "CDE's Values: Integrity | Equity | Accountability | Trust | Services", accessibility: "https://www.cde.state.co.us/accessibility" } 
+ ,
+cdhe: 
+ 	{ deptValues: "CDHE's Values: Collaborative | Data-Driven | Inclusive | Student-Focused", accessibility: "https://cdhe.colorado.gov/accessibility-page" } 
+ ,
+cdhs: 
+ 	{ deptValues: "CDHS's Values: People-First Approach | Balance | Accountable | Transparency | Ethical | Ecollaboration", accessibility: "https://cdhs.colorado.gov/accessibility-at-cdhs"  } 
+ ,
+cdle: 
+ 	{ deptValues: "CDLE's Mission: Working together to promote a thriving employment environment with opportunity for every Coloradan to prosper.", accessibility: "https://cdle.colorado.gov/accessibility"  } 
+ ,
+cdoc: 
+ 	{ deptValues: "CDOC's Values: Community Safety | Dignity, Diversity and Respect | Opportunity |Collaborative Partnerships", accessibility: "https://cdoc.colorado.gov/cdoc-accessibility-support"  } 
+ ,
+cdphe: 
+ 	{ deptValues: "CDPHE's Mission: Advancing Colorado’s health and protecting the places where we live, learn, work, and play.", accessibility: "https://cdphe.colorado.gov/accessibility" } 
+ ,
+dpa: 
+ 	{ deptValues: "DPA Values: Inclusivity | Service | Teamwork | Integrity | Responsiveness | Transparency", accessibility: "https://dpa.colorado.gov/dpa-accessibility-support"  } 
+ ,
+gov: 
+ 	{ deptValues: "", accessibility: ""  } 
+ ,
+law: 
+ 	{ deptValues: "", accessibility: ""  } 
+ ,
+sos: 
+ 	{ deptValues: "", accessibility: ""  } 
+ ,
+treas: 
+ 	{ deptValues: "", accessibility: ""  } 
+ ,
+}
+ // Department -> Division mapping for dropdowns
+ const divisions = {
+ gov: [
+ 	{ value: "_gov_dept", label: "Office of the Governor" } 
+ ],
+ law: [
+ { value: "_law_email", label: "Department of Law" } 
+ ],
+ sos: [
+ 	{ value: "_state", label: "Secretary of State's Office" }
+ ],
+ treas: [
+ 	{ value: "_treas", label: "Department of the Treasury" }
+ ],
+ cda: [ 
+    {
+        value: "cda_pr_hp_email",
+        label: "Hemp Program"
+    },
+    {
+        value: "cda_div_aw_email",
+        label: "Division of Animal Welfare"
+    },
+    {
+        value: "cda_pr_wine_cda_email",
+        label: "Wine Industry Development Board"
+    }
+],
+cde: [
+    {
+        value: "cde_dept",
+        label: "Department of Education"
+    },
+    {
+        value: "cde_csl",
+        label: "State Library"
+    },
+    {
+        value: "cde_div_acc",
+        label: "Accountability, Performance and Support Divislon"
+    },
+    {
+        value: "cde_div_assess",
+        label: "Assessment Division"
+    },
+    {
+        value: "cde_div_cm_ed",
+        label: "Commissioner of Education"
+    },
+    {
+        value: "cde_div_com",
+        label: "Communicalions Division"
+    },
+    {
+        value: "cde_div_edtal",
+        label: "Educator Tatent Division"
+    },
+    {
+        value: "cde_div_icsp",
+        label: "Innovation Choice and Student Pathways Division"
+    },
+    {
+        value: "cde_div_ims",
+        label: "Information Management Services Division"
+    },
+    {
+        value: "cde_div_sfo",
+        label: "School Finance and Operations Division"
+    },
+    {
+        value: "cde_div_sl",
+        label: "State Library"
+    },
+    {
+        value: "cde_div_spu",
+        label: "Student Pathways Unit"
+    },
+    {
+        value: "cde_div_sqs",
+        label: "School Quality and Support Division"
+    },
+    {
+        value: "cde_off_pwrp",
+        label: "Office of Postsecondary and Workforce Readiness"
+    },
+    {
+        value: "cde_pr_csl",
+        label: "Colorado State Library"
+    },
+    {
+        value: "cde_pr_hestl",
+        label: "Highly Effective Schools Through Ubraries"
+    },
+    {
+        value: "cde_pr_rec",
+        label: "Rural Education Council"
+    },
+    {
+        value: "cde_pr_stem",
+        label: "Science, Technology, Engineering and Mathematics"
+    },
+    {
+        value: "cde_sl_boe",
+        label: "State Board of Education"
+    },
+    {
+        value: "cde_sl_cm_ka",
+        label: "Commissioner Kaly Anlhes. Ph.D."
+    }
+],
+cdhe: [
+    {
+        value: "cdhe_dept",
+        label: "Department of Higher Education"
+    },
+    {
+        value: "cdhe_dept_ed",
+        label: "Executive Director"
+    },
+    {
+        value: "cdhe_div_cche",
+        label: "Colorado Commission on Higher Education"
+    },
+    {
+        value: "cdhe_div_dpos",
+        label: "Division of Private Occupational Schools"
+    },
+    {
+        value: "cdhe_pr_casfa",
+        label: "Colorado Applications for State Financial Aid"
+    },
+    {
+        value: "cdhe_pr_cgu",
+        label: "Gear Up Colorado"
+    },
+    {
+        value: "cdhe_pr_checra",
+        label: "Higher Education Competitive Research Authority"
+    },
+    {
+        value: "cdhe_pr_cic",
+        label: "CollegeInColorado.org"
+    },
+    {
+        value: "cdhe_pr_cocap_h",
+        label: "Colorado Collegiate Apprenticeship Program"
+    },
+    {
+        value: "cdhe_pr_cosi",
+        label: "Colorado Opportunity Scholarship Initiative"
+    },
+    {
+        value: "cdhe_pr_cp",
+        label: "Colorado Promise"
+    },
+    {
+        value: "cdhe_pr_cs",
+        label: "Study Colorado"
+    },
+    {
+        value: "cdhe_pr_mcj_ns",
+        label: "My Colorado Journey"
+    }
+],
+cdhs:[
+    {
+        value: "cdhs_dept",
+        label: "Department of Human Services"
+    },
+    {
+        value: "cdhs_aps_CAPS",
+        label: "Adult Protective Services CAPS Check Unit"
+    },
+    {
+        value: "cdhs_aps_div_aas",
+        label: "Adult Protective Services Division of Aging & Adult Services"
+    },
+    {
+        value: "cdhs_brd_bc_email_53pc_2",
+        label: "Boards & Commissions"
+    },
+    {
+        value: "cdhs_brd_sbhs",
+        label: "State Board of Human Services"
+    },
+    {
+        value: "cdhs_comm_cdhd",
+        label: "Commission for the Deaf, Hard of Hearing, and DeafBlind"
+    },
+    {
+        value: "cdhs_comm",
+        label: "Communications"
+    },
+    {
+        value: "cdhs_commpart",
+        label: "Community Partnerships"
+    },
+    {
+        value: "cdhs_county",
+        label: "County Partnerships"
+    },
+    {
+        value: "cdhs_dept_edo",
+        label: "Executive Director's Office"
+    },
+    {
+        value: "cdhs_dept_pc",
+        label: "Policy and Communications"
+    },
+    {
+        value: "cdhs_div_css",
+        label: "Child Support Services"
+    },
+    {
+        value: "cdhs_div_dfm",
+        label: "Division of Facilities Management"
+    },
+    {
+        value: "cdhs_div_dys_ocyf",
+        label: "Office of Children, Youth & Families"
+    },
+    {
+        value: "cdhs_div_dys_email_53pc_2",
+        label: "Division of Youth Services"
+    },
+    {
+        value: "cdhs_div_rc_fam",
+        label: "Futures Assessment Model"
+    },
+    {
+        value: "cdhs_div_rc_gjrc",
+        label: "Grand Junction Regional Center"
+    },
+    {
+        value: "cdhs_div_rc_prc",
+        label: "Pueblo Regional Center"
+    },
+    {
+        value: "cdhs_div_rc_wrrc",
+        label: "Wheat Ridge Regional Center"
+    },
+    {
+        value: "cdhs_fac_mhh_fl",
+        label: "Colorado Mental Health Hospital in Fort Logan"
+    },
+    {
+        value: "cdhs_fac_mhh_pueb",
+        label: "Colorado Mental Health Hospital in Pueblo"
+    },
+    {
+        value: "cdhs_fac_mhh_email_53pc_2",
+        label: "Mental Health Hospitals"
+    },
+    {
+        value: "cdhs_fac_vet_bmc",
+        label: "Bruce McCandless Veterans Community Living Center at Florence"
+    },
+    {
+        value: "cdhs_fac_vet_fitz",
+        label: "Veterans Community Living Center at Fitzsimons"
+    },
+    {
+        value: "cdhs_fac_vet_home",
+        label: "Veterans Community Living Center at Hometake"
+    },
+    {
+        value: "cdhs_fac_vet",
+        label: "Veterans Community Living Centers"
+    },
+    {
+        value: "cdhs_fac_vet_rif",
+        label: "Veterans Community Living Center at Rifle"
+    },
+    {
+        value: "cdhs_legal",
+        label: "Legal"
+    },
+    {
+        value: "cdhs_multi_coehdi",
+        label: "Colorado Early Hearing Detection and Intervention"
+    },
+    {
+        value: "cdhs_off_aads_das",
+        label: "Office of Adult, Aging & Disability Services Division of Aging & Adult Services"
+    },
+    {
+        value: "cdhs_off_aads_dds",
+        label: "Office of Adult, Aging & Disability Services Disability Determination Services"
+    },
+    {
+        value: "cdhs_off_aads_drc",
+        label: "Office of Adult, Aging & Disability Services Division of Regional Centers"
+    },
+    {
+        value: "cdhs_off_aads",
+        label: "Office of Adult, Aging & Disability Services "
+    },
+    {
+        value: "cdhs_off_aads_sua",
+        label: "Office of Adult, Aging & Disability Services State Unit on Aging"
+    },
+    {
+        value: "cdhs_off_adm_aud",
+        label: "Audit Division"
+    },
+    {
+        value: "cdhs_off_adm_bits",
+        label: "Business Innovation, Technology & Security"
+    },
+    {
+        value: "cdhs_off_adm_dfm",
+        label: "Division ol Facilities Management"
+    },
+    {
+        value: "cdhs_off_adm_dhr",
+        label: "Division of Human Resources"
+    },
+    {
+        value: "cdhs_off_adm_dpm",
+        label: "Division of Project Management"
+    },
+    {
+        value: "cdhs_off_adm_ld",
+        label: "Leadership Development"
+    },
+    {
+        value: "cdhs_off_adm_lead",
+        label: "Learning, Development, and Engagement"
+    },
+    {
+        value: "cdhs_off_adm_lod",
+        label: "Leadership & Organizational Development"
+    },
+    {
+        value: "cdhs_off_adm_pmd",
+        label: "Performance Management Division"
+    },
+    {
+        value: "cdhs_off_adm_qa",
+        label: "Quality Assurance"
+    },
+    {
+        value: "cdhs_off_adm",
+        label: "Administrative Solutions"
+    },
+    {
+        value: "cdhs_off_cfmh_fs",
+        label: "Office of Civil & Forensic Mental Health  Forensic Services"
+    },
+    {
+        value: "cdhs_off_cfmh_mhtlh",
+        label: "Office of Civil & Forensic Mental Health Mental Health Transitional Living Homes"
+    },
+    {
+        value: "cdhs_off_cfmh",
+        label: "Office of Civil & Forensic Mental Health "
+    },
+    {
+        value: "cdhs_off_cyf_cisu",
+        label: "Office of Children, Youth & Families Colorado Implementation Science Unit"
+    },
+    {
+        value: "cdhs_off_cyf_cmp",
+        label: "Office of Children, Youth & Families Collaborative Management Program"
+    },
+    {
+        value: "cdhs_off_cyf_coshi",
+        label: "Office of Children, Youth & Families Colorado Sexual Health Initiative"
+    },
+    {
+        value: "cdhs_off_cyf_dcp",
+        label: "Office of Children, Youth & Families Division or Community Programs"
+    },
+    {
+        value: "cdhs_off_cyf_dcw",
+        label: "Office of Children, Youth & Families Division of Child Welfare"
+    },
+    {
+        value: "cdhs_off_cyf_dept",
+        label: "Office of Children, Youth & Families "
+    },
+    {
+        value: "cdhs_off_cyf_dvr",
+        label: "Office of Children, Youth & Families Domestic Violence Program"
+    },
+    {
+        value: "cdhs_off_cyf_jpb",
+        label: "Office of Children, Youth & Families Juvenile Parole Board"
+    },
+    {
+        value: "cdhs_off_cyf",
+        label: "Office of Children, Youth & Families "
+    },
+    {
+        value: "cdhs_off_ear_comm",
+        label: "Office of Early Childhood Division of Community & Family Support"
+    },
+    {
+        value: "cdhs_off_ear_dec",
+        label: "Office of Early Childhood Division of Early Care & Learning"
+    },
+    {
+        value: "cdhs_off_ear",
+        label: "Office of Early Childhood "
+    },
+    {
+        value: "cdhs_off_econ_dcs",
+        label: "Office of Economic Security "
+    },
+    {
+        value: "cdhs_off_econ_dews_email_53pc_2",
+        label: "Office of Economic Security Division of Economic & Workforce Support"
+    },
+    {
+        value: "cdhs_off_econ_dfe",
+        label: "Office of Economic Security Division of Food & Energy Assistance"
+    },
+    {
+        value: "cdhs_off_econ_oes_sebt",
+        label: "Office of Economic Security Summer EBT Program Division of Food & Energy Assistance"
+    },
+    {
+        value: "cdhs_off_econ",
+        label: "Office of Economic Security "
+    },
+    {
+        value: "cdhs_off_econ_snap",
+        label: "SNAP-Ed Division of Food & Energy Assistance"
+    },
+    {
+        value: "cdhs_off_fs_acc",
+        label: "Financial Servicies Division or Acoounting"
+    },
+    {
+        value: "cdhs_off_fs_dbp",
+        label: "Financial Servicies Division of Budget & Policy"
+    },
+    {
+        value: "cdhs_off_fs_dcp",
+        label: "Financial Servicies Division of Contracts & Procurement"
+    },
+    {
+        value: "cdhs_off_fs",
+        label: "Financial Servicies "
+    },
+    {
+        value: "cdhs_off_oes_fdp",
+        label: "Office of Economic Security Food Distribution Programs"
+    },
+    {
+        value: "cdhs_off_so",
+        label: "Strategy Office"
+    },
+    {
+        value: "cdhs_off_sos",
+        label: "Strategic Operations and Sctutions"
+    },
+    {
+        value: "cdhs_pr_bhtf",
+        label: "Behavioral Health Task Force"
+    },
+    {
+        value: "cdhs_pr_crsp",
+        label: "Colorado Rufugee Services Program"
+    },
+    {
+        value: "cdhs_pr_edi",
+        label: "Equity, Diversity, and Inclusion"
+    },
+    {
+        value: "cdhs_pr_empl",
+        label: "Employee Council"
+    },
+    {
+        value: "cdhs_pr_ffit",
+        label: "Family First Prevention Services Act Implementation Team"
+    },
+    {
+        value: "cdhs_pr_fvc",
+        label: "Family Voice Council"
+    },
+    {
+        value: "cdhs_pr_mind",
+        label: "Mindsource Brain Injury Network"
+    }
+],
+cdle: [
+    {
+        value: "cdle_dept",
+        label: "Department of Labor and Employment"
+    },
+    {
+        value: "cdle_div_dev",
+        label: "Workforce Development Programs"
+    },
+    {
+        value: "cdle_div_emp_1",
+        label: "Division of Employment and Training"
+    },
+    {
+        value: "cdle_div_lab_1",
+        label: "Division of Labor Standards and Statistics"
+    },
+    {
+        value: "cdle_div_oil_1",
+        label: "Division of Oil and Public Safety"
+    },
+    {
+        value: "cdle_div_unem_1",
+        label: "Division of Unemployment Insurance"
+    },
+    {
+        value: "cdle_div_voc_1",
+        label: "Division of Vocational Rehabilitation"
+    },
+    {
+        value: "cdle_div_work_1",
+        label: "Division of Workers· Compensation"
+    },
+    {
+        value: "cdle_fac",
+        label: "Facilities"
+    },
+    {
+        value: "cdle_int_aud",
+        label: "Internal Audits"
+    },
+    {
+        value: "cdle_off_budg",
+        label: "Budget Office"
+    },
+    {
+        value: "cdle_off_fin",
+        label: "Finance"
+    },
+    {
+        value: "cdle_off_gov",
+        label: "Office of Government Policy and Public Relations"
+    },
+    {
+        value: "cdle_off_hrp",
+        label: "Office of Human Resources and Personnel"
+    },
+    {
+        value: "cdle_off_ils_dvr",
+        label: "Office of Independent Living Services"
+    },
+    {
+        value: "cdle_off_ind_1",
+        label: "Industrial Claims Appeals Office"
+    },
+    {
+        value: "cdle_off_lab_1",
+        label: "Office of Labor Marking Information"
+    },
+    {
+        value: "cdle_off_org",
+        label: "Organizational Development and Training"
+    },
+    {
+        value: "cdle_off_proc",
+        label: "Office of Procurement and Contract Services"
+    },
+    {
+        value: "cdle_pr_efap",
+        label: "Employment First Advisory Partnership"
+    },
+    {
+        value: "cdle_pr_famli",
+        label: "Family and Medical Leave Insurance Program (FAMLI)"
+    },
+    {
+        value: "cdle_pr_pess",
+        label: "Public Employee Social Security Program"
+    }
+],
+cdoc: [
+    {
+        value: "cdoc_dept",
+        label: "Department of Corrections"
+    },
+    {
+        value: "cdoc_corr_ark",
+        label: "Arkansas Valley Correctional Facility"
+    },
+    {
+        value: "cdoc_corr_arro",
+        label: "Arrowhead Correctional Center"
+    },
+    {
+        value: "cdoc_corr_buen",
+        label: "Buena Vista Correctional Complex"
+    },
+    {
+        value: "cdoc_corr_canon",
+        label: "Canon Minimum Centers"
+    },
+    {
+        value: "cdoc_corr_cent",
+        label: "Centennial Correctional Facility"
+    },
+    {
+        value: "cdoc_corr",
+        label: "Co1orado Correctional Center"
+    },
+    {
+        value: "cdoc_corr_cost",
+        label: "Colorado State Penitentiary"
+    },
+    {
+        value: "cdoc_corr_cote",
+        label: "Colorado Territorial Correctional Facility"
+    },
+    {
+        value: "cdoc_corr_del",
+        label: "Delta Correctional Center"
+    },
+    {
+        value: "cdoc_corr_dencom",
+        label: "Denver Complex"
+    },
+    {
+        value: "cdoc_corr_denv",
+        label: "Denver Reception & Diagnostic Center"
+    },
+    {
+        value: "cdoc_corr_denw",
+        label: "Denver Women's Correctional Facility"
+    },
+    {
+        value: "cdoc_corr_four",
+        label: "Four Mile Correctional Facility"
+    },
+    {
+        value: "cdoc_corr_frem",
+        label: "Fremont Correctional Facility"
+    },
+    {
+        value: "cdoc_corr_lavi",
+        label: "La Visa Correctional Facility"
+    },
+    {
+        value: "cdoc_corr_lim",
+        label: "Limon Correctional Facility"
+    },
+    {
+        value: "cdoc_corr_rif",
+        label: "Rifle Correctional Facility"
+    },
+    {
+        value: "cdoc_corr_sanc",
+        label: "San Carlos Correctional Facility"
+    },
+    {
+        value: "cdoc_corr_sky",
+        label: "Skyline Correctional Facility"
+    },
+    {
+        value: "cdoc_corr_ster",
+        label: "Sterling Correctional Facility"
+    },
+    {
+        value: "cdoc_corr_trin",
+        label: "Trinidad Correctional Facility"
+    },
+    {
+        value: "cdoc_corr_yos",
+        label: "Youthful Offender System"
+    },
+    {
+        value: "cdoc_div_adul",
+        label: "Division of Adult Parole"
+    },
+    {
+        value: "cdoc_off_ccs",
+        label: "Office of Clinical & Correctional Services"
+    },
+    {
+        value: "cdoc_off_cspccf",
+        label: "CSP/CCF"
+    },
+    {
+        value: "cdoc_off_dop",
+        label: "Office of the Director of Prisons"
+    },
+    {
+        value: "cdoc_off_exec",
+        label: "Office of the Executive Director"
+    },
+    {
+        value: "cdoc_off_faa",
+        label: "Office of Finance & Administration"
+    },
+    {
+        value: "cdoc_off_hum",
+        label: "Office of Human Resources"
+    },
+    {
+        value: "cdoc_off_insp",
+        label: "Office of the Inspector General"
+    },
+    {
+        value: "cdoc_off_lvcfsccf",
+        label: "LVCF/SCCF"
+    },
+    {
+        value: "cdoc_off_spb",
+        label: "State Board of Parole"
+    },
+    {
+        value: "cdoc_pr_decorum",
+        label: "Offender Record Management System"
+    }
+],
+cdphe: [
+    {
+        value: "cdphe_dept",
+        label: "Department of Public Health & Environment"
+    },
+    {
+        value: "cdphe_admin",
+        label: "Administration"
+    },
+    {
+        value: "cdphe_cent_heal",
+        label: "Center for Health & Environmental Data"
+    },
+    {
+        value: "cdphe_com_air",
+        label: "Air Quality Control Commission"
+    },
+    {
+        value: "cdphe_com_frwdbod",
+        label: "Front Range Waste Diversion Enterprise Board of Directors"
+    },
+    {
+        value: "cdphe_com_haz",
+        label: "Solid & Hazardous Waste Commission"
+    },
+    {
+        value: "cdphe_com_poll",
+        label: "Pollution Prevention Advisory Board"
+    },
+    {
+        value: "cdphe_com_waste",
+        label: "Water & Wastewater Facility Operators Certification Board"
+    },
+    {
+        value: "cdphe_com_water",
+        label: "Water Quality Control Commission"
+    },
+    {
+        value: "cdphe_div_air",
+        label: "Air Pollution Control Division"
+    },
+    {
+        value: "cdphe_div_comm",
+        label: "Community Relations Division"
+    },
+    {
+        value: "cdphe_div_dcphr",
+        label: "Disease Control and Public Health Response"
+    },
+    {
+        value: "cdphe_div_env",
+        label: "Division of Environmental Health & Sustainability"
+    },
+    {
+        value: "cdphe_div_haz",
+        label: "Hazardous Materials & Waste Management Division"
+    },
+    {
+        value: "cdphe_div_heal",
+        label: "Health Facilities & Emergency Medical Services Division"
+    },
+    {
+        value: "cdphe_div_lab",
+        label: "Laboratory Services Division"
+    },
+    {
+        value: "cdphe_div_prev_cpc",
+        label: "Prevention Services Division Cancer Prevention & Control "
+    },
+    {
+        value: "cdphe_div_prev",
+        label: "Prevention Services Division"
+    },
+    {
+        value: "cdphe_div_water",
+        label: "Water Quality Control Division"
+    },
+    {
+        value: "cdphe_irb",
+        label: "Institutional Review Board"
+    },
+    {
+        value: "cdphe_off_budg",
+        label: "Budget"
+    },
+    {
+        value: "cdphe_off_comm",
+        label: "Office of Communications"
+    },
+    {
+        value: "cdphe_off_ej",
+        label: "Office of Environmental Justice"
+    },
+    {
+        value: "cdphe_off_emer",
+        label: "Office of Emergency Preparedness & Response"
+    },
+    {
+        value: "cdphe_off_fin",
+        label: "Financial Services"
+    },
+    {
+        value: "cdphe_off_gran",
+        label: "Grants, Purchasing & Contracts"
+    },
+    {
+        value: "cdphe_off_he",
+        label: "Office of Health Equity"
+    },
+    {
+        value: "cdphe_off_hr",
+        label: "Office of Human Resources"
+    },
+    {
+        value: "cdphe_off_leg",
+        label: "Office of Legal & Regulatory Compliance"
+    },
+    {
+        value: "cdphe_off_php_lpha",
+        label: "Office of Public Health Practice, Planning, & Local Partnerships Local Public Health & Environmental Resources"
+    },
+    {
+        value: "cdphe_off_php",
+        label: "Office of Public Health Practice, Planning, & Local Partnerships"
+    },
+    {
+        value: "cdphe_off_spi",
+        label: "Office of Strategy, Performance, and Innovation"
+    },
+    {
+        value: "cdphe_off_State_Registrar",
+        label: "Office of the State Registrar of Vital Statistics"
+    },
+    {
+        value: "cdphe_off_sti_hiv_vh",
+        label: "Office of STI/HIV/Viral Hepatitis"
+    },
+    {
+        value: "cdphe_off_strat",
+        label: "Office of Strategy & Performance"
+    },
+    {
+        value: "cdphe_pr_aqe",
+        label: "Air Quality Enterprise"
+    },
+    {
+        value: "cdphe_pr_can",
+        label: "Colorado Cannabis"
+    },
+    {
+        value: "cdphe_pr_cares",
+        label: "Colorado Alliance for Resilient & Equitable Systems Servicing the Health Care & Public Health Workforce"
+    },
+    {
+        value: "cdphe_pr_coves",
+        label: "Colorado Vital Events Systems"
+    },
+    {
+        value: "cdphe_pr_elp",
+        label: "Enrivonmental Leadership Program"
+    },
+    {
+        value: "cdphe_pr_emtsb",
+        label: "Emergency Medical and Trauma Services Branch"
+    },
+    {
+        value: "cdphe_pr_gbn",
+        label: "Green Business Network"
+    },
+    {
+        value: "cdphe_pr_gbp",
+        label: "Green Business Program"
+    },
+    {
+        value: "cdphe_pr_medmj",
+        label: "Colorado Medical Marijuana"
+    },
+    {
+        value: "cdphe_pr_mmr",
+        label: "Colorado Medical Marijuana Registry"
+    },
+    {
+        value: "cdphe_pr_mphc",
+        label: "Colorado Mobile Public Health Clinic"
+    },
+    {
+        value: "cdphe_pr_newborn_dcphr",
+        label: "Division of Disease Control and Public Health Response Newborn Screening Program"
+    },
+    {
+        value: "cdphe_privacy",
+        label: "Privacy Board"
+    }
+],
+dpa: [
+    {
+        value: "dpa_dept_email_46pc",
+        label: "Department of Personnel & Administration"
+    },
+    {
+        value: "dpa_dept_ed_email_46pc",
+        label: "Executive Director's Office"
+    },
+    {
+        value: "dpa_div_cap_cca_email_46pc",
+        label: "Division of Capital Assets Capitol Complex Architects"
+    },
+    {
+        value: "dpa_div_cap_ccf_email_46pc",
+        label: "Division of Capital Assets Capitol Complex Facilities"
+    },
+    {
+        value: "dpa_div_cap_ccm_email_46pc",
+        label: "Division of Capital Assets Capitol Complex Management"
+    },
+    {
+        value: "dpa_div_cap_fleet_email_46pc",
+        label: "Division of Capital Assets State Fleet Management"
+    },
+    {
+        value: "dpa_div_cap_email_46pc",
+        label: "Division of Capital Assets "
+    },
+    {
+        value: "dpa_div_dcs_email_46pc",
+        label: "Division of Central Services "
+    },
+    {
+        value: "dpa_div_dhr_email_46pc",
+        label: "Division of Human Resources"
+    },
+    {
+        value: "dpa_div_dhr_risk_email_46pc",
+        label: "Risk Management"
+    },
+    {
+        value: "dpa_div_osa_email_46pc",
+        label: "Office of the State Architect"
+    },
+    {
+        value: "dpa_div_osc_email_46pc",
+        label: "Office of the State Controller"
+    },
+    {
+        value: "dpa_off_seo",
+        label: "Statewide Equity Office"
+    },
+    {
+        value: "dpa_off_sprgb_email_46pc",
+        label: "State Purchasing & Contracts Office"
+    },
+    {
+        value: "dpa_off_sust",
+        label: "Sustainability"
+    },
+    {
+        value: "dpa_pr_access_email_46pc",
+        label: "ACCESS Colorado"
+    },
+    {
+        value: "dpa_pr_access_srto_email_46pc",
+        label: "ACCESS Colorado Supplier Resources, Training & Outreach"
+    },
+    {
+        value: "dpa_pr_acp_email_46pc",
+        label: "Address Confidentiality Program"
+    },
+    {
+        value: "dpa_pr_careers_email_46pc",
+        label: "Careers"
+    },
+    {
+        value: "dpa_pr_cccemail_46pc",
+        label: "Colorado Combined Campaign"
+    },
+    {
+        value: "dpa_pr_ccs_email_46pc",
+        label: "Central Collection Services"
+    },
+    {
+        value: "dpa_pr_compas_email53pc",
+        label: "COMPAS"
+    },
+    {
+        value: "dpa_pr_compas_tg",
+        label: "COMPAS Trail Guides"
+    },
+    {
+        value: "dpa_pr_core_email_46pc",
+        label: "CORE Colorado Operations Resource Engine"
+    },
+    {
+        value: "dpa_pr_cvss_email_46pc",
+        label: "ColoradoVSS Vendor Self Service"
+    },
+    {
+        value: "dpa_pr_oac_email_46pc",
+        label: "Office of Administrative Courts"
+    },
+    {
+        value: "dpa_pr_sa_email_46pc",
+        label: "State Archives"
+    },
+    {
+        value: "dpa_pr_seap_email_46pc",
+        label: "State Employee Assistance Program (CSEAP)"
+    },
+    {
+        value: "dpa_pr_soh_swp_email_46pc",
+        label: "STATE OF HEALTH State Wellness Program"
+    },
+    {
+        value: "dpa_pr_spb_email_46pc",
+        label: "State Personnel Board"
+    },
+    {
+        value: "dpa_pr_swp_email_46pc",
+        label: "State Wellness Program"
+    },
+    {
+        value: "dpa_sc_email_46pc",
+        label: "Colorado State Capitol"
+    }
+]
+ };
+
+ // Handle department/division dropdowns
+ const departmentSelect = document.getElementById('department');
+ const divisionSelect = document.getElementById('division');
+ const logoPreview = document.getElementById('logoPreview');
+ const websitePreview = document.getElementById('websitePreview');
+
+ departmentSelect.addEventListener('change', function() {
+ const dept = this.value;
+ divisionSelect.innerHTML = '<option value="">Select Division</option>';
+ divisionSelect.disabled = !dept;
+ if (dept && divisions[dept]) {
+ divisions[dept].forEach(div => {
+ const opt = document.createElement('option');
+ opt.value = div.value;
+ opt.textContent = div.label;
+ divisionSelect.appendChild(opt);
+ });
+ }
+ });
+
+ divisionSelect.addEventListener('change', function() {
+
+ });
+
+ function updateLogoAndWebsitePreview() {
+ const dept = departmentSelect.value;
+ const div = divisionSelect.value;
+ try {
+ 	console.log('trying updateLogoAndWebsitePreview');
+
+	 if (dept && div && divisionData[div]) {
+	 const { logo, alt, website, address } = divisionData[div];
+	 logoPreview.innerHTML = `<img src="https://dcs.colorado.gov/sites/dcs/files/${logo}" alt="${alt}" class="logo-img" style="max-width: 120px; height: auto;">`;
+	 websitePreview.textContent = website;
+	 addressPreview.textContent = address;
+	 } else {
+	 logoPreview.innerHTML = 'We may not have the right information for your division.';
+	 websitePreview.textContent = '';
+	 addressPreview.textContent = '';
+	 }
+ } catch {
+   	console.log('An error occured in updateLogo');
+  }
+ }
+ 
+function toTitleCase(str) {
+  if (!str) {
+    return ""; // Handle empty or null strings
+  }
+
+  return str
+    .toLowerCase() // Convert the entire string to lowercase first
+    .split(/\s+/) // Split the string into an array of words using whitespace as a delimiter
+    .map(word => {
+      // For each word, capitalize the first letter and concatenate with the rest of the word
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(' '); // Join the words back into a single string with spaces
+}
+
+ // Social links
+ function getSocialLinks(data) {
+ let links = [];
+
+
+ if (data.facebook) links.push(`<a style="color: #001970" href="${data.facebook}"  target="_blank" rel="noopener" aria-label="Facebook" title="Follow ${data.departmentLabel} on Facebook"><span aria-hidden="true"> </span> Facebook</a>`);
+ if (data.twitter) links.push(`<a style="color: #001970" href="${data.twitter}" target="_blank" rel="noopener" aria-label="Twitter" title="Follow ${data.departmentLabel} on Twitter"><span aria-hidden="true"> </span> Twitter</a>`);
+ if (data.linkedin) links.push(`<a style="color: #001970"  href="${data.linkedin}"  target="_blank" rel="noopener" aria-label="LinkedIn" title="Follow ${data.departmentLabel} on LinkedIn"><span aria-hidden="true"> </span> LinkedIn</a>`);
+ if (data.otherPlatform && data.otherLink) links.push(`<a style="color: #001970"  href="${data.otherLink}"  target="_blank" rel="noopener" aria-label="${data.departmentLabel}"><span aria-hidden="true"> </span> ${data.otherPlatform}</a>`);
+ return links.length ? links.join(' | ') : '';
+ }
+
+ // Signature generation
+ function generateSignature(data) {
+ var statusLogo = true;
+ if (!data.logo || !data.website) return '<p class="text-muted">Your signature will appear here.</p>';
+ return `<div id="sigContent"><p>
+  ${data.salutation !=  'None' ? `<span>${data.salutation},<br><br>` : ''}
+ <span style="font-size: 1.1rem;"><strong>${data.name}</strong> ${data.pronouns ? `(${data.pronouns})<br>` : ''}</span><br>
+${toTitleCase(data.title)}<br>
+ ${data.departmentLabel}
+ ${data.divisionLabel && data.divisionLabel !== data.departmentLabel ? data.divisionLabel : ''}<br>
+</p>
+
+ ${data.startDate ? `<p style="color: #6f0101">Out of Office: ${formatOOO(data.startDate)}` : ''}
+  ${data.endDate ? ` through ${formatOOO(data.endDate)}` : ''}
+  ${data.startDate ? `</p>` : ''}
+<p>
+ ${data.workPhone ? `Phone: <a style="color: #001970"  href="tel:${data.workPhone}">${data.workPhone}</a><br>` : ''}
+${data.address}<br>
+<a style="color: #001970"  href="${data.website}" target="_blank" rel="noopener">${data.website}</a></p>
+<p><img src="https://dcs.colorado.gov/sites/dcs/files/${data.logo}" alt="${data.alt}" class="logo-img" style="display: block; max-width: 300px; height: auto; border: none;"></p>
+
+ 
+ ${data.socialLinksHTML}
+ </p>
+
+      ${data.values ? `<p>${data.values}</p>` : ''}
+
+     ${data.confidentiality == 'include' ? `<p style="color:#4e5758">Confidentiality Statement: The information contained in or attached to this transmission is confidential and may be protected by legal privilege. It is intended only for the addressee and access to the information in this transmission by anyone other than the addressee is not authorized. Any unauthorized review, copying, distribution, disclosure, or use of this information is strictly prohibited and may be unlawful. If you are not the addressee, please notify the sender immediately and properly destroy this transmission without disclosure.</p>` : ''}
+ </div>
+ `;
+ }
+// Restore  ${data.accessibility ? `<p><a href="${data.accessibility}" target="_blank" rel="noopener">Accessibility</a></p>` : ''}
+ // Bootstrap validation (from official docs)
+ (function () {
+		 'use strict';
+		 var forms = document.querySelectorAll('.needs-validation');
+		 const elementError = document.getElementById('errorContainer');
+		 
+		 Array.prototype.slice.call(forms).forEach(function (form) {
+		 form.addEventListener('submit', function (event) {
+			 if (elementError) {
+				 elementError.innerHTML = '';
+				 elementError.classList.add('d-none');
+			 }
+		 if (!form.checkValidity()) {
+	     var errString = '<p>We could not generate your signature. There are issues with the information you entered. Please correct the issues and try again.</p><ul>';
+		 event.preventDefault();
+		 event.stopPropagation();
+		 form.querySelectorAll(':invalid').forEach(function(field) {
+			 var labelIs = null;
+			 if (field.previousElementSibling .tagName === 'LABEL') {
+				 var newLabel = field.previousElementSibling.textContent;
+				 labelIs =  newLabel.replace("*", "").trim(); // Found the previous label
+			  }
+			 if ( field.nextElementSibling.nodeType == Node.ELEMENT_NODE
+			         && field.nextElementSibling.classList.contains('invalid-feedback')
+			        ) {
+				 		errString += '<li><strong>'+ labelIs + '</strong>: ' +  field.nextElementSibling.innerHTML + '</li>'
+			        }
+			});
+		 //errorContainer
+		 errString += "</ul>";
+		 elementError.innerHTML = errString;
+		 elementError.classList.remove('d-none');
+		 elementError.focus();
+		 elementError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+ } 
+ form.classList.add('was-validated');
+
+ }, false);
+ });
+ })();
+
+ // Form submission
+ document.getElementById('signatureForm').addEventListener('submit', function(e) {
+ if (!this.checkValidity()) return; // Let Bootstrap validation handle errors
+ e.preventDefault();
+ // Get values
+ const name = this.name.value.trim();
+ const title = this.title.value.trim();
+ const department = this.department.value;
+ const division = this.division.value;
+ const departmentLabel = this.department.options[this.department.selectedIndex].text;
+ const divisionLabel = this.division.options[this.division.selectedIndex].text;
+ const pronouns = this.pronouns.value.trim();
+ const workPhone = this.workPhone.value.trim();
+ const facebook = this.facebook.value.trim();
+ const salutation = this.salutation.options[this.salutation.selectedIndex].text;
+ const confidentiality = this.confidentiality.value.trim();
+ const startDate = this.startDate.value.trim();
+ const endDate = this.endDate.value.trim();
+ const twitter = this.twitter.value.trim();
+ const linkedin = this.linkedin.value.trim();
+ const otherPlatform = this.otherPlatform.value.trim();
+ const otherLink = this.otherLink.value.trim();
+ const socialLinksHTML = getSocialLinks({facebook, twitter, linkedin, otherPlatform, otherLink, departmentLabel});
+ let logo = '', alt = '', website = '', address = '', deptValues = '', accessibility = '';
+ if (divisionData[division]) {
+ ({ logo, alt, website, address } = divisionData[division]);
+ }
+ if (deptDetails[department]) {
+  console.log('deptdetails found.' + JSON.stringify(deptDetails[department]));
+  ({ deptValues, accessibility } = deptDetails[department]);
+ }
+ console.log('deptValues' + deptValues + ' , accessibility' + accessibility + ' for department ' + department);
+ const sigHTML = generateSignature({
+ name, title, pronouns, workPhone, departmentLabel, divisionLabel,
+ logo, alt, website, socialLinksHTML, address, salutation, confidentiality, deptValues, accessibility, startDate, endDate
+ });
+ document.getElementById('signatureOutput').innerHTML = sigHTML;
+ });
+
+
+ 
+ </script>
+</body>
+</html>
+
+
