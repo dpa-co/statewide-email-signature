@@ -104,6 +104,10 @@
  <label for="workAddress" class="form-label">Work Address</label>
  <input type="text" id="workAddress" name="workAddress" class="form-control form-control-lg" placeholder="1525 Sherman St, Denver, CO 80203"  aria-invalid="false">
  </div>
+   <div class="mb-3">
+ <label for="workEmail" class="form-label">Email Address</label>
+ <input type="email" id="workEmail" name="workAddress" class="form-control form-control-lg" placeholder="first.last@state.co.us"  aria-invalid="false">
+ </div>
  <div class="mb-3">
  <label for="department" class="form-label">Department <span class="text-danger">*</span></label>
  <select id="department" name="department" class="form-select form-select-lg"  required aria-required="true">
@@ -3601,8 +3605,10 @@ ${toTitleCase(data.title)}<br>
   ${data.endDate ? ` through ${formatOOO(data.endDate)}` : ''}
   ${data.startDate ? `</p>` : ''}
 <p>
- ${data.workPhone ? `Phone: <a style="color: #001970"  href="tel:${data.workPhone}">${data.workPhone}</a><br>` : ''}
-${data.workAddress}<br>
+ ${data.workPhone ? `Phone: <a style="color: #001970"  href="tel:${data.workPhone}">${data.workPhone}</a>` : ''}
+ ${data.workEmail ? `<br>Email: <a style="color: #001970"  href="mailto:${data.workEmail}">${data.workEmail}</a>` : ''}
+ ${data.workAddress ? `<br>${data.workAddress}` : ''}
+<br>
 <a style="color: #001970"  href="${data.website}" target="_blank" rel="noopener">${data.website}</a></p>
 <p><img src="https://dcs.colorado.gov/sites/dcs/files/${data.logo}" alt="${data.alt}" class="logo-img" style="display: block; max-width: 300px; height: auto; border: none;"></p>
 
@@ -3671,6 +3677,7 @@ ${data.workAddress}<br>
  const divisionLabel = this.division.options[this.division.selectedIndex].text;
  const pronouns = this.pronouns.value.trim();
  const workPhone = this.workPhone.value.trim();
+ const workEmail = this.workEmail.value.trim();
  const workAddress = this.workAddress.value.trim();
  const facebook = this.facebook.value.trim();
  const salutation = this.salutation.options[this.salutation.selectedIndex].text;
@@ -3692,7 +3699,7 @@ ${data.workAddress}<br>
  }
  console.log('deptValues' + deptValues + ' , accessibility' + accessibility + ' for department ' + department);
  const sigHTML = generateSignature({
- name, title, pronouns, workPhone, workAddress, departmentLabel, divisionLabel,
+ name, title, pronouns, workPhone, workAddress, workEmail, departmentLabel, divisionLabel,
  logo, alt, website, socialLinksHTML, salutation, confidentiality, deptValues, accessibility, startDate, endDate
  });
  document.getElementById('signatureOutput').innerHTML = sigHTML;
